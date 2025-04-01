@@ -1529,7 +1529,6 @@ body.light-theme #contact .section-description {
     color: #2c3e50;
     font-size: 1.2rem;
     line-height: 1.6;
-    margin-bottom: 2rem;
     position: relative;
 }
 
@@ -1570,7 +1569,7 @@ body.light-theme #contact .social-links a:hover {
 #contact .section-description {
     text-align: center;
     font-size: 1.2rem;
-    margin-bottom: 2rem;
+    /* margin-bottom: 2rem; */
     color: #e9ecef;
 }
 
@@ -1578,7 +1577,7 @@ body.light-theme #contact .social-links a:hover {
     display: flex;
     justify-content: center;
     gap: 2rem;
-    margin-top: 2rem;
+    /* margin-top: 2rem; */
 }
 
 #contact .social-links a {
