@@ -144,19 +144,15 @@ document.addEventListener('DOMContentLoaded', function() {
 
 document.addEventListener('DOMContentLoaded', function() {
     const projectsSection = document.getElementById('projects');
-    const certificatesSection = document.getElementById('certificates');
     const loadMoreProjectsBtn = document.getElementById('load-more-projects');
-    const loadMoreCertificatesBtn = document.getElementById('load-more-certificates');
-
 
     // Inicializar os cards
     hideExtraCards(projectsSection);
-    hideExtraCards(certificatesSection);
+
 
     // Reset quando a seção sair da viewport
     window.addEventListener('scroll', function() {
         const projectsRect = projectsSection.getBoundingClientRect();
-        const certificatesRect = certificatesSection.getBoundingClientRect();
         const windowHeight = window.innerHeight || document.documentElement.clientHeight;
 
         if (projectsRect.top > windowHeight || projectsRect.bottom < 0) {
@@ -168,7 +164,7 @@ document.addEventListener('DOMContentLoaded', function() {
 });
 
 document.addEventListener('DOMContentLoaded', function() {
-    const sections = document.querySelectorAll('#projects, #certificates');
+    const sections = document.querySelectorAll('#projects');
     
     sections.forEach(section => {
         section.addEventListener('mousemove', e => {
