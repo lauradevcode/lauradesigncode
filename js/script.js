@@ -148,52 +148,10 @@ document.addEventListener('DOMContentLoaded', function() {
     const loadMoreProjectsBtn = document.getElementById('load-more-projects');
     const loadMoreCertificatesBtn = document.getElementById('load-more-certificates');
 
-    // Função para mostrar os cards ocultos
-    function showHiddenCards(section) {
-        const hiddenCards = section.querySelector('.hidden-cards');
-        if (hiddenCards) {
-            const cards = hiddenCards.querySelectorAll('.project-card');
-            cards.forEach(card => {
-                card.style.display = 'block';
-                hiddenCards.parentNode.insertBefore(card, hiddenCards);
-            });
-            hiddenCards.remove();
-        }
-    }
-
-    // Função para esconder os cards extras
-    function hideExtraCards(section) {
-        const cards = section.querySelectorAll('.project-card:not(.hidden-cards .project-card)');
-        cards.forEach((card, index) => {
-            if (index >= 3) {
-                if (!section.querySelector('.hidden-cards')) {
-                    const hiddenContainer = document.createElement('div');
-                    hiddenContainer.className = 'hidden-cards';
-                    card.parentNode.appendChild(hiddenContainer);
-                }
-                section.querySelector('.hidden-cards').appendChild(card);
-            }
-        });
-    }
 
     // Inicializar os cards
     hideExtraCards(projectsSection);
     hideExtraCards(certificatesSection);
-
-    // Event listeners para os botões
-    if (loadMoreProjectsBtn) {
-        loadMoreProjectsBtn.addEventListener('click', function() {
-            showHiddenCards(projectsSection);
-            this.style.display = 'none';
-        });
-    }
-
-    if (loadMoreCertificatesBtn) {
-        loadMoreCertificatesBtn.addEventListener('click', function() {
-            showHiddenCards(certificatesSection);
-            this.style.display = 'none';
-        });
-    }
 
     // Reset quando a seção sair da viewport
     window.addEventListener('scroll', function() {
@@ -206,10 +164,6 @@ document.addEventListener('DOMContentLoaded', function() {
             if (loadMoreProjectsBtn) loadMoreProjectsBtn.style.display = 'block';
         }
 
-        if (certificatesRect.top > windowHeight || certificatesRect.bottom < 0) {
-            hideExtraCards(certificatesSection);
-            if (loadMoreCertificatesBtn) loadMoreCertificatesBtn.style.display = 'block';
-        }
     });
 });
 
