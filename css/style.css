@@ -523,7 +523,6 @@ body.light-theme .main-container {
 
 .content .typewriter{
     font-size: 2rem;
-    white-space: nowrap;
     overflow: hidden;
 }
 

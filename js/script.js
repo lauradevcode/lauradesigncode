@@ -11,8 +11,7 @@ function cancel(){
 // Typewriter Effect
 
 const texts = [
-    "Web Designer",
-    "Especialista em Design para negócios"
+    "especialista em Design para negócios digitais e físicos"
 ]
 
 let speed = 80; // Aumentando um pouco a velocidade
