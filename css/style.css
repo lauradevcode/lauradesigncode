@@ -120,7 +120,7 @@ body.light-theme #themeToggle:hover {
 
 nav{
     width: 100%;
-    height: 10vh;
+    height: 15vh;
     position: fixed;
     top: 0;
     z-index: 20; /* Garante que o cabeçalho fique acima do conteúdo */
@@ -181,6 +181,7 @@ nav.light-theme {
 
 .nav-container .links{
     display: flex;
+    padding: 2%;
 }
 
 .nav-container .links a{
@@ -339,7 +340,6 @@ body.light-theme .theme-toggle::before {
 
 section{
     
-    padding-top: 13vh; /* Espaço superior para evitar sobreposição com o cabeçalho */
     margin-bottom: 3px; /* Espaço inferior */
 }
 
@@ -349,7 +349,8 @@ section{
     display: flex;
     justify-content: space-evenly;
     align-items: center;
-    margin-top: 4%;
+    margin-top: 3%;
+    padding: 40px;
 }
 
 .main-container .image {
@@ -380,21 +381,6 @@ section{
     -webkit-mask-composite: xor;
     mask-composite: exclude;
     opacity: 0.7;
-    transition: opacity 0.5s ease;
-}
-
-.main-container .image::after {
-    content: '';
-    position: absolute;
-    inset: 0;
-    border-radius: 50%;
-    background: radial-gradient(
-        circle at 30% 30%,
-        rgba(255, 255, 255, 0.15) 0%,
-        rgba(13, 188, 79, 0.08) 50%,
-        transparent 100%
-    );
-    opacity: 0;
     transition: opacity 0.5s ease;
 }
 
@@ -613,9 +599,7 @@ body.light-theme .typewriter-text {
 }
 
 .content button{
-    width: 38%;
-    height: 6vh;
-    margin: 17px;
+    padding: 2%;
     background: linear-gradient(145deg, #cc0f0f, #9f0a0a);
     color: #e9ecef;
     border: none;
@@ -654,17 +638,6 @@ body.light-theme .typewriter-text {
     box-shadow: 0 0 40px #cc0f0f;
 }
 
-#contact-title {
-             
-    margin-top: 4rem;             /* Espaçamento maior para cima */
-    margin-bottom: 2rem;          /* Espaçamento maior para baixo */
-    font-weight: bold;            /* Peso da fonte para dar mais destaque */
-    text-transform: uppercase;    /* Deixa o texto em maiúsculas */
-    color: #cc0f0f;
-    font-size: clamp(1rem, 1rem + 5vw, 1.8rem);
-    text-shadow: 0  0 10px #cc0f0f;
-    animation: glow 1.5s ease-in-out infinite alternate;
-}
 
 @keyframes glow {
     from {
@@ -1360,14 +1333,6 @@ body.light-theme .knowledge-item h2 {
     z-index: 0;
 }
 
-#formacao-academica .section-title {
-    font-size: 2.5rem;
-    color: var(--heading-color);
-    margin-bottom: 3rem;
-    text-align: center;
-    position: relative;
-    z-index: 1;
-}
 
 .education-container {
     max-width: 1000px;
@@ -1493,11 +1458,6 @@ body.light-theme .education-details li {
 }
 
 /* Estilos para a seção de contato */
-#contact {
-    padding: 5rem 0;
-    background: rgba(188, 13, 13, 0.05);
-    margin-top: 2rem;
-}
 
 body.light-theme #contact {
     background: linear-gradient(135deg, rgba(188, 13, 13, 0.05), rgba(50, 255, 156, 0.02));
@@ -1527,7 +1487,7 @@ body.light-theme #contact .section-title {
 
 body.light-theme #contact .section-description {
     color: #2c3e50;
-    font-size: 1.2rem;
+    font-size: 1rem;
     line-height: 1.6;
     position: relative;
 }
@@ -1562,8 +1522,8 @@ body.light-theme #contact .social-links a:hover {
 #contact .section-title {
     text-align: center;
     color: #cc0f0f;
-    font-size: 2.5rem;
-    margin-bottom: 1rem;
+    font-size: 2.2rem;
+
 }
 
 #contact .section-description {
@@ -1609,6 +1569,7 @@ body.light-theme #contact .social-links a:hover {
 }
 #btn-whatsapp {
     text-align: center;
+    
 }
 
 #contact .btn-container {
@@ -1617,28 +1578,7 @@ body.light-theme #contact .social-links a:hover {
     margin-top: 3rem;
 }
 
-#contact .cv-button {
-    display: inline-flex;
-    align-items: center;
-    gap: 0.5rem;
-    background: #cc0f0f;
-    color: #fff;
-    padding: 0.8rem 1.5rem;
-    border-radius: 5px;
-    text-decoration: none;
-    font-weight: 500;
-    transition: all 0.3s ease;
-}
 
-#contact .cv-button:hover {
-    background: #cc0f0f;
-    transform: translateY(-2px);
-    box-shadow: 0 5px 15px rgba(13, 188, 79, 0.3);
-}
-
-#contact .cv-button i {
-    font-size: 1.2rem;
-}
 
 /* Ajuste para tema claro */
 body.light-theme #contact {
@@ -1657,10 +1597,7 @@ body.light-theme #contact .social-links a:hover {
     color: #cc0f0f;
 }
 
-body.light-theme #contact .cv-button {
-    background: #cc0f0f;
-    color: #fff;
-}
+
 
 body.light-theme #contact .cv-button:hover {
     background: #cc0f0f;
@@ -1736,12 +1673,9 @@ body.light-theme #contact .cv-button:hover {
 }
 
 /* Estilização das seções com um design mais limpo e moderno */
-#projects, #certificates, #knowledge {
-    padding: 5rem 2rem;
-    background: linear-gradient(145deg, #0d1117, #131720);
-}
 
-#projects h1, #certificates h1, #knowledge h1 {
+
+#projects h1 {
     text-align: center;
     margin-bottom: 3rem;
     font-size: 2.5rem;
@@ -2518,10 +2452,6 @@ body.light-theme .certificate-link:hover {
     z-index: 0;
 }
 
-#certificates .main-container {
-    position: relative;
-    z-index: 1;
-}
 
 #certificates .project-card {
     background: rgba(255, 255, 255, 0.05);
@@ -2670,12 +2600,6 @@ body.light-theme #certificates .load-more-btn:hover {
 }
 
 /* Container dos certificados */
-#certificates .main-container {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    width: 100%;
-}
 
 #certificates .projects-grid {
     width: 100%;
