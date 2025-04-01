@@ -988,14 +988,13 @@ body.light-theme .experience-content p {
 
 .project-card h2 {
     color: #e9ecef;
-    font-size: 1.2rem;
-    margin: 0.5rem 0;
+    font-size: 1.3rem!important;
+    margin: 1.5rem 0;
 }
 
 .project-card p {
     color: #8892b0;
-    font-size: 0.9rem;
-    margin-bottom: 1rem;
+    font-size: 1rem;
     flex-grow: 1;
 }
 
@@ -1614,11 +1613,6 @@ body.light-theme #contact .cv-button:hover {
     margin-bottom: 1rem;
 }
 
-.project-card h2 {
-    color: #e9ecef;
-    font-size: 1.2rem;
-    margin: 0.5rem 0;
-}
 
 .project-card p {
     color: #8892b0;
@@ -1777,20 +1771,6 @@ body.light-theme .load-more-btn {
     transform: scale(1.05);
 }
 
-.project-card h2, .certificate-card h2 {
-    color: #e9ecef;
-    font-size: 1.4rem;
-    margin: 1.5rem;
-    font-weight: 600;
-}
-
-.project-card p, .certificate-card p {
-    color: #a4b1cd;
-    font-size: 1rem;
-    line-height: 1.6;
-    margin: 0 1.5rem;
-    flex-grow: 1;
-}
 
 .github-link {
     display: inline-block;
@@ -2384,11 +2364,6 @@ body.light-theme .certificate-link:hover {
     margin-bottom: 1.5rem;
 }
 
-#certificates .project-card h2 {
-    font-size: 1.2rem;
-    margin-bottom: 1rem;
-    color: var(--text-color);
-}
 
 #certificates .project-card p {
     color: var(--text-color-light);
@@ -2541,11 +2516,6 @@ body.light-theme #certificates .load-more-btn:hover {
     width: 100%;
     border-radius: 10px;
     margin-bottom: 1rem;
-}
-
-.project-card h2 {
-    font-size: 1.5rem;
-    margin-bottom: 0.5rem;
 }
 
 .project-card p {
@@ -3029,13 +2999,6 @@ body.light-theme #formacao-academica h1.section-title::after {
     border-bottom: 1px solid rgba(13, 188, 79, 0.15);
 }
 
-.project-card h2, .certificate-card h2 {
-    color: #ffffff;
-    font-size: 1.5rem; /* Título maior */
-    text-align: center;
-    margin: 1.5rem 0; /* Espaçamento em volta do título */
-}
-
 .project-card p, .certificate-card p {
     color: #e9ecef;
     font-size: 0.9rem;
@@ -3315,20 +3278,6 @@ body.light-theme .experience-image:hover {
     border-bottom: 1px solid rgba(13, 188, 79, 0.15);
 }
 
-.project-card h2, .certificate-card h2 {
-    color: #ffffff;
-    font-size: 1.5rem; /* Título maior */
-    text-align: center;
-    margin: 1.5rem 0; /* Espaçamento em volta do título */
-}
-
-.project-card p, .certificate-card p {
-    color: #e9ecef;
-    font-size: 0.9rem;
-    line-height: 1.6;
-    margin-bottom: 1.5rem;
-    flex: 1;
-}
 
 .card-footer {
     margin-top: auto;
@@ -3408,7 +3357,6 @@ body.light-theme .experience-image:hover {
     display: flex;
     justify-content: center;
     align-items: center;
-    margin-top: 3rem;
     gap: 2rem;
 }
 
