@@ -150,7 +150,7 @@ nav.light-theme {
     display: flex;
     align-items: center;
     gap: 20px;
-    margin-right: 15px;
+    margin-right: 10px;
 }
 
 .logo{
@@ -219,7 +219,7 @@ nav.light-theme {
     cursor: pointer;
     font-size: 1.5rem;
     padding: 8px;
-    margin: 0 10px;
+    margin: 5px 75px;
     border-radius: 50%;
     transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
     position: relative;
@@ -1671,7 +1671,7 @@ body.light-theme #contact .cv-button:hover {
 @media (max-width:884px) {
     nav .logo{
         position: absolute;
-        top: 16px;
+        /* top: 16px; */
         left: 15px;
         font-size: 1.5rem;
     }
