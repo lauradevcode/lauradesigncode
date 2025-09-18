@@ -1,217 +1,1042 @@
 <!DOCTYPE html>
-<html lang="pt-br">
-
+<html lang="pt-BR">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="css/all.min.css">
-    <link rel="stylesheet" href="css/aos.css">
-    <link rel="stylesheet" href="css/style.css">
-    <title>Laura Lopes - Web Designer</title>
+    <title>Laura Lopes - Design, Web & Automação | Resultados Garantidos</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+            line-height: 1.6;
+            color: #333;
+            overflow-x: hidden;
+        }
+
+        .hero {
+            height: 100vh;
+            background: linear-gradient(135deg, #0a0a0a 0%, #1a0f0f 50%, #2a1515 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            color: white;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: 
+                radial-gradient(circle at 20% 80%, rgba(220, 38, 127, 0.12) 0%, transparent 50%),
+                radial-gradient(circle at 80% 20%, rgba(239, 68, 68, 0.12) 0%, transparent 50%),
+                radial-gradient(circle at 40% 40%, rgba(185, 28, 28, 0.08) 0%, transparent 50%);
+            animation: rotate 25s linear infinite;
+        }
+
+        .floating-elements {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+        }
+
+        .floating-shape {
+            position: absolute;
+            opacity: 0.08;
+            animation: float 6s ease-in-out infinite;
+        }
+
+        .shape-1 {
+            top: 10%;
+            left: 10%;
+            width: 100px;
+            height: 100px;
+            background: linear-gradient(45deg, #dc2626, #ef4444);
+            clip-path: polygon(50% 0%, 0% 100%, 100% 100%);
+            animation-delay: 0s;
+        }
+
+        .shape-2 {
+            top: 20%;
+            right: 15%;
+            width: 80px;
+            height: 80px;
+            background: linear-gradient(45deg, #dc267f, #ef4444);
+            border-radius: 50%;
+            animation-delay: 2s;
+        }
+
+        .shape-3 {
+            bottom: 20%;
+            left: 20%;
+            width: 120px;
+            height: 60px;
+            background: linear-gradient(45deg, #b91c1c, #dc2626);
+            clip-path: polygon(25% 0%, 100% 0%, 75% 100%, 0% 100%);
+            animation-delay: 4s;
+        }
+
+        @keyframes rotate {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0px) rotate(0deg); }
+            33% { transform: translateY(-20px) rotate(120deg); }
+            66% { transform: translateY(10px) rotate(240deg); }
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 2;
+            max-width: 900px;
+            padding: 0 20px;
+        }
+
+        .hero h1 {
+            font-size: 4rem;
+            font-weight: 800;
+            margin-bottom: 1.5rem;
+            background: linear-gradient(135deg, #dc2626, #dc267f, #ffffff);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            line-height: 1.1;
+        }
+
+        .hero-subtitle {
+            font-size: 1.5rem;
+            font-weight: 600;
+            margin-bottom: 1rem;
+            color: #dc2626;
+        }
+
+        .hero-buttons {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .btn {
+            padding: 1rem 2rem;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s ease;
+        }
+
+        .btn-primary {
+            background: linear-gradient(135deg, #dc2626, #dc267f);
+            color: white;
+            box-shadow: 0 10px 30px rgba(220, 38, 38, 0.3);
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 15px 40px rgba(220, 38, 38, 0.4);
+        }
+
+        .btn-secondary {
+            background: transparent;
+            color: white;
+            border: 2px solid rgba(220, 38, 38, 0.5);
+        }
+
+        .btn-secondary:hover {
+            background: rgba(220, 38, 38, 0.1);
+            border-color: #dc2626;
+        }
+
+        nav {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background: rgba(0, 0, 0, 0.95);
+            backdrop-filter: blur(10px);
+            z-index: 1000;
+            padding: 1rem 0;
+            transition: all 0.3s ease;
+        }
+
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 2rem;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 800;
+            color: #dc2626;
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
+        }
+
+        .nav-links a {
+            color: white;
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s ease;
+        }
+
+        .nav-links a:hover {
+            color: #dc2626;
+        }
+
+        .about {
+            padding: 6rem 0;
+            background: #f8f9fa;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        .about-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: center;
+        }
+
+        .about h2 {
+            font-size: 2.5rem;
+            font-weight: 800;
+            margin-bottom: 1.5rem;
+            color: #333;
+        }
+
+        .about h2 em {
+            color: #dc2626;
+            font-style: normal;
+        }
+
+        .about-description {
+            font-size: 1.1rem;
+            margin-bottom: 2rem;
+            color: #666;
+            line-height: 1.8;
+        }
+
+        .features-list {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1.2rem;
+        }
+
+        .feature-item {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            padding: 1.2rem;
+            background: white;
+            border-radius: 12px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.08);
+            transition: transform 0.3s ease;
+        }
+
+        .feature-item:hover {
+            transform: translateY(-2px);
+        }
+
+        .feature-item i {
+            color: #dc2626;
+            font-size: 1.3rem;
+            min-width: 24px;
+        }
+
+        .about-image {
+            position: relative;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+        }
+
+        .about-image::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(135deg, rgba(220, 38, 38, 0.1), rgba(220, 38, 127, 0.1));
+            z-index: 1;
+        }
+
+        .services {
+            padding: 6rem 0;
+            background: white;
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 4rem;
+        }
+
+        .section-title {
+            font-size: 2.5rem;
+            font-weight: 800;
+            margin-bottom: 1rem;
+            color: #333;
+        }
+
+        .section-subtitle {
+            font-size: 1.2rem;
+            color: #666;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 2.5rem;
+        }
+
+        .service-card {
+            background: white;
+            padding: 2.5rem;
+            border-radius: 20px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            transition: all 0.3s ease;
+            border: 1px solid #f0f0f0;
+        }
+
+        .service-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 50px rgba(220, 38, 38, 0.15);
+        }
+
+        .service-header {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .service-icon {
+            width: 60px;
+            height: 60px;
+            background: linear-gradient(135deg, #dc2626, #dc267f);
+            border-radius: 15px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 1.5rem;
+        }
+
+        .service-card h3 {
+            font-size: 1.3rem;
+            font-weight: 700;
+            color: #333;
+        }
+
+        .service-card p {
+            color: #666;
+            line-height: 1.7;
+            margin-bottom: 1.5rem;
+        }
+
+        .service-price {
+            font-size: 1.1rem;
+            font-weight: 700;
+            color: #dc2626;
+        }
+
+        .portfolio {
+            padding: 6rem 0;
+            background: #f8f9fa;
+        }
+
+        .portfolio-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2.5rem;
+        }
+
+        .portfolio-item {
+            background: white;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            transition: all 0.3s ease;
+        }
+
+        .portfolio-item:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 20px 40px rgba(220, 38, 38, 0.15);
+        }
+
+        .portfolio-image {
+            height: 200px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 1.8rem;
+            font-weight: 700;
+            text-align: center;
+            padding: 1rem;
+        }
+
+        .portfolio-content {
+            padding: 1.5rem;
+        }
+
+        .portfolio-content h3 {
+            font-size: 1.2rem;
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+            color: #333;
+        }
+
+        .portfolio-content p {
+            color: #666;
+            font-size: 0.9rem;
+        }
+
+        .contact {
+            padding: 6rem 0;
+            background: white;
+        }
+
+        .contact-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 4rem;
+        }
+
+        .contact-info h3 {
+            font-size: 1.5rem;
+            font-weight: 700;
+            margin-bottom: 2rem;
+            color: #333;
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            margin-bottom: 1.5rem;
+            padding: 1.2rem;
+            background: #f8f9fa;
+            border-radius: 12px;
+            transition: transform 0.3s ease;
+        }
+
+        .contact-item:hover {
+            transform: translateY(-2px);
+        }
+
+        .contact-item i {
+            color: #dc2626;
+            font-size: 1.5rem;
+            width: 30px;
+        }
+
+        .contact-item strong {
+            color: #333;
+            display: block;
+            margin-bottom: 0.2rem;
+        }
+
+        .contact-item div {
+            color: #666;
+        }
+
+        .contact-form {
+            background: #f8f9fa;
+            padding: 2.5rem;
+            border-radius: 20px;
+        }
+
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 0.5rem;
+            font-weight: 600;
+            color: #333;
+        }
+
+        .form-group input,
+        .form-group select,
+        .form-group textarea {
+            width: 100%;
+            padding: 1rem;
+            border: 2px solid #e0e0e0;
+            border-radius: 10px;
+            font-size: 1rem;
+            transition: border-color 0.3s ease;
+            background: white;
+        }
+
+        .form-group input:focus,
+        .form-group select:focus,
+        .form-group textarea:focus {
+            outline: none;
+            border-color: #dc2626;
+        }
+
+        .submit-btn {
+            width: 100%;
+            background: linear-gradient(135deg, #dc2626, #dc267f);
+            color: white;
+            padding: 1rem 2rem;
+            border: none;
+            border-radius: 10px;
+            font-size: 1.1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .submit-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 30px rgba(220, 38, 38, 0.3);
+        }
+
+        footer {
+            background: #333;
+            color: white;
+            text-align: center;
+            padding: 2rem 0;
+        }
+
+        footer p {
+            margin-bottom: 0.5rem;
+        }
+
+        .whatsapp-float {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            width: 60px;
+            height: 60px;
+            background: #25d366;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 1.8rem;
+            text-decoration: none;
+            box-shadow: 0 4px 20px rgba(37, 211, 102, 0.4);
+            z-index: 1000;
+            animation: vibrate 1.5s infinite;
+            cursor: pointer;
+        }
+
+        @keyframes vibrate {
+            0%, 100% { transform: scale(1) rotate(0deg); }
+            25% { transform: scale(1.05) rotate(-2deg); }
+            50% { transform: scale(1.1) rotate(2deg); }
+            75% { transform: scale(1.05) rotate(-1deg); }
+        }
+
+        .whatsapp-popup {
+            position: fixed;
+            bottom: 100px;
+            right: 30px;
+            background: white;
+            padding: 1rem 1.5rem;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+            z-index: 999;
+            opacity: 0;
+            transform: translateY(20px);
+            transition: all 0.3s ease;
+            max-width: 250px;
+            border: 2px solid #25d366;
+        }
+
+        .whatsapp-popup.show {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .whatsapp-popup::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            right: 20px;
+            width: 0;
+            height: 0;
+            border-left: 10px solid transparent;
+            border-right: 10px solid transparent;
+            border-top: 10px solid #25d366;
+        }
+
+        .whatsapp-popup p {
+            margin: 0;
+            color: #333;
+            font-size: 0.9rem;
+            font-weight: 500;
+        }
+
+        .whatsapp-popup .close-popup {
+            position: absolute;
+            top: 5px;
+            right: 8px;
+            background: none;
+            border: none;
+            font-size: 1.2rem;
+            color: #999;
+            cursor: pointer;
+        }
+
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+
+            .hero-stats {
+                gap: 1.5rem;
+            }
+
+            .about-content,
+            .contact-grid {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+
+            .services-grid,
+            .portfolio-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .nav-links {
+                display: none;
+            }
+
+            .features-list {
+                grid-template-columns: 1fr;
+            }
+
+            .hero-stats {
+                flex-direction: column;
+                gap: 1rem;
+            }
+
+            .stat-item {
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                gap: 1rem;
+            }
+
+            .stat-number {
+                font-size: 2rem;
+                margin-bottom: 0;
+            }
+
+            .cta-buttons {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .cta-primary,
+            .cta-secondary {
+                width: 100%;
+                max-width: 300px;
+                text-align: center;
+            }
+        }
+    </style>
 </head>
 
 <body>
-    <!-- Menu de navegação -->
     <nav>
         <div class="nav-container">
-            <div class="logo" data-aos="zoom-in" data-aos-duration="1500">
-                Laura <span>Lopes</span>
-            </div>
-            <div class="links">
-                <div class="link" data-aos="fade-up" data-aos-duration="1500" data-aos-delay="100"><a
-                        href="#home">Início</a></div>
-                <div class="link" data-aos="fade-up" data-aos-duration="1500" data-aos-delay="300"><a
-                        href="#projects">Projetos</a></div>
-                <div class="link" data-aos="fade-up" data-aos-duration="1500" data-aos-delay="700"><a
-                        href="#contact">Fale comigo</a></div>
-            </div>
-            <div class="nav-controls">
-                <button id="themeToggle" class="theme-toggle" onclick="toggleTheme()">
-                    <i class="fas fa-moon"></i>
-                </button>
-                <i class="fa-solid fa-bars hamburg" onclick="hamburg()"></i>
-            </div>
-        </div>
-        <div class="dropdown">
-            <div class="links">
-                <a href="#home">Início</a>
-                <a href="#about">Experiência</a>
-                <a href="#projects">Projetos</a>
-                <a href="#knowledge">Conhecimentos</a>
-                <a href="#certificates">Certificados</a>
-                <a href="#formacao-academica">Formação</a>
-                <a href="#contact">Fale comigo</a>
-                <i class="fa-solid fa-xmark cancel" onclick="cancel()"></i>
-            </div>
+            <div class="logo">Laura Lopes</div>
+            <ul class="nav-links">
+                <li><a href="#home">Início</a></li>
+                <li><a href="#services">Serviços</a></li>
+                <li><a href="#portfolio">Portfólio</a></li>
+                <li><a href="#contact">Contato</a></li>
+            </ul>
         </div>
     </nav>
 
-    <!-- Seção principal -->
-    <section id="home">
-        <div class="stars"></div>
-        <div class="twinkling"></div>
-        <div class="main-container">
-            <div class="image" data-aos="zoom-out" data-aos-duration="3000">
-                <img src="images/main.jpg" alt="">
-            </div>
-            <div class="content">
-                <h1 data-aos="fade-left" data-aos-duration="1500" data-aos-delay="700">
-                    Olá, me chamo Laura Lopes <span></span>
-                </h1>
-                <div class="typewriter" data-aos="fade-right" data-aos-duration="1500" data-aos-delay="900">
-                    Eu sou <span class="typewriter-text"></span><label for="">|</label>
-                </div>
-                <p data-aos="flip-down" data-aos-duration="1500" data-aos-delay="1100">
-                    <strong>Web Designer</strong> com experiência em criar identidades visuais
-                    marcantes e interfaces envolventes. Apaixonada por transformar ideias em designs intuitivos e
-                    modernos.
-                </p>
-                <p data-aos="flip-down" data-aos-duration="1500" data-aos-delay="1300">
-                    <strong>Especialista em Desenvolvimento Web</strong>: Criação de sites responsivos e otimizados,
-                    combinando design atraente com código bem estruturado. Domínio de HTML, CSS, JavaScript e
-                    ferramentas como WordPress.
-                </p>
-                <p data-aos="flip-down" data-aos-duration="1500" data-aos-delay="1500">
-                    <strong>Designer Gráfica Freelancer</strong>: Experiência com branding, identidade visual, mídias
-                    sociais e materiais gráficos. Domínio de ferramentas como Adobe Photoshop, Illustrator, Figma e
-                    Canva.
-                </p>
-                <div class="btn" data-aos="zoom-in" data-aos-duration="1500" data-aos-delay="0" id="btn-whatsapp">
-                    <!-- Botão para o WhatsApp -->
-                    <a href="https://api.whatsapp.com/send?phone=5561998548265" target="_blank"
-                        style="text-decoration: none;">
-                        <button>WHATSAPP</button>
-                    </a>
-                </div>
-            </div>
-
+    <section id="home" class="hero">
+        <div class="floating-elements">
+            <div class="floating-shape shape-1"></div>
+            <div class="floating-shape shape-2"></div>
+            <div class="floating-shape shape-3"></div>
         </div>
-    </section>
-
-    <!-- Seção de Contato -->
-    <section id="contact">
-        <div class="main-container">
-            <h1 class="section-title" data-aos="fade-up" data-aos-duration="1500">Orçamentos nas redes ao lado:</h1>
-            <p class="section-description" data-aos="fade-up" data-aos-duration="1500" data-aos-delay="200">
-                Vamos conversar sobre como posso contribuir com seu projeto?
+        
+        <div class="hero-content">
+            <h1 class="hero-title">
+                Transformo Ideias em <span class="highlight">Resultados Digitais</span>
+            </h1>
+            <p class="hero-subtitle">
+                Especialista em criar soluções que fazem sua marca se destacar no digital. 
+                Mais de 50 projetos entregues com foco em performance e conversão.
             </p>
-            <div class="social-links" data-aos="fade-up" data-aos-duration="1500" data-aos-delay="400">
-                <a href="https://github.com/lauradevcode" target="_blank" title="GitHub">
-                    <i class="fa-brands fa-github"></i>
-                </a>
-                <a href="https://www.instagram.com/lauradesigncode/" target="_blank" title="Instagram">
-                    <i class="fa-brands fa-instagram"></i>
-                </a>
-                <a href="https://www.linkedin.com/in/laura-beatriz-831730296/" target="_blank" title="LinkedIn">
-                    <i class="fa-brands fa-linkedin"></i>
-                </a>
-                <a href="https://www.behance.net/laurauxuidesigner" target="_blank" title="Behance">
-                    <i class="fa-brands fa-behance"></i>
-                </a>
-
-                <a href="https://api.whatsapp.com/send?phone=5561998548265" target="_blank" title="WhatsApp">
-                    <i class="fa-brands fa-whatsapp"></i>
-                </a>
+            <div class="hero-buttons">
+                <a href="#contact" class="btn btn-primary">Quero Meu Projeto</a>
+                <a href="https://www.behance.net/laurauxuidesigner" target="_blank" class="btn btn-secondary">Ver Portfólio</a>
             </div>
         </div>
     </section>
 
-    <!-- Seção Projetos -->
-    <section id="projects">
-        <h1 data-aos="fade-up">Projetos</h1>
-        <div class="main-container">
-            <div class="projects-grid" id="projects-grid">
-                <!-- Projeto 1 -->
-                <div class="project-card" data-aos="fade-up">
-                    <img src="images/projeto1.png" alt="Lifebios">
-                    <h2>Sistema Lifebios</h2>
-                    <p>O Lifebios é um sistema automatizado para análise de hemogramas, desenvolvido para otimizar
-                        exames laboratoriais, reduzir erros e agilizar diagnósticos. Construído com HTML, CSS,
-                        JavaScript, Mysql. Destaca-se pela validação automática de
-                        resultados, alertas para valores críticos e geração de laudos personalizados, proporcionando
-                        mais eficiência e precisão na rotina laboratorial.</p>
-
-                </div>
-
-                <!-- Projeto 2 -->
-                <div class="project-card" data-aos="fade-up" data-aos-delay="200">
-                    <img src="images/projeto2.png" alt="programer">
-                    <h2>Aplicativo Progamer</h2>
-                    <p>O Progamer é um app voltado para gamers, oferecendo ferramentas para análise de desempenho,
-                        organização de partidas.. Desenvolvido com
-                        Flutter, conta com funcionalidades como estatísticas de jogo, agenda de torneios, tutoriais e
-                        matchmaking para conectar jogadores de nível semelhante. Com uma interface moderna e intuitiva,
-                        o app auxilia na evolução dos usuários no cenário gamer, promovendo aprendizado e interação.
+    <section class="about">
+        <div class="container">
+            <div class="about-content">
+                <div class="about-info">
+                    <h2>Oi! Eu sou a <em>Laura</em>, especialista em Design Digital</h2>
+                    <p class="about-description">
+                        Com mais de 3 anos de atuação, ajudo marcas a ganhar voz, 
+                        sites bonitos e funcionais, e bots que conversam de verdade.
+                        <br><br>
+                        Minha paixão é unir <strong>estética + tecnologia + estratégia</strong>, 
+                        para entregar soluções que não só impressionam visualmente, 
+                        mas também aumentam resultados.
                     </p>
-
+                    <div class="features-list">
+                        <div class="feature-item">
+                            <i class="fas fa-lightbulb"></i>
+                            <span>Criatividade e inovação</span>
+                        </div>
+                        <div class="feature-item">
+                            <i class="fas fa-tools"></i>
+                            <span>Domínio técnico completo</span>
+                        </div>
+                        <div class="feature-item">
+                            <i class="fas fa-bullseye"></i>
+                            <span>Pensamento estratégico</span>
+                        </div>
+                        <div class="feature-item">
+                            <i class="fas fa-clock"></i>
+                            <span>Compromisso com prazos</span>
+                        </div>
+                        <div class="feature-item">
+                            <i class="fas fa-search"></i>
+                            <span>Detalhismo profissional</span>
+                        </div>
+                        <div class="feature-item">
+                            <i class="fab fa-behance"></i>
+                            <span><a href="https://www.behance.net/laurauxuidesigner" target="_blank" style="color: #dc2626; text-decoration: none;">Ver Behance</a></span>
+                        </div>
+                    </div>
                 </div>
-
-                <!-- Projeto 3 -->
-                <div class="project-card" data-aos="fade-up" data-aos-delay="400">
-                    <img src="images/projeto3.png" alt="NutriWeb">
-                    <h2>Construtora Minatto</h2>
-                    <p>A Landing Page da Construtora Minatto foi desenvolvida com HTML, CSS e JavaScript, focada em
-                        apresentar os serviços da empresa de forma profissional e responsiva. O design transmite
-                        credibilidade e sofisticação, com animações sutis e elementos gráficos modernos. O site conta
-                        com seções estratégicas, como apresentação da empresa, serviços, portfólio, depoimentos e
-                        formulário de contato.</p>
-
+                <div class="about-image">
+                    <img src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/Purple%20Cartoon%20Gamer%20Girl%20Illustration%20Gaming%20Logo%20%284%29-SOsBEfHbZo8439hJf4zhz6IL6TGt05.png" alt="Laura Lopes - UX/UI Designer" style="width: 100%; height: 100%; object-fit: cover;">
                 </div>
-
-                <!-- Projeto 4 -->
-                <div class="project-card" data-aos="fade-up" data-aos-delay="400">
-                    <img src="images/projeto4.png" alt="Identidade visual">
-                    <h2>Pincode</h2>
-                    <p>O projeto da Pincode envolveu a criação de uma identidade visual forte e uma landing page
-                        moderna, desenvolvida com HTML, CSS e JavaScript. Todo o design foi pensado para transmitir
-                        inovação, tecnologia e credibilidade, garantindo uma experiência intuitiva e responsiva.
-
-                        A landing page conta com elementos gráficos estratégicos, animações sutis e seções bem
-                        estruturadas, como sobre a empresa, serviços, cases de sucesso, depoimentos e um formulário de
-                        contato otimizado. </p>
-
-                </div>
-
-                <!-- Projeto 5 -->
-                <div class="project-card" data-aos="fade-up" data-aos-delay="400">
-                    <img src="images/projeto5.png" alt="automacao">
-                    <h2>AgenteGPT – Automação Inteligente com IA</h2>
-                    <p>O AgenteGPT é uma tecnologia avançada que permite a criação de agentes autônomos baseados em
-                        inteligência artificial. Ele é capaz de executar tarefas complexas sem intervenção humana,
-                        interagindo com usuários, aprendendo com dados e tomando decisões de forma independente.
-
-                        Com o AgenteGPT, empresas e profissionais podem automatizar fluxos de trabalho, otimizar tempo e
-                        aumentar a produtividade de maneira inovadora e eficiente. </p>
-
-                </div>
-                <!-- Projeto 6 -->
-                <div class="project-card" data-aos="fade-up" data-aos-delay="400">
-                    <img src="images/projeto6.png" alt="ebook">
-                    <h2>Ebook - Infoproduto</h2>
-                    <p>O ebook "Seu Primeiro Job Como Dev" foi criado para ajudar quem está começando na programação a
-                        conquistar sua primeira oportunidade no mercado de tecnologia. Com base em experiência real e
-                        estratégias práticas, este material guia você desde os primeiros passos até a conquista do seu
-                        primeiro job ou projeto freelance. </p>
-
-                </div>
-
-
             </div>
-
-        </div>
-
-        </div>
-
-        <div class="button-container">
-            <button class="load-more-btn" id="load-more-projects">Whatsapp - Me chame aqui!</button>
         </div>
     </section>
 
-    <script src="js/aos.js"></script>
-    <script>
-        AOS.init();
-    </script>
-    <script src="js/script.js"></script>
-</body>
+    <section id="services" class="services">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Serviços que Transformam Negócios</h2>
+                <p class="section-subtitle">Soluções completas pensadas para gerar impacto e trazer retorno para seu negócio</p>
+            </div>
+            <div class="services-grid">
+                <div class="service-card">
+                    <div class="service-header">
+                        <div class="service-icon">
+                            <i class="fas fa-palette"></i>
+                        </div>
+                        <h3>Design Gráfico</h3>
+                    </div>
+                    <p>Criação de logos, identidades visuais, materiais impressos e digitais, posts para redes sociais. 
+                    Foco em design único e profissional, alinhado com a personalidade da sua marca.</p>
+                    <div class="service-price">A partir de R$ 150</div>
+                </div>
+                <div class="service-card">
+                    <div class="service-header">
+                        <div class="service-icon">
+                            <i class="fas fa-code"></i>
+                        </div>
+                        <h3>Desenvolvimento Web</h3>
+                    </div>
+                    <p>Criação de sites responsivos, lojas virtuais, landing pages, blogs. 
+                    Performance, usabilidade e SEO em mente. Manutenção e ajustes conforme sua necessidade.</p>
+                    <div class="service-price">A partir de R$ 800</div>
+                </div>
+                <div class="service-card">
+                    <div class="service-header">
+                        <div class="service-icon">
+                            <i class="fas fa-robot"></i>
+                        </div>
+                        <h3>Automação & Chatbots</h3>
+                    </div>
+                    <p>Bots personalizados para atendimento automático, automações de marketing (e-mail, WhatsApp, redes sociais). 
+                    Fluxos que poupam tempo e melhoram a experiência do cliente.</p>
+                    <div class="service-price">A partir de R$ 500</div>
+                </div>
+            </div>
+        </div>
+    </section>
 
+    <section id="portfolio" class="portfolio">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Portfólio</h2>
+                <p class="section-subtitle">Veja alguns projetos que já realizei — design, sites, automações. Cada trabalho reflete dedicação, estratégia e resultado.</p>
+            </div>
+            <div class="portfolio-grid">
+                <div class="portfolio-item">
+                    <div class="portfolio-image">
+                        <img src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/image-KCHVgXfJxxwvgxj5aOGy0edHjrGjRD.png" alt="App Progamer" style="width: 100%; height: 200px; object-fit: cover; border-radius: 10px;">
+                    </div>
+                    <div class="portfolio-content">
+                        <h3>Progamer - App Mobile</h3>
+                        <p>Aplicativo completo para gamers com sistema de usuários</p>
+                    </div>
+                </div>
+                <div class="portfolio-item">
+                    <div class="portfolio-image">
+                        <img src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/image-fWUNbqPxuNSHLsz8Y3q8bHd6RBVyOF.png" alt="Lifebios Login" style="width: 100%; height: 200px; object-fit: cover; border-radius: 10px;">
+                    </div>
+                    <div class="portfolio-content">
+                        <h3>Lifebios - Sistema Web</h3>
+                        <p>Interface de login e sistema para empresa de saúde</p>
+                    </div>
+                </div>
+                <div class="portfolio-item">
+                    <div class="portfolio-image">
+                        <img src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/image-yddRUfiqb9s3O31skVse7FUqU8XAYt.png" alt="Construtora Minatto" style="width: 100%; height: 200px; object-fit: cover; border-radius: 10px;">
+                    </div>
+                    <div class="portfolio-content">
+                        <h3>Construtora Minatto</h3>
+                        <p>Website institucional completo com depoimentos</p>
+                    </div>
+                </div>
+                <div class="portfolio-item">
+                    <div class="portfolio-image">
+                        <img src="/placeholder.svg?height=200&width=300" alt="Restaurante Gourmet" style="width: 100%; height: 200px; object-fit: cover; border-radius: 10px;">
+                    </div>
+                    <div class="portfolio-content">
+                        <h3>Restaurante Gourmet</h3>
+                        <p>Identidade visual e cardápio digital</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="testimonials" style="padding: 4rem 0; background: white;">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">O que Dizem os Clientes</h2>
+                <p class="section-subtitle">Clientes falam mais que qualquer promessa. Veja o que quem já trabalhou comigo diz:</p>
+            </div>
+            <div class="testimonials-grid" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 2rem; margin-top: 3rem;">
+                <div class="testimonial-card" style="background: #f8f9fa; padding: 2rem; border-radius: 15px; border-left: 4px solid #dc2626; display: flex; align-items: center; gap: 1rem;">
+                    <img src="/placeholder.svg?height=60&width=60" alt="Cliente" style="width: 60px; height: 60px; border-radius: 50%; object-fit: cover;">
+                    <div>
+                        <p style="font-style: italic; margin-bottom: 0.5rem; color: #666;">
+                            "Entregou bem acima do esperado, me ajudou a automatizar processos que economizam horas por semana."
+                        </p>
+                        <strong style="color: #333;">— Carlos Silva, CEO</strong>
+                    </div>
+                </div>
+                <div class="testimonial-card" style="background: #f8f9fa; padding: 2rem; border-radius: 15px; border-left: 4px solid #dc2626; display: flex; align-items: center; gap: 1rem;">
+                    <img src="/placeholder.svg?height=60&width=60" alt="Cliente" style="width: 60px; height: 60px; border-radius: 50%; object-fit: cover;">
+                    <div>
+                        <p style="font-style: italic; margin-bottom: 0.5rem; color: #666;">
+                            "O site ficou lindo, responsivo, além de fácil de usar. Meus clientes elogiam constantemente."
+                        </p>
+                        <strong style="color: #333;">— Ana Costa, Empreendedora</strong>
+                    </div>
+                </div>
+                <div class="testimonial-card" style="background: #f8f9fa; padding: 2rem; border-radius: 15px; border-left: 4px solid #dc2626; display: flex; align-items: center; gap: 1rem;">
+                    <img src="/placeholder.svg?height=60&width=60" alt="Cliente" style="width: 60px; height: 60px; border-radius: 50%; object-fit: cover;">
+                    <div>
+                        <p style="font-style: italic; margin-bottom: 0.5rem; color: #666;">
+                            "O design visual ficou com a personalidade da marca; o chatbot realmente facilita o atendimento."
+                        </p>
+                        <strong style="color: #333;">— Rafael Santos, Loja Online</strong>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="contact" class="contact">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Pronta para Transformar sua Presença Digital?</h2>
+                <p class="section-subtitle">Vamos conversar. Orçamento sem compromisso, atendimento personalizado e soluções que cabem no seu objetivo.</p>
+            </div>
+            <div class="contact-grid">
+                <div class="contact-info">
+                    <h3>Atendimento Rápido</h3>
+                    <div class="contact-item">
+                        <i class="fab fa-whatsapp"></i>
+                        <div>
+                            <strong>WhatsApp</strong>
+                            Atendimento 100% via WhatsApp
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <i class="fas fa-envelope"></i>
+                        <div>
+                            <strong>E-mail</strong>
+                            Respostas em horário comercial
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <i class="fas fa-clock"></i>
+                        <div>
+                            <strong>Disponibilidade</strong>
+                            Atuo 24 horas por dia
+                        </div>
+                    </div>
+                </div>
+                <form class="contact-form" id="contactForm">
+                    <div class="form-group">
+                        <label for="name">Nome Completo</label>
+                        <input type="text" id="name" name="name" placeholder="Seu nome completo" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="phone">WhatsApp</label>
+                        <input type="tel" id="phone" name="phone" placeholder="(61) 99999-9999" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="service">Serviço de Interesse</label>
+                        <select id="service" name="service" required>
+                            <option value="">Selecione um serviço</option>
+                            <option value="design">Design Gráfico</option>
+                            <option value="web">Desenvolvimento Web</option>
+                            <option value="automacao">Automação & Chatbots</option>
+                            <option value="completo">Projeto Completo</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="message">Conte sobre seu projeto</label>
+                        <textarea id="message" name="message" rows="4" placeholder="Descreva seu projeto, objetivos e prazo..." required></textarea>
+                    </div>
+                    <button type="submit" class="submit-btn">Enviar via WhatsApp</button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2025 Laura Lopes</p>
+        </div>
+    </footer>
+
+    <div class="whatsapp-popup" id="whatsappPopup">
+        <button class="close-popup" onclick="closeWhatsAppPopup()">&times;</button>
+        <p>👋 Oi! Preciso do serviço...</p>
+    </div>
+    
+    <a href="#" class="whatsapp-float" id="whatsappFloat">
+        <i class="fab fa-whatsapp"></i>
+    </a>
+
+    <script>
+        let popupShown = false;
+        
+        function showWhatsAppPopup() {
+            if (!popupShown) {
+                document.getElementById('whatsappPopup').classList.add('show');
+                popupShown = true;
+                
+                setTimeout(() => {
+                    if (document.getElementById('whatsappPopup').classList.contains('show')) {
+                        closeWhatsAppPopup();
+                    }
+                }, 5000);
+            }
+        }
+        
+        function closeWhatsAppPopup() {
+            document.getElementById('whatsappPopup').classList.remove('show');
+        }
+        
+        document.getElementById('whatsappFloat').addEventListener('click', function(e) {
+            e.preventDefault();
+            if (document.getElementById('whatsappPopup').classList.contains('show')) {
+                const whatsappURL = 'https://wa.me/5561998548265?text=Oi! Preciso do serviço...';
+                window.open(whatsappURL, '_blank');
+                closeWhatsAppPopup();
+            } else {
+                showWhatsAppPopup();
+            }
+        });
+        
+        setTimeout(showWhatsAppPopup, 3000);
+
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+
+        document.getElementById('contactForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            const name = document.getElementById('name').value;
+            const phone = document.getElementById('phone').value;
+            const service = document.getElementById('service').value;
+            const message = document.getElementById('message').value;
+            
+            const serviceNames = {
+                'design': 'Design Gráfico',
+                'web': 'Desenvolvimento Web',
+                'automacao': 'Automação & Chatbots',
+                'completo': 'Projeto Completo'
+            };
+            
+            const whatsappMessage = `Olá Laura! 👋
+
+*Nome:* ${name}
+*WhatsApp:* ${phone}
+*Serviço:* ${serviceNames[service] || service}
+
+*Projeto:*
+${message}
+
+Gostaria de solicitar um orçamento!`;
+            
+            const whatsappURL = `https://wa.me/5561998548265?text=${encodeURIComponent(whatsappMessage)}`;
+            window.open(whatsappURL, '_blank');
+        });
+
+        window.addEventListener('scroll', function() {
+            const nav = document.querySelector('nav');
+            if (window.scrollY > 100) {
+                nav.style.background = 'rgba(0, 0, 0, 0.98)';
+            } else {
+                nav.style.background = 'rgba(0, 0, 0, 0.95)';
+            }
+        });
+    </script>
+</body>
 </html>
