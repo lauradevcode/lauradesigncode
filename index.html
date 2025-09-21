@@ -230,9 +230,11 @@
 
         .about-content {
             display: grid;
-            grid-template-columns: 1fr 1fr;
+            grid-template-columns: 1fr 400px;
             gap: 4rem;
             align-items: center;
+            max-width: 1200px;
+            margin: 0 auto;
         }
 
         .about-title {
@@ -315,9 +317,12 @@
 
         .about-image {
             position: relative;
-            border-radius: 20px;
+            width: 400px;
+            height: 400px;
+            border-radius: 50%;
             overflow: hidden;
             box-shadow: 0 20px 40px rgba(220, 38, 127, 0.3);
+            justify-self: center;
         }
 
         .about-image::before {
@@ -948,23 +953,35 @@
             }
 
             /* Adding comprehensive mobile responsiveness */
+            .about {
+                padding: 4rem 0;
+            }
+
             .about-content {
                 grid-template-columns: 1fr;
-                gap: 2rem;
+                gap: 3rem;
                 text-align: center;
+                padding: 0 1rem;
             }
 
             .about-title {
-                font-size: 2rem;
+                font-size: 2.2rem;
                 margin-bottom: 2rem;
             }
 
             .about-headline {
-                font-size: 1.8rem;
+                font-size: 1.6rem;
             }
 
             .about-description {
                 font-size: 1rem;
+                text-align: left;
+            }
+
+            .about-image {
+                width: 280px;
+                height: 280px;
+                order: -1;
             }
 
             .service-badges {
@@ -1065,7 +1082,13 @@
             }
 
             .about-content {
+                grid-template-columns: 1fr 350px;
                 gap: 3rem;
+            }
+
+            .about-image {
+                width: 350px;
+                height: 350px;
             }
 
             .services-grid {
@@ -1103,7 +1126,25 @@
             }
 
             .about, .services, .portfolio, .contact {
-                padding: 4rem 0;
+                padding: 3rem 0;
+            }
+
+            .about-content {
+                gap: 2rem;
+                padding: 0 0.5rem;
+            }
+
+            .about-title {
+                font-size: 1.8rem;
+            }
+
+            .about-headline {
+                font-size: 1.4rem;
+            }
+
+            .about-image {
+                width: 240px;
+                height: 240px;
             }
 
             .section-header {
@@ -1111,10 +1152,6 @@
             }
 
             .section-title {
-                font-size: 1.8rem;
-            }
-
-            .about h2 {
                 font-size: 1.8rem;
             }
 
