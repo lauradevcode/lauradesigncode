@@ -114,7 +114,9 @@
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             background-clip: text;
-            line-height: 1.1;            animation: titleFadeIn 1.2s ease-out;
+            line-height: 1.1;
+            text-shadow: 0 4px 20px rgba(220, 38, 38, 0.3);
+            animation: titleFadeIn 1.2s ease-out;
         }
 
         @keyframes titleFadeIn {
@@ -129,15 +131,16 @@
         }
 
         .hero h1 .highlight {
-            background-color: white;
+            background: linear-gradient(135deg, #dc2626, #ef4444);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             background-clip: text;
+            text-shadow: 0 2px 10px rgba(220, 38, 38, 0.4);
         }
 
         .hero-subtitle {
-            font-size: 1.3rem;
-            font-weight: 400;
+            font-size: 1.5rem;
+            font-weight: 600;
             margin-bottom: 1rem;
             color: #e2e8f0;
             animation: subtitleFadeIn 1.5s ease-out 0.3s both;
@@ -218,15 +221,11 @@
             box-shadow: 0 8px 25px rgba(220, 38, 38, 0.2);
         }
 
+        /* Redesigning about section with dark professional style */
         .about {
             padding: 6rem 0;
-            background: #f8f9fa;
-        }
-
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 2rem;
+            background: #0f0f0f;
+            color: white;
         }
 
         .about-content {
@@ -236,57 +235,89 @@
             align-items: center;
         }
 
-        .about h2 {
-            font-size: 2.5rem;
-            font-weight: 800;
-            margin-bottom: 1.5rem;
-            color: #333;
+        .about-title {
+            font-size: 3rem;
+            font-weight: 900;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            margin-bottom: 3rem;
+            text-align: center;
+            grid-column: 1 / -1;
         }
 
-        .about h2 em {
+        .about-info {
+            display: flex;
+            flex-direction: column;
+            gap: 2rem;
+        }
+
+        .experience-badge {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            font-size: 0.9rem;
+            color: #60a5fa;
+            margin-bottom: 1rem;
+        }
+
+        .experience-badge::before {
+            content: '•';
+            color: #60a5fa;
+            font-size: 1.2rem;
+        }
+
+        .about-headline {
+            font-size: 2.2rem;
+            font-weight: 700;
+            line-height: 1.2;
+            margin-bottom: 1.5rem;
+        }
+
+        .about-headline .highlight {
             color: #dc267f;
-            font-style: normal;
         }
 
         .about-description {
             font-size: 1.1rem;
+            line-height: 1.7;
+            color: #d1d5db;
             margin-bottom: 2rem;
-            color: #666;
-            line-height: 1.8;
         }
 
-        .features-list {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 1.2rem;
+        .service-badges {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1rem;
         }
 
-        .feature-item {
+        .service-badge {
+            background: rgba(96, 165, 250, 0.1);
+            border: 1px solid rgba(96, 165, 250, 0.3);
+            color: #60a5fa;
+            padding: 0.7rem 1.2rem;
+            border-radius: 25px;
+            font-size: 0.9rem;
+            font-weight: 500;
             display: flex;
             align-items: center;
-            gap: 1rem;
-            padding: 1.2rem;
-            background: white;
-            border-radius: 12px;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.08);
-            transition: transform 0.3s ease;
+            gap: 0.5rem;
+            transition: all 0.3s ease;
         }
 
-        .feature-item:hover {
+        .service-badge:hover {
+            background: rgba(96, 165, 250, 0.2);
             transform: translateY(-2px);
         }
 
-        .feature-item i {
-            color: #dc2626;
-            font-size: 1.3rem;
-            min-width: 24px;
+        .service-badge i {
+            font-size: 1rem;
         }
 
         .about-image {
             position: relative;
             border-radius: 20px;
             overflow: hidden;
-            box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+            box-shadow: 0 20px 40px rgba(220, 38, 127, 0.3);
         }
 
         .about-image::before {
@@ -296,8 +327,16 @@
             left: 0;
             right: 0;
             bottom: 0;
-            background: linear-gradient(135deg, rgba(220, 38, 38, 0.1), rgba(220, 38, 127, 0.1));
+            background: linear-gradient(135deg, rgba(220, 38, 127, 0.2), rgba(96, 165, 250, 0.1));
             z-index: 1;
+        }
+
+        .about-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            position: relative;
+            z-index: 0;
         }
 
         .services {
@@ -915,12 +954,26 @@
                 text-align: center;
             }
 
-            .about h2 {
+            .about-title {
                 font-size: 2rem;
+                margin-bottom: 2rem;
+            }
+
+            .about-headline {
+                font-size: 1.8rem;
             }
 
             .about-description {
                 font-size: 1rem;
+            }
+
+            .service-badges {
+                justify-content: center;
+            }
+
+            .service-badge {
+                padding: 0.6rem 1rem;
+                font-size: 0.8rem;
             }
 
             .features-list {
@@ -1471,58 +1524,59 @@
         </div>
         
         <div class="hero-content">
+            <!-- Updated hero title and subtitle with more persuasive copy -->
             <h1 class="hero-title">
-                <span style="color: #ffffff; text-shadow: 2px 2px 4px rgba(0,0,0,0.3);">Transformo Ideias em</span> <span class="highlight" style="color: #dc2626; text-shadow: 2px 2px 4px rgba(0,0,0,0.3);">Resultados Digitais</span>
+                <span style="color: #ffffff; text-shadow: 2px 2px 4px rgba(0,0,0,0.3);">Eu ajudo sua marca a se destacar no digital com</span> <span class="highlight" style="color: #dc2626; text-shadow: 2px 2px 4px rgba(0,0,0,0.3);">design estratégico e automação inteligente</span>
             </h1>
             <p class="hero-subtitle">
-                Especialista em criar soluções que fazem sua marca se destacar no digital. 
-                Mais de 50 projetos entregues com foco em performance e conversão.
+                Mais de 50 projetos entregues para empresas que buscam mais visibilidade, autoridade e vendas online.
             </p>
             <div class="hero-buttons">
-                <a href="#contact" class="btn btn-primary">Quero Meu Projeto</a>
+                <!-- Updated CTA button text to be more clear and objective -->
+                <a href="#contact" class="btn btn-primary">Solicitar Orçamento</a>
                 <a href="https://www.behance.net/laurauxuidesigner" target="_blank" class="btn btn-secondary">Ver Portfólio</a>
             </div>
         </div>
     </section>
 
-    <section class="about">
+    <!-- Completely redesigned about section with professional dark style -->
+    <section id="about" class="about">
         <div class="container">
             <div class="about-content">
+                <h2 class="about-title">Sobre Mim</h2>
+                
                 <div class="about-info">
-                    <h2>Oi! Eu sou a <em>Laura</em>, especialista em Web Designer e Automação</h2>
+                    <div class="experience-badge">
+                        5+ anos de experiência
+                    </div>
+                    
+                    <h3 class="about-headline">
+                        Web Designer focada em <span class="highlight">automação</span><br>
+                        e resultados rápidos
+                    </h3>
+                    
                     <p class="about-description">
-                        Com mais de 5 anos de experiência, ajudo marcas a se destacarem com soluções digitais completas: 
-                        sites funcionais e atraentes, interfaces inteligentes, bots interativos e estratégias de marketing que realmente geram resultados.
-                        <br><br>
-                        Minha abordagem une <strong>estética + tecnologia + estratégia</strong>, 
-                        garantindo que cada projeto não apenas impressione visualmente, 
-                        mas também entregue resultados tangíveis e mensuráveis.
+                        Meu nome é Laura, tenho mais de 5 anos de experiência e sou especialista em transformar ideias em soluções digitais que realmente funcionam. Dedico minha carreira a ajudar marcas a se destacarem com sites funcionais, automações inteligentes e estratégias que geram resultados mensuráveis. Valorizo a expressão das ideias dos clientes e mantenho um compromisso firme com qualidade e dedicação. Sou apaixonada pelo que faço e busco excelência em cada projeto.
                     </p>
-                    <div class="features-list">
-                        <div class="feature-item">
-                            <i class="fas fa-lightbulb"></i>
-                            <span>Criatividade e inovação</span>
+                    
+                    <div class="service-badges">
+                        <div class="service-badge">
+                            <i class="fas fa-bolt"></i>
+                            Entrega em até 48h úteis
                         </div>
-                        <div class="feature-item">
-                            <i class="fas fa-tools"></i>
-                            <span>Domínio técnico completo (Design e Desenvolvimento)</span>
+                        <div class="service-badge">
+                            <i class="fab fa-whatsapp"></i>
+                            Atendimento via WhatsApp
                         </div>
-                        <div class="feature-item">
-                            <i class="fas fa-bullseye"></i>
-                            <span>Pensamento estratégico e orientação a resultados</span>
-                        </div>
-                        <div class="feature-item">
-                            <i class="fas fa-chart-line"></i>
-                            <span>Marketing digital integrado e otimização de conversão</span>
-                        </div>
-                        <div class="feature-item">
-                            <i class="fab fa-behance"></i>
-                            <span><a href="https://www.behance.net/laurauxuidesigner" target="_blank" style="color: #dc2626; text-decoration: none;">Ver Behance</a></span>
+                        <div class="service-badge">
+                            <i class="fas fa-cogs"></i>
+                            Automação personalizada
                         </div>
                     </div>
                 </div>
+                
                 <div class="about-image">
-                    <img src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/Purple%20Cartoon%20Gamer%20Girl%20Illustration%20Gaming%20Logo%20%284%29-SOsBEfHbZo8439hJf4zhz6IL6TGt05.png" alt="Laura Lopes - UX/UI Designer" style="width: 100%; height: 100%; object-fit: cover;">
+                    <img src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/Purple%20Cartoon%20Gamer%20Girl%20Illustration%20Gaming%20Logo%20%284%29-SOsBEfHbZo8439hJf4zhz6IL6TGt05.png" alt="Laura Lopes - Web Designer e Automação">
                 </div>
             </div>
         </div>
@@ -1531,39 +1585,32 @@
     <section id="services" class="services">
         <div class="container">
             <div class="section-header">
-                <h2 class="section-title">Serviços que Transformam Negócios</h2>
-                <p class="section-subtitle">Soluções completas pensadas para gerar impacto e trazer retorno para seu negócio</p>
+                <!-- Updated services section title to focus on business acceleration -->
+                <h2 class="section-title">Serviços Criados para Acelerar Seu Negócio no Digital</h2>
+                <p class="section-subtitle">Soluções completas para transformar sua presença digital em resultados reais</p>
             </div>
             <div class="services-grid">
                 <div class="service-card">
-                    <div class="service-header">
-                        <div class="service-icon">
-                            <i class="fas fa-palette"></i>
-                        </div>
-                        <h3>Design Gráfico</h3>
+                    <div class="service-icon">
+                        <i class="fas fa-palette"></i>
                     </div>
-                    <p>Criação de logos, identidades visuais, materiais impressos e digitais, posts para redes sociais. 
-                    Foco em design único e profissional, alinhado com a personalidade da sua marca.</p>
+                    <h3>Design Gráfico</h3>
+                    <!-- Updated service descriptions to focus on benefits and credibility -->
+                    <p>Identidade visual profissional, logotipos e materiais gráficos que comunicam credibilidade e fortalecem sua marca.</p>
                 </div>
                 <div class="service-card">
-                    <div class="service-header">
-                        <div class="service-icon">
-                            <i class="fas fa-code"></i>
-                        </div>
-                        <h3>Desenvolvimento Web</h3>
+                    <div class="service-icon">
+                        <i class="fas fa-code"></i>
                     </div>
-                    <p>Criação de sites responsivos, lojas virtuais, landing pages, blogs. 
-                    Performance, usabilidade e SEO em mente. Manutenção e ajustes conforme sua necessidade.</p>
+                    <h3>Desenvolvimento Web</h3>
+                    <p>Sites modernos, rápidos e responsivos que atraem visitantes, transmitem confiança e convertem em clientes.</p>
                 </div>
                 <div class="service-card">
-                    <div class="service-header">
-                        <div class="service-icon">
-                            <i class="fas fa-robot"></i>
-                        </div>
-                        <h3>Automação & Chatbots</h3>
+                    <div class="service-icon">
+                        <i class="fas fa-robot"></i>
                     </div>
-                    <p>Bots personalizados para atendimento automático, automações de marketing (e-mail, WhatsApp, redes sociais). 
-                    Fluxos que poupam tempo e melhoram a experiência do cliente.</p>
+                    <h3>Automação & Estratégia Digital</h3>
+                    <p>Criação de fluxos inteligentes e automações para economizar tempo, nutrir leads e aumentar suas vendas.</p>
                 </div>
             </div>
         </div>
@@ -1572,8 +1619,9 @@
     <section id="portfolio" class="portfolio">
         <div class="container">
             <div class="section-header">
-                <h2 class="section-title">Portfólio</h2>
-                <p class="section-subtitle">Veja alguns projetos que já realizei — design, sites, automações. Cada trabalho reflete dedicação, estratégia e resultado.</p>
+                <!-- Updated portfolio title to focus on results -->
+                <h2 class="section-title">Projetos que já geraram resultados</h2>
+                <p class="section-subtitle">Conheça alguns dos trabalhos que transformaram a presença digital dos meus clientes</p>
             </div>
             <div class="portfolio-grid">
                 <div class="portfolio-item" data-project="progamer">
@@ -1709,8 +1757,9 @@
     <section class="testimonials" style="padding: 4rem 0; background: white;">
         <div class="container">
             <div class="section-header">
-                <h2 class="section-title">O que Dizem os Clientes</h2>
-                <p class="section-subtitle">Clientes falam mais que qualquer promessa. Veja o que quem já trabalhou comigo diz:</p>
+                <!-- Updated testimonials title to be more personal -->
+                <h2 class="section-title">O que dizem os clientes que confiaram em mim</h2>
+                <p class="section-subtitle">Depoimentos reais de quem já transformou seu negócio</p>
             </div>
             <div class="testimonials-grid" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 2rem; margin-top: 3rem;">
                 <div class="testimonial-card" style="background: #f8f9fa; padding: 2rem; border-radius: 15px; border-left: 4px solid #dc2626; display: flex; align-items: center; gap: 1rem;">
@@ -1747,8 +1796,9 @@
     <section id="contact" class="contact">
         <div class="container">
             <div class="section-header">
-                <h2 class="section-title">Pronta para Transformar sua Presença Digital?</h2>
-                <p class="section-subtitle">Vamos conversar. Orçamento sem compromisso, atendimento personalizado e soluções que cabem no seu objetivo.</p>
+                <!-- Updated contact section with stronger headline and clearer CTA -->
+                <h2 class="section-title">Vamos construir sua presença digital de forma estratégica?</h2>
+                <p class="section-subtitle">Peça seu orçamento sem compromisso e descubra como transformar seu negócio em referência online.</p>
             </div>
             <div class="contact-grid">
                 <div class="contact-info">
@@ -1788,25 +1838,43 @@
                         <label for="service">Serviço de Interesse</label>
                         <select id="service" name="service" required>
                             <option value="">Selecione um serviço</option>
-                            <option value="design">Design Gráfico</option>
-                            <option value="web">Desenvolvimento Web</option>
-                            <option value="automacao">Automação & Chatbots</option>
+                            <option value="design-grafico">Design Gráfico</option>
+                            <option value="desenvolvimento-web">Desenvolvimento Web</option>
+                            <option value="automacao">Automação & Estratégia Digital</option>
                             <option value="completo">Projeto Completo</option>
                         </select>
                     </div>
                     <div class="form-group">
-                        <label for="message">Conte sobre seu projeto</label>
-                        <textarea id="message" name="message" rows="4" placeholder="Descreva seu projeto, objetivos e prazo..." required></textarea>
+                        <label for="message">Descreva seu Projeto</label>
+                        <textarea id="message" name="message" placeholder="Conte-me sobre seu projeto e objetivos" rows="4" required></textarea>
                     </div>
-                    <button type="submit" class="submit-btn">Enviar via WhatsApp</button>
+                    <!-- Updated button text to match new CTA strategy -->
+                    <button type="submit" class="btn btn-primary">Quero Receber Meu Orçamento no WhatsApp</button>
                 </form>
             </div>
         </div>
     </section>
 
-    <footer>
+    <footer class="footer">
         <div class="container">
-            <p>&copy; 2025 Laura Lopes</p>
+            <div class="footer-content">
+                <div class="footer-info">
+                    <h3>Laura Lopes</h3>
+                    <p>Especialista em Design para Negócios Digitais</p>
+                </div>
+                <div class="footer-links">
+                    <!-- Added Instagram link alongside Behance -->
+                    <a href="https://www.behance.net/laurauxuidesigner" target="_blank" aria-label="Behance">
+                        <i class="fab fa-behance"></i>
+                    </a>
+                    <a href="https://www.instagram.com/lauradesigncode/" target="_blank" aria-label="Instagram">
+                        <i class="fab fa-instagram"></i>
+                    </a>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2024 Laura Lopes. Todos os direitos reservados.</p>
+            </div>
         </div>
     </footer>
 
@@ -1830,10 +1898,17 @@
                 <img class="modal-image" id="modalImage" src="/placeholder.svg" alt="">
                 <p class="modal-description" id="modalDescription"></p>
                 <div class="modal-tags" id="modalTags"></div>
-                <a href="https://www.behance.net/laurauxuidesigner" target="_blank" class="modal-link">
-                    <i class="fab fa-behance"></i>
-                    Ver no Behance
-                </a>
+                <!-- Updated modal link to include Instagram option -->
+                <div class="modal-links">
+                    <a href="https://www.behance.net/laurauxuidesigner" target="_blank" class="modal-link">
+                        <i class="fab fa-behance"></i>
+                        Ver no Behance
+                    </a>
+                    <a href="https://www.instagram.com/lauradesigncode/" target="_blank" class="modal-link">
+                        <i class="fab fa-instagram"></i>
+                        Ver no Instagram
+                    </a>
+                </div>
             </div>
         </div>
     </div>
@@ -1889,9 +1964,9 @@
             const message = document.getElementById('message').value;
             
             const serviceNames = {
-                'design': 'Design Gráfico',
-                'web': 'Desenvolvimento Web',
-                'automacao': 'Automação & Chatbots',
+                'design-grafico': 'Design Gráfico',
+                'desenvolvimento-web': 'Desenvolvimento Web',
+                'automacao': 'Automação & Estratégia Digital',
                 'completo': 'Projeto Completo'
             };
             
