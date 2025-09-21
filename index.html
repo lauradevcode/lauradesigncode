@@ -115,7 +115,7 @@
             -webkit-text-fill-color: transparent;
             background-clip: text;
             line-height: 1.1;
-            text-shadow: 0 4px 20px rgba(255, 255, 255, 0.3);
+            text-shadow: 0 4px 20px rgba(220, 38, 38, 0.3);
             animation: titleFadeIn 1.2s ease-out;
         }
 
@@ -131,6 +131,7 @@
         }
 
         .hero h1 .highlight {
+            background-color: #e0e0e0;
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             background-clip: text;
@@ -401,12 +402,15 @@
 
         .portfolio-item {
             background: white;
-            border-radius: 15px;
+            border-radius: 20px;
             overflow: hidden;
             box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
-            transition: all 0.3s ease;
+            transition: all 0.4s ease;
             opacity: 0;
             transform: translateY(30px);
+            cursor: pointer;
+            position: relative;
+            border: 2px solid transparent;
         }
 
         .portfolio-item.visible {
@@ -415,36 +419,152 @@
         }
 
         .portfolio-item:hover {
-            transform: translateY(-8px);
-            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+            transform: translateY(-12px) scale(1.02);
+            box-shadow: 0 25px 50px rgba(220, 38, 38, 0.15);
+            border-color: rgba(220, 38, 38, 0.3);
+        }
+
+        .portfolio-item::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(135deg, rgba(220, 38, 38, 0.05), rgba(220, 38, 127, 0.05));
+            opacity: 0;
+            transition: opacity 0.3s ease;
+            z-index: 1;
+        }
+
+        .portfolio-item:hover::before {
+            opacity: 1;
         }
 
         .portfolio-image {
-            height: 200px;
+            height: 220px;
+            position: relative;
+            overflow: hidden;
             display: flex;
             align-items: center;
             justify-content: center;
-            color: white;
-            font-size: 1.8rem;
-            font-weight: 700;
+        }
+
+        .portfolio-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.4s ease;
+        }
+
+        .portfolio-item:hover .portfolio-image img {
+            transform: scale(1.1);
+        }
+
+        .portfolio-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(135deg, rgba(220, 38, 38, 0.8), rgba(220, 38, 127, 0.8));
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+            z-index: 2;
+        }
+
+        .portfolio-item:hover .portfolio-overlay {
+            opacity: 1;
+        }
+
+        .portfolio-overlay-content {
             text-align: center;
-            padding: 1rem;
+            color: white;
+            transform: translateY(20px);
+            transition: transform 0.3s ease;
+        }
+
+        .portfolio-item:hover .portfolio-overlay-content {
+            transform: translateY(0);
+        }
+
+        .portfolio-overlay i {
+            font-size: 2.5rem;
+            margin-bottom: 0.5rem;
+            display: block;
+        }
+
+        .portfolio-overlay span {
+            font-size: 1rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 1px;
         }
 
         .portfolio-content {
-            padding: 1.5rem;
+            padding: 2rem 1.5rem;
+            position: relative;
+            z-index: 2;
         }
 
         .portfolio-content h3 {
-            font-size: 1.2rem;
+            font-size: 1.3rem;
             font-weight: 700;
-            margin-bottom: 0.5rem;
+            margin-bottom: 0.8rem;
             color: #333;
+            transition: color 0.3s ease;
+        }
+
+        .portfolio-item:hover .portfolio-content h3 {
+            color: #dc2626;
         }
 
         .portfolio-content p {
             color: #666;
-            font-size: 0.9rem;
+            font-size: 0.95rem;
+            line-height: 1.6;
+            margin-bottom: 1rem;
+        }
+
+        .portfolio-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+            margin-top: 1rem;
+        }
+
+        .portfolio-tag {
+            background: #f8f9fa;
+            color: #666;
+            padding: 0.3rem 0.8rem;
+            border-radius: 15px;
+            font-size: 0.75rem;
+            font-weight: 500;
+            transition: all 0.3s ease;
+        }
+
+        .portfolio-item:hover .portfolio-tag {
+            background: linear-gradient(135deg, #dc2626, #b91c1c);
+            color: white;
+        }
+
+        .portfolio-category {
+            position: absolute;
+            top: 1rem;
+            left: 1rem;
+            background: rgba(220, 38, 38, 0.9);
+            color: white;
+            padding: 0.4rem 0.8rem;
+            border-radius: 20px;
+            font-size: 0.75rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            z-index: 3;
+            backdrop-filter: blur(10px);
         }
 
         .contact {
@@ -789,7 +909,507 @@
                 padding: 0.4rem 0.8rem;
                 font-size: 0.9rem;
             }
+
+            /* Adding comprehensive mobile responsiveness */
+            .about-content {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+                text-align: center;
+            }
+
+            .about h2 {
+                font-size: 2rem;
+            }
+
+            .about-description {
+                font-size: 1rem;
+            }
+
+            .features-list {
+                grid-template-columns: 1fr;
+                gap: 1rem;
+            }
+
+            .feature-item {
+                padding: 1rem;
+                justify-content: center;
+                text-align: center;
+            }
+
+            .services-grid {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+
+            .service-card {
+                padding: 2rem 1.5rem;
+            }
+
+            .portfolio-grid {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+
+            .portfolio-item {
+                max-width: 400px;
+                margin: 0 auto;
+            }
+
+            .portfolio-image {
+                height: 200px;
+            }
+
+            .portfolio-content {
+                padding: 1.5rem;
+            }
+
+            .portfolio-tags {
+                justify-content: center;
+            }
+
+            .contact-grid {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+
+            .contact-form {
+                padding: 2rem 1.5rem;
+            }
+
+            .testimonials-grid {
+                grid-template-columns: 1fr !important;
+                gap: 1.5rem !important;
+            }
+
+            .testimonial-card {
+                flex-direction: column !important;
+                text-align: center !important;
+                gap: 1rem !important;
+            }
+
+            .section-title {
+                font-size: 2rem;
+            }
+
+            .section-subtitle {
+                font-size: 1rem;
+            }
+
+            .hero-buttons {
+                flex-direction: column;
+                align-items: center;
+                gap: 1rem;
+            }
+
+            .btn {
+                width: 100%;
+                max-width: 280px;
+            }
         }
+
+        /* Adding tablet responsiveness */
+        @media (max-width: 1024px) and (min-width: 769px) {
+            .hero-title {
+                font-size: 3.5rem;
+            }
+
+            .about-content {
+                gap: 3rem;
+            }
+
+            .services-grid {
+                grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+                gap: 2rem;
+            }
+
+            .portfolio-grid {
+                grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+                gap: 2rem;
+            }
+
+            .contact-grid {
+                gap: 3rem;
+            }
+        }
+
+        /* Adding small mobile responsiveness */
+        @media (max-width: 480px) {
+            .container {
+                padding: 0 1rem;
+            }
+
+            .hero-content {
+                padding: 0 1rem;
+            }
+
+            .hero-title {
+                font-size: 2rem;
+                line-height: 1.2;
+            }
+
+            .hero-subtitle {
+                font-size: 1rem;
+            }
+
+            .about, .services, .portfolio, .contact {
+                padding: 4rem 0;
+            }
+
+            .section-header {
+                margin-bottom: 3rem;
+            }
+
+            .section-title {
+                font-size: 1.8rem;
+            }
+
+            .about h2 {
+                font-size: 1.8rem;
+            }
+
+            .service-card {
+                padding: 1.5rem;
+            }
+
+            .service-header {
+                flex-direction: column;
+                text-align: center;
+                gap: 0.5rem;
+            }
+
+            .service-icon {
+                width: 50px;
+                height: 50px;
+                font-size: 1.2rem;
+            }
+
+            .portfolio-content {
+                padding: 1.2rem;
+            }
+
+            .portfolio-content h3 {
+                font-size: 1.1rem;
+            }
+
+            .portfolio-content p {
+                font-size: 0.9rem;
+            }
+
+            .contact-form {
+                padding: 1.5rem;
+            }
+
+            .form-group input,
+            .form-group select,
+            .form-group textarea {
+                padding: 0.8rem;
+            }
+
+            .testimonial-card {
+                padding: 1.5rem !important;
+            }
+
+            .nav-links {
+                display: none;
+            }
+
+            .logo {
+                font-size: 1.3rem;
+            }
+
+            .whatsapp-float {
+                width: 50px;
+                height: 50px;
+                font-size: 1.5rem;
+                bottom: 20px;
+                right: 20px;
+            }
+
+            .whatsapp-popup {
+                bottom: 80px;
+                right: 20px;
+                max-width: 200px;
+                padding: 0.8rem 1rem;
+            }
+        }
+
+        /* Adding landscape mobile responsiveness */
+        @media (max-height: 500px) and (orientation: landscape) {
+            .hero {
+                height: auto;
+                min-height: 100vh;
+                padding: 2rem 0;
+            }
+
+            .hero-title {
+                font-size: 2.5rem;
+            }
+
+            .hero-subtitle {
+                font-size: 1.1rem;
+            }
+
+            .hero-buttons {
+                margin-top: 1rem;
+            }
+        }
+
+        /* Improving modal responsiveness */
+        @media (max-width: 768px) {
+            .modal-content {
+                max-width: 95vw;
+                max-height: 95vh;
+                margin: 1rem;
+            }
+
+            .modal-header {
+                padding: 1rem 1.5rem;
+            }
+
+            .modal-body {
+                padding: 1.5rem;
+            }
+
+            .modal-title {
+                font-size: 1.2rem;
+            }
+
+            .close-modal {
+                font-size: 1.5rem;
+                width: 35px;
+                height: 35px;
+            }
+
+            .modal-description {
+                font-size: 1rem;
+            }
+
+            .modal-tags {
+                justify-content: center;
+            }
+
+            .modal-link {
+                width: 100%;
+                justify-content: center;
+                padding: 1rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .modal-content {
+                max-width: 98vw;
+                max-height: 98vh;
+                margin: 0.5rem;
+                border-radius: 15px;
+            }
+
+            .modal-header {
+                padding: 1rem;
+                border-radius: 15px 15px 0 0;
+            }
+
+            .modal-body {
+                padding: 1rem;
+            }
+
+            .modal-title {
+                font-size: 1.1rem;
+            }
+
+            .modal-description {
+                font-size: 0.95rem;
+                line-height: 1.6;
+            }
+
+            .modal-image {
+                border-radius: 10px;
+            }
+        }
+
+        /* Adding print styles */
+        @media print {
+            .whatsapp-float,
+            .whatsapp-popup,
+            .modal,
+            nav {
+                display: none !important;
+            }
+
+            .hero {
+                height: auto;
+                background: white;
+                color: black;
+                padding: 2rem 0;
+            }
+
+            .hero-title,
+            .hero-subtitle {
+                color: black;
+            }
+
+            .btn {
+                display: none;
+            }
+
+            .portfolio-overlay {
+                display: none;
+            }
+
+            .portfolio-item:hover {
+                transform: none;
+                box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            }
+
+            .service-card:hover,
+            .portfolio-item:hover,
+            .testimonial:hover {
+                transform: none;
+            }
+        }
+
+        /* Adding modal styles for portfolio projects */
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 2000;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.8);
+            backdrop-filter: blur(5px);
+            animation: fadeIn 0.3s ease-out;
+        }
+
+        .modal.show {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .modal-content {
+            background: white;
+            border-radius: 20px;
+            max-width: 90vw;
+            max-height: 90vh;
+            overflow-y: auto;
+            position: relative;
+            animation: slideIn 0.3s ease-out;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+        }
+
+        .modal-header {
+            position: sticky;
+            top: 0;
+            background: white;
+            padding: 1.5rem 2rem;
+            border-bottom: 1px solid #e0e0e0;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-radius: 20px 20px 0 0;
+            z-index: 10;
+        }
+
+        .modal-title {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: #333;
+            margin: 0;
+        }
+
+        .close-modal {
+            background: none;
+            border: none;
+            font-size: 2rem;
+            color: #999;
+            cursor: pointer;
+            padding: 0;
+            width: 40px;
+            height: 40px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 50%;
+            transition: all 0.3s ease;
+        }
+
+        .close-modal:hover {
+            background: #f5f5f5;
+            color: #dc2626;
+            transform: rotate(90deg);
+        }
+
+        .modal-body {
+            padding: 2rem;
+        }
+
+        .modal-image {
+            width: 100%;
+            max-width: 600px;
+            height: auto;
+            border-radius: 15px;
+            margin-bottom: 1.5rem;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+        }
+
+        .modal-description {
+            font-size: 1.1rem;
+            line-height: 1.7;
+            color: #666;
+            margin-bottom: 1.5rem;
+        }
+
+        .modal-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .modal-tag {
+            background: linear-gradient(135deg, #dc2626, #b91c1c);
+            color: white;
+            padding: 0.3rem 0.8rem;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: 500;
+        }
+
+        .modal-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            background: linear-gradient(135deg, #dc2626, #b91c1c);
+            color: white;
+            padding: 0.8rem 1.5rem;
+            border-radius: 25px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s ease;
+        }
+
+        .modal-link:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(220, 38, 38, 0.3);
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        @keyframes slideIn {
+            from { 
+                opacity: 0;
+                transform: translateY(30px) scale(0.9);
+            }
+            to { 
+                opacity: 1;
+                transform: translateY(0) scale(1);
+            }
+        }
+
     </style>
 </head>
 
@@ -815,7 +1435,7 @@
         
         <div class="hero-content">
             <h1 class="hero-title">
-                <span>Transformo Ideias em</span> <span class="highlight">Resultados Digitais</span>
+                <span style="color: #ffffff; text-shadow: 2px 2px 4px rgba(0,0,0,0.3);">Transformo Ideias em</span> <span class="highlight" style="color: #dc2626; text-shadow: 2px 2px 4px rgba(0,0,0,0.3);">Resultados Digitais</span>
             </h1>
             <p class="hero-subtitle">
                 Especialista em criar soluções que fazem sua marca se destacar no digital. 
@@ -832,10 +1452,10 @@
         <div class="container">
             <div class="about-content">
                 <div class="about-info">
-                    <h2>Oi! Eu sou a <em>Laura</em>, especialista em Web Designer</h2>
+                    <h2>Oi! Eu sou a <em>Laura</em>, especialista em Web Designer e Automação</h2>
                     <p class="about-description">
                         Com mais de 5 anos de experiência, ajudo marcas a se destacarem com soluções digitais completas: 
-                        sites funcionais e atraentes, interfaces inteligentes e estratégias que realmente geram resultados.
+                        sites funcionais e atraentes, interfaces inteligentes, bots interativos e estratégias de marketing que realmente geram resultados.
                         <br><br>
                         Minha abordagem une <strong>estética + tecnologia + estratégia</strong>, 
                         garantindo que cada projeto não apenas impressione visualmente, 
@@ -848,15 +1468,19 @@
                         </div>
                         <div class="feature-item">
                             <i class="fas fa-tools"></i>
-                            <span>Domínio técnico completo</span>
+                            <span>Domínio técnico completo (Design e Desenvolvimento)</span>
                         </div>
                         <div class="feature-item">
                             <i class="fas fa-bullseye"></i>
-                            <span>Pensamento estratégico</span>
+                            <span>Pensamento estratégico e orientação a resultados</span>
                         </div>
                         <div class="feature-item">
                             <i class="fas fa-chart-line"></i>
                             <span>Marketing digital integrado e otimização de conversão</span>
+                        </div>
+                        <div class="feature-item">
+                            <i class="fab fa-behance"></i>
+                            <span><a href="https://www.behance.net/laurauxuidesigner" target="_blank" style="color: #dc2626; text-decoration: none;">Ver Behance</a></span>
                         </div>
                     </div>
                 </div>
@@ -915,59 +1539,130 @@
                 <p class="section-subtitle">Veja alguns projetos que já realizei — design, sites, automações. Cada trabalho reflete dedicação, estratégia e resultado.</p>
             </div>
             <div class="portfolio-grid">
-                <div class="portfolio-item">
+                <div class="portfolio-item" data-project="progamer">
+                    <div class="portfolio-category">Mobile App</div>
                     <div class="portfolio-image">
-                        <img src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/image-KCHVgXfJxxwvgxj5aOGy0edHjrGjRD.png" alt="App Progamer" style="width: 100%; height: 200px; object-fit: cover; border-radius: 10px;">
+                        <img src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/image-KCHVgXfJxxwvgxj5aOGy0edHjrGjRD.png" alt="App Progamer">
+                        <div class="portfolio-overlay">
+                            <div class="portfolio-overlay-content">
+                                <i class="fas fa-eye"></i>
+                                <span>Ver Projeto</span>
+                            </div>
+                        </div>
                     </div>
                     <div class="portfolio-content">
                         <h3>Progamer - App Mobile</h3>
-                        <p>Aplicativo completo para gamers com sistema de usuários</p>
+                        <p>Aplicativo completo para gamers com sistema de usuários, ranking e chat em tempo real</p>
+                        <div class="portfolio-tags">
+                            <span class="portfolio-tag">UI/UX</span>
+                            <span class="portfolio-tag">Mobile</span>
+                            <span class="portfolio-tag">Gaming</span>
+                        </div>
                     </div>
                 </div>
-                <div class="portfolio-item">
+                <div class="portfolio-item" data-project="lifebios">
+                    <div class="portfolio-category">Web System</div>
                     <div class="portfolio-image">
-                        <img src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/image-fWUNbqPxuNSHLsz8Y3q8bHd6RBVyOF.png" alt="Lifebios Login" style="width: 100%; height: 200px; object-fit: cover; border-radius: 10px;">
+                        <img src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/image-fWUNbqPxuNSHLsz8Y3q8bHd6RBVyOF.png" alt="Lifebios Login">
+                        <div class="portfolio-overlay">
+                            <div class="portfolio-overlay-content">
+                                <i class="fas fa-eye"></i>
+                                <span>Ver Projeto</span>
+                            </div>
+                        </div>
                     </div>
                     <div class="portfolio-content">
                         <h3>Lifebios - Sistema Web</h3>
-                        <p>Interface de login e sistema para empresa de saúde</p>
+                        <p>Interface de login e sistema completo para empresa de saúde com dashboard administrativo</p>
+                        <div class="portfolio-tags">
+                            <span class="portfolio-tag">Web Design</span>
+                            <span class="portfolio-tag">Healthcare</span>
+                            <span class="portfolio-tag">Dashboard</span>
+                        </div>
                     </div>
                 </div>
-                <div class="portfolio-item">
+                <div class="portfolio-item" data-project="minatto">
+                    <div class="portfolio-category">Website</div>
                     <div class="portfolio-image">
-                        <img src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/image-yddRUfiqb9s3O31skVse7FUqU8XAYt.png" alt="Construtora Minatto" style="width: 100%; height: 200px; object-fit: cover; border-radius: 10px;">
+                        <img src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/image-yddRUfiqb9s3O31skVse7FUqU8XAYt.png" alt="Construtora Minatto">
+                        <div class="portfolio-overlay">
+                            <div class="portfolio-overlay-content">
+                                <i class="fas fa-eye"></i>
+                                <span>Ver Projeto</span>
+                            </div>
+                        </div>
                     </div>
                     <div class="portfolio-content">
                         <h3>Construtora Minatto</h3>
-                        <p>Website institucional completo com depoimentos</p>
+                        <p>Website institucional completo com galeria de projetos e sistema de orçamentos</p>
+                        <div class="portfolio-tags">
+                            <span class="portfolio-tag">Website</span>
+                            <span class="portfolio-tag">Construção</span>
+                            <span class="portfolio-tag">SEO</span>
+                        </div>
                     </div>
                 </div>
-                <!-- Adicionando novos projetos do Behance -->
-                <div class="portfolio-item">
+                <div class="portfolio-item" data-project="sabor-mell">
+                    <div class="portfolio-category">Packaging</div>
                     <div class="portfolio-image">
-                        <img src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/image%20%2818%29.png-XvyAAFnamFBmmRHKV589m3asxhYr9J.jpeg" alt="Sabor de Mell Packaging" style="width: 100%; height: 200px; object-fit: cover; border-radius: 10px;">
+                        <img src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/image%20%2818%29.png-XvyAAFnamFBmmRHKV589m3asxhYr9J.jpeg" alt="Sabor de Mell Packaging">
+                        <div class="portfolio-overlay">
+                            <div class="portfolio-overlay-content">
+                                <i class="fas fa-eye"></i>
+                                <span>Ver Projeto</span>
+                            </div>
+                        </div>
                     </div>
                     <div class="portfolio-content">
                         <h3>Sabor de Mell - Packaging</h3>
                         <p>Design de embalagem para produto alimentício com identidade visual completa</p>
+                        <div class="portfolio-tags">
+                            <span class="portfolio-tag">Packaging</span>
+                            <span class="portfolio-tag">Branding</span>
+                            <span class="portfolio-tag">Food Design</span>
+                        </div>
                     </div>
                 </div>
-                <div class="portfolio-item">
+                <div class="portfolio-item" data-project="brothers-store">
+                    <div class="portfolio-category">Branding</div>
                     <div class="portfolio-image">
-                        <img src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/image%20%2840%29-36L11rvfHnDy2GryGX7aTgRLdQpP5t.png" alt="Brothers Store Branding" style="width: 100%; height: 200px; object-fit: cover; border-radius: 10px;">
+                        <img src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/image%20%2840%29-36L11rvfHnDy2GryGX7aTgRLdQpP5t.png" alt="Brothers Store Branding">
+                        <div class="portfolio-overlay">
+                            <div class="portfolio-overlay-content">
+                                <i class="fas fa-eye"></i>
+                                <span>Ver Projeto</span>
+                            </div>
+                        </div>
                     </div>
                     <div class="portfolio-content">
                         <h3>Brothers Store - Identidade Visual</h3>
-                        <p>Logo e cartão de visita com design minimalista e elegante</p>
+                        <p>Logo e identidade visual completa com design minimalista e elegante</p>
+                        <div class="portfolio-tags">
+                            <span class="portfolio-tag">Branding</span>
+                            <span class="portfolio-tag">Logo Design</span>
+                            <span class="portfolio-tag">Fashion</span>
+                        </div>
                     </div>
                 </div>
-                <div class="portfolio-item">
+                <div class="portfolio-item" data-project="rexor">
+                    <div class="portfolio-category">Print Design</div>
                     <div class="portfolio-image">
-                        <img src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/Mockup%20Cart%C3%A3o%20de%20Visita%20Rexor%203-7IByedc1NGSLRVY3QboWxExGThhdwm.png" alt="Rexor Business Cards" style="width: 100%; height: 200px; object-fit: cover; border-radius: 10px;">
+                        <img src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/Mockup%20Cart%C3%A3o%20de%20Visita%20Rexor%203-7IByedc1NGSLRVY3QboWxExGThhdwm.png" alt="Rexor Business Cards">
+                        <div class="portfolio-overlay">
+                            <div class="portfolio-overlay-content">
+                                <i class="fas fa-eye"></i>
+                                <span>Ver Projeto</span>
+                            </div>
+                        </div>
                     </div>
                     <div class="portfolio-content">
                         <h3>Rexor - Cartão de Visita</h3>
-                        <p>Design corporativo sofisticado com acabamento premium</p>
+                        <p>Design corporativo sofisticado com acabamento premium e alta qualidade</p>
+                        <div class="portfolio-tags">
+                            <span class="portfolio-tag">Print Design</span>
+                            <span class="portfolio-tag">Corporate</span>
+                            <span class="portfolio-tag">Premium</span>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -1087,6 +1782,25 @@
         <i class="fab fa-whatsapp"></i>
     </a>
 
+    <!-- Adding modal structure for portfolio projects -->
+    <div class="modal" id="projectModal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2 class="modal-title" id="modalTitle">Projeto</h2>
+                <button class="close-modal" id="closeModal">&times;</button>
+            </div>
+            <div class="modal-body">
+                <img class="modal-image" id="modalImage" src="/placeholder.svg" alt="">
+                <p class="modal-description" id="modalDescription"></p>
+                <div class="modal-tags" id="modalTags"></div>
+                <a href="https://www.behance.net/laurauxuidesigner" target="_blank" class="modal-link">
+                    <i class="fab fa-behance"></i>
+                    Ver no Behance
+                </a>
+            </div>
+        </div>
+    </div>
+
     <script>
         let popupShown = false;
         
@@ -1170,6 +1884,101 @@ Gostaria de solicitar um orçamento!`;
             }
         });
 
+        const projectData = {
+            'progamer': {
+                title: 'Progamer - App Mobile',
+                image: 'https://hebbkx1anhila5yf.public.blob.vercel-storage.com/image-KCHVgXfJxxwvgxj5aOGy0edHjrGjRD.png',
+                description: 'Aplicativo mobile completo desenvolvido para a comunidade gamer. O projeto incluiu design de interface moderna e intuitiva, sistema de usuários com perfis personalizáveis, sistema de ranking e conquistas, integração com redes sociais e chat em tempo real. A interface foi pensada para proporcionar uma experiência imersiva, com elementos visuais que remetem ao universo dos games, cores vibrantes e animações fluidas.',
+                tags: ['UI/UX Design', 'Mobile App', 'Gaming', 'React Native', 'Firebase']
+            },
+            'lifebios': {
+                title: 'Lifebios - Sistema Web',
+                image: 'https://hebbkx1anhila5yf.public.blob.vercel-storage.com/image-fWUNbqPxuNSHLsz8Y3q8bHd6RBVyOF.png',
+                description: 'Sistema web desenvolvido para empresa do setor de saúde, focado em gestão de pacientes e prontuários eletrônicos. O projeto contemplou interface de login segura com autenticação em duas etapas, dashboard administrativo com métricas em tempo real, sistema de agendamento integrado, módulo de relatórios personalizáveis e interface responsiva otimizada para tablets e dispositivos móveis utilizados por profissionais de saúde.',
+                tags: ['Web Design', 'Healthcare', 'Dashboard', 'React', 'Node.js']
+            },
+            'minatto': {
+                title: 'Construtora Minatto - Website',
+                image: 'https://hebbkx1anhila5yf.public.blob.vercel-storage.com/image-yddRUfiqb9s3O31skVse7FUqU8XAYt.png',
+                description: 'Website institucional completo para construtora, desenvolvido com foco em conversão e credibilidade. Inclui galeria de projetos com filtros dinâmicos, seção de depoimentos de clientes, formulário de orçamento integrado, blog com conteúdo sobre construção civil, mapa interativo de empreendimentos e sistema de newsletter. O design transmite solidez e confiança, elementos essenciais para o setor da construção.',
+                tags: ['Website', 'Construção', 'WordPress', 'SEO', 'Conversão']
+            },
+            'sabor-mell': {
+                title: 'Sabor de Mell - Packaging Design',
+                image: 'https://hebbkx1anhila5yf.public.blob.vercel-storage.com/image%20%2818%29.png-XvyAAFnamFBmmRHKV589m3asxhYr9J.jpeg',
+                description: 'Projeto completo de identidade visual e design de embalagem para produto alimentício artesanal. O trabalho envolveu criação de logotipo, definição de paleta de cores, desenvolvimento de padrões gráficos, design da embalagem principal e materiais de apoio como etiquetas e tags. O conceito visual valoriza a origem artesanal do produto, utilizando elementos orgânicos e tipografia que transmite qualidade e tradição.',
+                tags: ['Packaging', 'Branding', 'Food Design', 'Identidade Visual', 'Ilustração']
+            },
+            'brothers-store': {
+                title: 'Brothers Store - Identidade Visual',
+                image: 'https://hebbkx1anhila5yf.public.blob.vercel-storage.com/image%20%2840%29-36L11rvfHnDy2GryGX7aTgRLdQpP5t.png',
+                description: 'Desenvolvimento completo de identidade visual para loja de roupas masculinas. O projeto incluiu criação de logotipo moderno e versátil, definição de paleta de cores sofisticada, desenvolvimento de padrões gráficos, design de cartão de visita, papel timbrado, sacolas personalizadas e manual de identidade visual. O conceito transmite elegância e modernidade, alinhado com o público-alvo jovem e urbano.',
+                tags: ['Branding', 'Logo Design', 'Fashion', 'Identidade Visual', 'Print Design']
+            },
+            'rexor': {
+                title: 'Rexor - Cartão de Visita Premium',
+                image: 'https://hebbkx1anhila5yf.public.blob.vercel-storage.com/Mockup%20Cart%C3%A3o%20de%20Visita%20Rexor%203-7IByedc1NGSLRVY3QboWxExGThhdwm.png',
+                description: 'Design de cartão de visita corporativo premium para empresa do setor tecnológico. O projeto focou em criar uma peça que transmitisse inovação e profissionalismo através de design minimalista, uso estratégico de espaços em branco, tipografia moderna e acabamentos especiais como verniz localizado e papel de alta gramatura. O resultado é um cartão que se destaca pela elegância e qualidade de impressão.',
+                tags: ['Print Design', 'Corporate', 'Business Card', 'Premium', 'Tecnologia']
+            }
+        };
+
+        const modal = document.getElementById('projectModal');
+        const modalTitle = document.getElementById('modalTitle');
+        const modalImage = document.getElementById('modalImage');
+        const modalDescription = document.getElementById('modalDescription');
+        const modalTags = document.getElementById('modalTags');
+        const closeModal = document.getElementById('closeModal');
+
+        // Open modal when clicking on portfolio items
+        document.querySelectorAll('.portfolio-item').forEach(item => {
+            item.addEventListener('click', function() {
+                const projectKey = this.getAttribute('data-project');
+                const project = projectData[projectKey];
+                
+                if (project) {
+                    modalTitle.textContent = project.title;
+                    modalImage.src = project.image;
+                    modalImage.alt = project.title;
+                    modalDescription.textContent = project.description;
+                    
+                    // Clear and populate tags
+                    modalTags.innerHTML = '';
+                    project.tags.forEach(tag => {
+                        const tagElement = document.createElement('span');
+                        tagElement.className = 'modal-tag';
+                        tagElement.textContent = tag;
+                        modalTags.appendChild(tagElement);
+                    });
+                    
+                    modal.classList.add('show');
+                    document.body.style.overflow = 'hidden';
+                }
+            });
+        });
+
+        // Close modal
+        function closeProjectModal() {
+            modal.classList.remove('show');
+            document.body.style.overflow = 'auto';
+        }
+
+        closeModal.addEventListener('click', closeProjectModal);
+
+        // Close modal when clicking outside
+        modal.addEventListener('click', function(e) {
+            if (e.target === modal) {
+                closeProjectModal();
+            }
+        });
+
+        // Close modal with Escape key
+        document.addEventListener('keydown', function(e) {
+            if (e.key === 'Escape' && modal.classList.contains('show')) {
+                closeProjectModal();
+            }
+        });
+
         document.addEventListener('DOMContentLoaded', function() {
             function isElementInViewport(el) {
                 const rect = el.getBoundingClientRect();
@@ -1221,6 +2030,9 @@ Gostaria de solicitar um orçamento!`;
             const buttons = document.querySelectorAll('.btn, .service-card, .portfolio-item');
             buttons.forEach(button => {
                 button.addEventListener('click', function(e) {
+                    // Skip ripple effect for portfolio items as they open modals
+                    if (this.classList.contains('portfolio-item')) return;
+                    
                     const ripple = document.createElement('span');
                     const rect = this.getBoundingClientRect();
                     const size = Math.max(rect.width, rect.height);
