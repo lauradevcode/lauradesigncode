@@ -221,108 +221,126 @@
             box-shadow: 0 8px 25px rgba(220, 38, 38, 0.2);
         }
 
-        /* Redesigning about section with dark professional style */
         .about {
             padding: 6rem 0;
-            background: #0f0f0f;
-            color: white;
+            background: #f8f9fa;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        /* Melhorando margens para desktop e mobile */
+        @media (min-width: 1024px) {
+            .container {
+                max-width: 1400px;
+                padding: 0 4rem;
+            }
+            
+            .hero-content {
+                max-width: 1000px;
+                padding: 0 2rem;
+            }
+            
+            .services-grid,
+            .portfolio-grid {
+                gap: 3rem;
+            }
+            
+            .section-header {
+                margin-bottom: 5rem;
+            }
+        }
+
+        /* Reduzindo espaçamentos no mobile */
+        @media (max-width: 768px) {
+            .about,
+            .services,
+            .portfolio,
+            .work-process,
+            .testimonials,
+            .contact {
+                padding: 3rem 0 !important;
+            }
+            
+            .section-header {
+                margin-bottom: 2rem !important;
+            }
+            
+            .hero-title {
+                font-size: 2.5rem;
+            }
+            
+            .hero-subtitle {
+                font-size: 1.2rem;
+            }
+            
+            .btn {
+                padding: 0.8rem 2rem;
+                font-size: 1rem;
+            }
         }
 
         .about-content {
             display: grid;
-            grid-template-columns: 1fr 400px;
+            grid-template-columns: 1fr 1fr;
             gap: 4rem;
             align-items: center;
-            max-width: 1200px;
-            margin: 0 auto;
         }
 
-        .about-title {
-            font-size: 3rem;
-            font-weight: 900;
-            text-transform: uppercase;
-            letter-spacing: 2px;
-            margin-bottom: 3rem;
-            text-align: center;
-            grid-column: 1 / -1;
-        }
-
-        .about-info {
-            display: flex;
-            flex-direction: column;
-            gap: 2rem;
-        }
-
-        .experience-badge {
-            display: flex;
-            align-items: center;
-            gap: 0.5rem;
-            font-size: 0.9rem;
-            color: #60a5fa;
-            margin-bottom: 1rem;
-        }
-
-        .experience-badge::before {
-            content: '•';
-            color: #60a5fa;
-            font-size: 1.2rem;
-        }
-
-        .about-headline {
-            font-size: 2.2rem;
-            font-weight: 700;
-            line-height: 1.2;
+        .about h2 {
+            font-size: 2.5rem;
+            font-weight: 800;
             margin-bottom: 1.5rem;
+            color: #333;
         }
 
-        .about-headline .highlight {
+        .about h2 em {
             color: #dc267f;
+            font-style: normal;
         }
 
         .about-description {
             font-size: 1.1rem;
-            line-height: 1.7;
-            color: #d1d5db;
             margin-bottom: 2rem;
+            color: #666;
+            line-height: 1.8;
         }
 
-        .service-badges {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 1rem;
+        .features-list {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1.2rem;
         }
 
-        .service-badge {
-            background: rgba(96, 165, 250, 0.1);
-            border: 1px solid rgba(96, 165, 250, 0.3);
-            color: #60a5fa;
-            padding: 0.7rem 1.2rem;
-            border-radius: 25px;
-            font-size: 0.9rem;
-            font-weight: 500;
+        .feature-item {
             display: flex;
             align-items: center;
-            gap: 0.5rem;
-            transition: all 0.3s ease;
+            gap: 1rem;
+            padding: 1.2rem;
+            background: white;
+            border-radius: 12px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.08);
+            transition: transform 0.3s ease;
         }
 
-        .service-badge:hover {
-            background: rgba(96, 165, 250, 0.2);
+        .feature-item:hover {
             transform: translateY(-2px);
         }
 
-        .service-badge i {
-            font-size: 1rem;
+        .feature-item i {
+            color: #dc2626;
+            font-size: 1.3rem;
+            min-width: 24px;
         }
 
         .about-image {
             position: relative;
-            width: 400px;
-            height: 400px;
-            border-radius: 50%;
+            border-radius: 20px;
             overflow: hidden;
-            box-shadow: 0 20px 40px rgba(220, 38, 127, 0.3);
-            justify-self: center;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.1);
         }
 
         .about-image::before {
@@ -332,16 +350,8 @@
             left: 0;
             right: 0;
             bottom: 0;
-            background: linear-gradient(135deg, rgba(220, 38, 127, 0.2), rgba(96, 165, 250, 0.1));
+            background: linear-gradient(135deg, rgba(220, 38, 38, 0.1), rgba(220, 38, 127, 0.1));
             z-index: 1;
-        }
-
-        .about-image img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            position: relative;
-            z-index: 0;
         }
 
         .services {
@@ -436,23 +446,22 @@
             background: #f8f9fa;
         }
 
+        /* Corrigindo layout do portfólio para colunas organizadas */
         .portfolio-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
             gap: 2.5rem;
+            align-items: start;
         }
 
         .portfolio-item {
             background: white;
-            border-radius: 20px;
+            border-radius: 15px;
             overflow: hidden;
             box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
-            transition: all 0.4s ease;
+            transition: all 0.3s ease;
             opacity: 0;
             transform: translateY(30px);
-            cursor: pointer;
-            position: relative;
-            border: 2px solid transparent;
         }
 
         .portfolio-item.visible {
@@ -461,152 +470,36 @@
         }
 
         .portfolio-item:hover {
-            transform: translateY(-12px) scale(1.02);
-            box-shadow: 0 25px 50px rgba(220, 38, 38, 0.15);
-            border-color: rgba(220, 38, 38, 0.3);
-        }
-
-        .portfolio-item::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background: linear-gradient(135deg, rgba(220, 38, 38, 0.05), rgba(220, 38, 127, 0.05));
-            opacity: 0;
-            transition: opacity 0.3s ease;
-            z-index: 1;
-        }
-
-        .portfolio-item:hover::before {
-            opacity: 1;
+            transform: translateY(-8px);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
         }
 
         .portfolio-image {
-            height: 220px;
-            position: relative;
-            overflow: hidden;
+            height: 200px;
             display: flex;
             align-items: center;
             justify-content: center;
-        }
-
-        .portfolio-image img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            transition: transform 0.4s ease;
-        }
-
-        .portfolio-item:hover .portfolio-image img {
-            transform: scale(1.1);
-        }
-
-        .portfolio-overlay {
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background: linear-gradient(135deg, rgba(220, 38, 38, 0.8), rgba(220, 38, 127, 0.8));
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            opacity: 0;
-            transition: opacity 0.3s ease;
-            z-index: 2;
-        }
-
-        .portfolio-item:hover .portfolio-overlay {
-            opacity: 1;
-        }
-
-        .portfolio-overlay-content {
-            text-align: center;
             color: white;
-            transform: translateY(20px);
-            transition: transform 0.3s ease;
-        }
-
-        .portfolio-item:hover .portfolio-overlay-content {
-            transform: translateY(0);
-        }
-
-        .portfolio-overlay i {
-            font-size: 2.5rem;
-            margin-bottom: 0.5rem;
-            display: block;
-        }
-
-        .portfolio-overlay span {
-            font-size: 1rem;
-            font-weight: 600;
-            text-transform: uppercase;
-            letter-spacing: 1px;
+            font-size: 1.8rem;
+            font-weight: 700;
+            text-align: center;
+            padding: 1rem;
         }
 
         .portfolio-content {
-            padding: 2rem 1.5rem;
-            position: relative;
-            z-index: 2;
+            padding: 1.5rem;
         }
 
         .portfolio-content h3 {
-            font-size: 1.3rem;
+            font-size: 1.2rem;
             font-weight: 700;
-            margin-bottom: 0.8rem;
+            margin-bottom: 0.5rem;
             color: #333;
-            transition: color 0.3s ease;
-        }
-
-        .portfolio-item:hover .portfolio-content h3 {
-            color: #dc2626;
         }
 
         .portfolio-content p {
             color: #666;
-            font-size: 0.95rem;
-            line-height: 1.6;
-            margin-bottom: 1rem;
-        }
-
-        .portfolio-tags {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 0.5rem;
-            margin-top: 1rem;
-        }
-
-        .portfolio-tag {
-            background: #f8f9fa;
-            color: #666;
-            padding: 0.3rem 0.8rem;
-            border-radius: 15px;
-            font-size: 0.75rem;
-            font-weight: 500;
-            transition: all 0.3s ease;
-        }
-
-        .portfolio-item:hover .portfolio-tag {
-            background: linear-gradient(135deg, #dc2626, #b91c1c);
-            color: white;
-        }
-
-        .portfolio-category {
-            position: absolute;
-            top: 1rem;
-            left: 1rem;
-            background: rgba(220, 38, 38, 0.9);
-            color: white;
-            padding: 0.4rem 0.8rem;
-            border-radius: 20px;
-            font-size: 0.75rem;
-            font-weight: 600;
-            text-transform: uppercase;
-            letter-spacing: 0.5px;
-            z-index: 3;
-            backdrop-filter: blur(10px);
+            font-size: 0.9rem;
         }
 
         .contact {
@@ -849,7 +742,7 @@
             }
         }
 
-        /* Melhorando estilos do navbar para integração visual */
+        /* Melhorando navbar responsivo */
         nav {
             position: fixed;
             top: 0;
@@ -924,629 +817,48 @@
             left: 100%;
         }
 
-        /* Responsividade do navbar */
+        /* Melhorando responsividade do navbar para mobile */
         @media (max-width: 768px) {
-            .hero-title {
-                font-size: 2.5rem;
-            }
-            
-            .hero-subtitle {
-                font-size: 1.2rem;
-            }
-            
-            .btn {
-                padding: 0.8rem 2rem;
-                font-size: 1rem;
-            }
-
             .nav-container {
-                padding: 1rem;
+                padding: 0.8rem 1rem;
             }
             
-            .nav-links {
-                gap: 1rem;
-            }
-            
-            .nav-links li a {
-                padding: 0.4rem 0.8rem;
-                font-size: 0.9rem;
-            }
-
-            /* Adding comprehensive mobile responsiveness */
-            .about {
-                padding: 4rem 0;
-            }
-
-            .about-content {
-                grid-template-columns: 1fr;
-                gap: 3rem;
-                text-align: center;
-                padding: 0 1rem;
-            }
-
-            .about-title {
-                font-size: 2.2rem;
-                margin-bottom: 2rem;
-            }
-
-            .about-headline {
-                font-size: 1.6rem;
-            }
-
-            .about-description {
-                font-size: 1rem;
-                text-align: left;
-            }
-
-            .about-image {
-                width: 280px;
-                height: 280px;
-                order: -1;
-            }
-
-            .service-badges {
-                justify-content: center;
-            }
-
-            .service-badge {
-                padding: 0.6rem 1rem;
-                font-size: 0.8rem;
-            }
-
-            .features-list {
-                grid-template-columns: 1fr;
-                gap: 1rem;
-            }
-
-            .feature-item {
-                padding: 1rem;
-                justify-content: center;
-                text-align: center;
-            }
-
-            .services-grid {
-                grid-template-columns: 1fr;
-                gap: 2rem;
-            }
-
-            .service-card {
-                padding: 2rem 1.5rem;
-            }
-
-            .portfolio-grid {
-                grid-template-columns: 1fr;
-                gap: 2rem;
-            }
-
-            .portfolio-item {
-                max-width: 400px;
-                margin: 0 auto;
-            }
-
-            .portfolio-image {
-                height: 200px;
-            }
-
-            .portfolio-content {
-                padding: 1.5rem;
-            }
-
-            .portfolio-tags {
-                justify-content: center;
-            }
-
-            .contact-grid {
-                grid-template-columns: 1fr;
-                gap: 2rem;
-            }
-
-            .contact-form {
-                padding: 2rem 1.5rem;
-            }
-
-            .testimonials-grid {
-                grid-template-columns: 1fr !important;
-                gap: 1.5rem !important;
-            }
-
-            .testimonial-card {
-                flex-direction: column !important;
-                text-align: center !important;
-                gap: 1rem !important;
-            }
-
-            .section-title {
-                font-size: 2rem;
-            }
-
-            .section-subtitle {
-                font-size: 1rem;
-            }
-
-            .hero-buttons {
-                flex-direction: column;
-                align-items: center;
-                gap: 1rem;
-            }
-
-            .btn {
-                width: 100%;
-                max-width: 280px;
-            }
-        }
-
-        /* Adding tablet responsiveness */
-        @media (max-width: 1024px) and (min-width: 769px) {
-            .hero-title {
-                font-size: 3.5rem;
-            }
-
-            .about-content {
-                grid-template-columns: 1fr 350px;
-                gap: 3rem;
-            }
-
-            .about-image {
-                width: 350px;
-                height: 350px;
-            }
-
-            .services-grid {
-                grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-                gap: 2rem;
-            }
-
-            .portfolio-grid {
-                grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-                gap: 2rem;
-            }
-
-            .contact-grid {
-                gap: 3rem;
-            }
-        }
-
-        /* Adding small mobile responsiveness */
-        @media (max-width: 480px) {
-            .container {
-                padding: 0 1rem;
-            }
-
-            .hero-content {
-                padding: 0 1rem;
-            }
-
-            .hero-title {
-                font-size: 2rem;
-                line-height: 1.2;
-            }
-
-            .hero-subtitle {
-                font-size: 1rem;
-            }
-
-            .about, .services, .portfolio, .contact {
-                padding: 3rem 0;
-            }
-
-            .about-content {
-                gap: 2rem;
-                padding: 0 0.5rem;
-            }
-
-            .about-title {
-                font-size: 1.8rem;
-            }
-
-            .about-headline {
-                font-size: 1.4rem;
-            }
-
-            .about-image {
-                width: 240px;
-                height: 240px;
-            }
-
-            .section-header {
-                margin-bottom: 3rem;
-            }
-
-            .section-title {
-                font-size: 1.8rem;
-            }
-
-            .service-card {
-                padding: 1.5rem;
-            }
-
-            .service-header {
-                flex-direction: column;
-                text-align: center;
-                gap: 0.5rem;
-            }
-
-            .service-icon {
-                width: 50px;
-                height: 50px;
-                font-size: 1.2rem;
-            }
-
-            .portfolio-content {
-                padding: 1.2rem;
-            }
-
-            .portfolio-content h3 {
-                font-size: 1.1rem;
-            }
-
-            .portfolio-content p {
-                font-size: 0.9rem;
-            }
-
-            .contact-form {
-                padding: 1.5rem;
-            }
-
-            .form-group input,
-            .form-group select,
-            .form-group textarea {
-                padding: 0.8rem;
-            }
-
-            .testimonial-card {
-                padding: 1.5rem !important;
-            }
-
-            .nav-links {
-                display: none;
-            }
-
             .logo {
                 font-size: 1.3rem;
             }
-
-            .whatsapp-float {
-                width: 50px;
-                height: 50px;
-                font-size: 1.5rem;
-                bottom: 20px;
-                right: 20px;
-            }
-
-            .whatsapp-popup {
-                bottom: 80px;
-                right: 20px;
-                max-width: 200px;
-                padding: 0.8rem 1rem;
-            }
-        }
-
-        /* Adding landscape mobile responsiveness */
-        @media (max-height: 500px) and (orientation: landscape) {
-            .hero {
-                height: auto;
-                min-height: 100vh;
-                padding: 2rem 0;
-            }
-
-            .hero-title {
-                font-size: 2.5rem;
-            }
-
-            .hero-subtitle {
-                font-size: 1.1rem;
-            }
-
-            .hero-buttons {
-                margin-top: 1rem;
-            }
-        }
-
-        /* Adding modal styles for portfolio projects */
-        .modal {
-            display: none;
-            position: fixed;
-            z-index: 2000;
-            left: 0;
-            top: 0;
-            width: 100%;
-            height: 100%;
-            background-color: rgba(0, 0, 0, 0.8);
-            backdrop-filter: blur(5px);
-            animation: fadeIn 0.3s ease-out;
-        }
-
-        .modal.show {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            /* Adding padding to ensure modal doesn't touch screen edges */
-            padding: 1rem;
-        }
-
-        .modal-content {
-            background: white;
-            border-radius: 20px;
-            /* Better responsive sizing and centering */
-            width: 100%;
-            max-width: 800px;
-            max-height: 90vh;
-            overflow-y: auto;
-            position: relative;
-            animation: slideIn 0.3s ease-out;
-            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
-            /* Ensuring content is centered */
-            margin: 0 auto;
-        }
-
-        .modal-header {
-            position: sticky;
-            top: 0;
-            background: white;
-            padding: 1.5rem 2rem;
-            border-bottom: 1px solid #e0e0e0;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            border-radius: 20px 20px 0 0;
-            z-index: 10;
-        }
-
-        .modal-title {
-            font-size: 1.5rem;
-            font-weight: 700;
-            color: #333;
-            margin: 0;
-        }
-
-        .close-modal {
-            background: none;
-            border: none;
-            font-size: 2rem;
-            color: #999;
-            cursor: pointer;
-            padding: 0;
-            width: 40px;
-            height: 40px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            border-radius: 50%;
-            transition: all 0.3s ease;
-        }
-
-        .close-modal:hover {
-            background: #f5f5f5;
-            color: #dc2626;
-            transform: rotate(90deg);
-        }
-
-        .modal-body {
-            padding: 2rem;
-            /* Centering all content in modal body */
-            text-align: center;
-        }
-
-        .modal-image {
-            width: 100%;
-            max-width: 600px;
-            height: auto;
-            border-radius: 15px;
-            margin: 0 auto 1.5rem auto;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
-            /* Ensuring image is centered */
-            display: block;
-        }
-
-        .modal-description {
-            font-size: 1.1rem;
-            line-height: 1.7;
-            color: #666;
-            margin-bottom: 1.5rem;
-            /* Left-aligning text for better readability */
-            text-align: left;
-            max-width: 100%;
-        }
-
-        .modal-tags {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 0.5rem;
-            margin-bottom: 1.5rem;
-            /* Centering tags */
-            justify-content: center;
-        }
-
-        .modal-tag {
-            background: linear-gradient(135deg, #dc2626, #b91c1c);
-            color: white;
-            padding: 0.3rem 0.8rem;
-            border-radius: 20px;
-            font-size: 0.8rem;
-            font-weight: 500;
-        }
-
-        .modal-link {
-            display: inline-flex;
-            align-items: center;
-            gap: 0.5rem;
-            background: linear-gradient(135deg, #dc2626, #b91c1c);
-            color: white;
-            padding: 0.8rem 1.5rem;
-            border-radius: 25px;
-            text-decoration: none;
-            font-weight: 600;
-            transition: all 0.3s ease;
-            /* Centering the link button */
-            margin: 0 auto;
-        }
-
-        .modal-link:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 8px 25px rgba(220, 38, 38, 0.3);
-        }
-
-        @keyframes fadeIn {
-            from { opacity: 0; }
-            to { opacity: 1; }
-        }
-
-        @keyframes slideIn {
-            from { 
-                opacity: 0;
-                transform: translateY(30px) scale(0.9);
-            }
-            to { 
-                opacity: 1;
-                transform: translateY(0) scale(1);
-            }
-        }
-
-        /* Improving modal responsiveness */
-        @media (max-width: 768px) {
-            .modal.show {
-                /* Better mobile padding */
-                padding: 0.5rem;
+            
+            .nav-links {
+                gap: 0.5rem;
             }
             
-            .modal-content {
-                /* Better mobile sizing */
-                max-width: 100%;
-                max-height: 95vh;
-                margin: 0;
-            }
-
-            .modal-header {
-                padding: 1rem 1.5rem;
-            }
-
-            .modal-body {
-                padding: 1.5rem;
-            }
-
-            .modal-title {
-                font-size: 1.2rem;
-            }
-
-            .close-modal {
-                font-size: 1.5rem;
-                width: 35px;
-                height: 35px;
-            }
-
-            .modal-description {
-                font-size: 1rem;
-            }
-
-            .modal-tags {
-                justify-content: center;
-            }
-
-            .modal-link {
-                width: auto;
-                justify-content: center;
-                padding: 1rem 1.5rem;
+            .nav-links li a {
+                padding: 0.4rem 0.6rem;
+                font-size: 0.85rem;
             }
         }
 
         @media (max-width: 480px) {
-            .modal.show {
-                /* Minimal padding on very small screens */
-                padding: 0.25rem;
+            .nav-links {
+                gap: 0.2rem;
             }
             
-            .modal-content {
-                /* Full width on small screens with minimal margin */
-                max-width: 100%;
-                max-height: 98vh;
-                margin: 0;
-                border-radius: 15px;
-            }
-
-            .modal-header {
-                padding: 1rem;
-                border-radius: 15px 15px 0 0;
-            }
-
-            .modal-body {
-                padding: 1rem;
-            }
-
-            .modal-title {
-                font-size: 1.1rem;
-            }
-
-            .modal-description {
-                font-size: 0.95rem;
-                line-height: 1.6;
-            }
-
-            .modal-image {
-                border-radius: 10px;
-                max-width: 100%;
-            }
-            
-            .modal-tags {
-                gap: 0.3rem;
-            }
-            
-            .modal-tag {
-                font-size: 0.75rem;
-                padding: 0.25rem 0.6rem;
+            .nav-links li a {
+                padding: 0.3rem 0.5rem;
+                font-size: 0.8rem;
             }
         }
-
-        /* Adding print styles */
-        @media print {
-            .whatsapp-float,
-            .whatsapp-popup,
-            .modal,
-            nav {
-                display: none !important;
-            }
-
-            .hero {
-                height: auto;
-                background: white;
-                color: black;
-                padding: 2rem 0;
-            }
-
-            .hero-title,
-            .hero-subtitle {
-                color: black;
-            }
-
-            .btn {
-                display: none;
-            }
-
-            .portfolio-overlay {
-                display: none;
-            }
-
-            .portfolio-item:hover {
-                transform: none;
-                box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-            }
-
-            .service-card:hover,
-            .portfolio-item:hover,
-            .testimonial:hover {
-                transform: none;
-            }
-        }
-
     </style>
 </head>
 
 <body>
+     Adicionando "Como Trabalho" no navbar 
     <nav>
         <div class="nav-container">
             <div class="logo">Laura Lopes</div>
             <ul class="nav-links">
                 <li><a href="#home">Início</a></li>
                 <li><a href="#services">Serviços</a></li>
+                <li><a href="#work-process">Como Trabalho</a></li>
                 <li><a href="#portfolio">Portfólio</a></li>
                 <li><a href="#contact">Contato</a></li>
             </ul>
@@ -1561,59 +873,58 @@
         </div>
         
         <div class="hero-content">
-            <!-- Updated hero title and subtitle with more persuasive copy -->
             <h1 class="hero-title">
-                <span style="color: #ffffff; text-shadow: 2px 2px 4px rgba(0,0,0,0.3);">Eu ajudo sua marca a se destacar no digital com</span> <span class="highlight" style="color: #dc2626; text-shadow: 2px 2px 4px rgba(0,0,0,0.3);">design estratégico e automação inteligente</span>
+                <span style="color: #ffffff; text-shadow: 2px 2px 4px rgba(0,0,0,0.3);">Transformo Sua Marca em</span> <span class="highlight" style="color: #dc2626; text-shadow: 2px 2px 4px rgba(0,0,0,0.3);">Sucesso Digital</span>
             </h1>
             <p class="hero-subtitle">
-                Mais de 50 projetos entregues para empresas que buscam mais visibilidade, autoridade e vendas online.
+                Design estratégico + automação inteligente = resultados que impactam seu negócio. 
+                Mais de 50 projetos entregues com foco em performance e conversão.
             </p>
             <div class="hero-buttons">
-                <!-- Updated CTA button text to be more clear and objective -->
                 <a href="#contact" class="btn btn-primary">Solicitar Orçamento</a>
                 <a href="https://www.behance.net/laurauxuidesigner" target="_blank" class="btn btn-secondary">Ver Portfólio</a>
             </div>
         </div>
     </section>
 
-    <!-- Completely redesigned about section with professional dark style -->
-    <section id="about" class="about">
+    <section class="about">
         <div class="container">
             <div class="about-content">
-                <h2 class="about-title">Sobre Mim</h2>
-                
                 <div class="about-info">
-                    <div class="experience-badge">
-                        5+ anos de experiência
-                    </div>
-                    
-                    <h3 class="about-headline">
-                        Web Designer focada em <span class="highlight">automação</span><br>
-                        e resultados rápidos
-                    </h3>
-                    
+                    <h2>Oi! Eu sou a <em>Laura</em>, especialista em Design Digital</h2>
                     <p class="about-description">
-                        Meu nome é Laura, tenho mais de 5 anos de experiência e sou especialista em transformar ideias em soluções digitais que realmente funcionam. Dedico minha carreira a ajudar marcas a se destacarem com sites funcionais, automações inteligentes e estratégias que geram resultados mensuráveis. Valorizo a expressão das ideias dos clientes e mantenho um compromisso firme com qualidade e dedicação. Sou apaixonada pelo que faço e busco excelência em cada projeto.
+                        Ajudo marcas a se destacarem com soluções digitais completas: 
+                        sites funcionais e atraentes, interfaces inteligentes e estratégias que realmente geram resultados.
+                        <br><br>
+                        Minha abordagem une <strong>estética + tecnologia + estratégia</strong>, 
+                        garantindo que cada projeto não apenas impressione visualmente, 
+                        mas também entregue resultados tangíveis e mensuráveis.
                     </p>
-                    
-                    <div class="service-badges">
-                        <div class="service-badge">
-                            <i class="fas fa-bolt"></i>
-                            Entrega em até 48h úteis
+                    <div class="features-list">
+                        <div class="feature-item">
+                            <i class="fas fa-lightbulb"></i>
+                            <span>Criatividade e inovação</span>
                         </div>
-                        <div class="service-badge">
-                            <i class="fab fa-whatsapp"></i>
-                            Atendimento via WhatsApp
+                        <div class="feature-item">
+                            <i class="fas fa-tools"></i>
+                            <span>Domínio técnico completo</span>
                         </div>
-                        <div class="service-badge">
-                            <i class="fas fa-cogs"></i>
-                            Automação personalizada
+                        <div class="feature-item">
+                            <i class="fas fa-bullseye"></i>
+                            <span>Pensamento estratégico</span>
+                        </div>
+                        <div class="feature-item">
+                            <i class="fas fa-chart-line"></i>
+                            <span>Marketing digital integrado</span>
+                        </div>
+                        <div class="feature-item">
+                            <i class="fab fa-behance"></i>
+                            <span><a href="https://www.behance.net/laurauxuidesigner" target="_blank" style="color: #dc2626; text-decoration: none;">Ver Behance</a></span>
                         </div>
                     </div>
                 </div>
-                
                 <div class="about-image">
-                    <img src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/Purple%20Cartoon%20Gamer%20Girl%20Illustration%20Gaming%20Logo%20%284%29-SOsBEfHbZo8439hJf4zhz6IL6TGt05.png" alt="Laura Lopes - Web Designer e Automação">
+                    <img src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/Purple%20Cartoon%20Gamer%20Girl%20Illustration%20Gaming%20Logo%20%284%29-SOsBEfHbZo8439hJf4zhz6IL6TGt05.png" alt="Laura Lopes - UX/UI Designer" style="width: 100%; height: 100%; object-fit: cover;">
                 </div>
             </div>
         </div>
@@ -1622,32 +933,77 @@
     <section id="services" class="services">
         <div class="container">
             <div class="section-header">
-                <!-- Updated services section title to focus on business acceleration -->
                 <h2 class="section-title">Serviços Criados para Acelerar Seu Negócio no Digital</h2>
                 <p class="section-subtitle">Soluções completas para transformar sua presença digital em resultados reais</p>
             </div>
             <div class="services-grid">
                 <div class="service-card">
-                    <div class="service-icon">
-                        <i class="fas fa-palette"></i>
+                    <div class="service-header">
+                        <div class="service-icon">
+                            <i class="fas fa-paint-brush"></i>
+                        </div>
+                        <h3>Design Gráfico</h3>
                     </div>
-                    <h3>Design Gráfico</h3>
-                    <!-- Updated service descriptions to focus on benefits and credibility -->
                     <p>Identidade visual profissional, logotipos e materiais gráficos que comunicam credibilidade e fortalecem sua marca.</p>
                 </div>
                 <div class="service-card">
-                    <div class="service-icon">
-                        <i class="fas fa-code"></i>
+                    <div class="service-header">
+                        <div class="service-icon">
+                            <i class="fas fa-laptop-code"></i>
+                        </div>
+                        <h3>Desenvolvimento Web</h3>
                     </div>
-                    <h3>Desenvolvimento Web</h3>
                     <p>Sites modernos, rápidos e responsivos que atraem visitantes, transmitem confiança e convertem em clientes.</p>
                 </div>
                 <div class="service-card">
-                    <div class="service-icon">
-                        <i class="fas fa-robot"></i>
+                    <div class="service-header">
+                        <div class="service-icon">
+                            <i class="fas fa-cogs"></i>
+                        </div>
+                        <h3>Automação & Estratégia Digital</h3>
                     </div>
-                    <h3>Automação & Estratégia Digital</h3>
                     <p>Criação de fluxos inteligentes e automações para economizar tempo, nutrir leads e aumentar suas vendas.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="work-process" class="work-process" style="padding: 6rem 0; background: #f8f9fa;">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Como Trabalho</h2>
+                <p class="section-subtitle">Processo ágil, organizado e 100% online.</p>
+            </div>
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 2rem;">
+                <div style="background: #2a2a2a; color: white; padding: 2rem; border-radius: 15px; position: relative;">
+                    <div style="position: absolute; top: -15px; left: 20px; background: #dc2626; color: white; width: 30px; height: 30px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: bold;">1</div>
+                    <h3 style="margin-bottom: 1rem; color: white;">Briefing e Proposta</h3>
+                    <p style="color: #ccc; margin: 0;">Conversamos sobre seu projeto, objetivos e necessidades. Elaboro uma proposta personalizada com prazo e investimento.</p>
+                </div>
+                <div style="background: #2a2a2a; color: white; padding: 2rem; border-radius: 15px; position: relative;">
+                    <div style="position: absolute; top: -15px; left: 20px; background: #dc2626; color: white; width: 30px; height: 30px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: bold;">2</div>
+                    <h3 style="margin-bottom: 1rem; color: white;">Pagamento e Início</h3>
+                    <p style="color: #ccc; margin: 0;">Liberação do projeto com <strong>50% antecipado</strong>. Início imediato do desenvolvimento com acompanhamento via WhatsApp.</p>
+                </div>
+                <div style="background: #2a2a2a; color: white; padding: 2rem; border-radius: 15px; position: relative;">
+                    <div style="position: absolute; top: -15px; left: 20px; background: #dc2626; color: white; width: 30px; height: 30px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: bold;">3</div>
+                    <h3 style="margin-bottom: 1rem; color: white;">Desenvolvimento</h3>
+                    <p style="color: #ccc; margin: 0;">Criação do projeto com envio de previews para aprovação. Ajustes inclusos para garantir sua satisfação total.</p>
+                </div>
+                <div style="background: #2a2a2a; color: white; padding: 2rem; border-radius: 15px; position: relative;">
+                    <div style="position: absolute; top: -15px; left: 20px; background: #dc2626; color: white; width: 30px; height: 30px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: bold;">4</div>
+                    <h3 style="margin-bottom: 1rem; color: white;">Entrega Final</h3>
+                    <p style="color: #ccc; margin: 0;">Entrega completa do projeto finalizado. Pagamento dos <strong>50% restantes</strong> e suporte pós-entrega incluído.</p>
+                </div>
+                <div style="background: #2a2a2a; color: white; padding: 2rem; border-radius: 15px; position: relative;">
+                    <div style="position: absolute; top: -15px; left: 20px; background: #dc2626; color: white; width: 30px; height: 30px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: bold;">5</div>
+                    <h3 style="margin-bottom: 1rem; color: white;">Atendimento via WhatsApp</h3>
+                    <p style="color: #ccc; margin: 0;">Tudo centralizado no WhatsApp para agilizar aprovações e manter comunicação direta e eficiente.</p>
+                </div>
+                <div style="background: #2a2a2a; color: white; padding: 2rem; border-radius: 15px; position: relative;">
+                    <div style="position: absolute; top: -15px; left: 20px; background: #dc2626; color: white; width: 30px; height: 30px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: bold;">6</div>
+                    <h3 style="margin-bottom: 1rem; color: white;">Suporte Contínuo</h3>
+                    <p style="color: #ccc; margin: 0;">Suporte pós-entrega para dúvidas e pequenos ajustes. Relacionamento de longo prazo para o crescimento do seu negócio.</p>
                 </div>
             </div>
         </div>
@@ -1656,135 +1012,62 @@
     <section id="portfolio" class="portfolio">
         <div class="container">
             <div class="section-header">
-                <!-- Updated portfolio title to focus on results -->
-                <h2 class="section-title">Projetos que já geraram resultados</h2>
-                <p class="section-subtitle">Conheça alguns dos trabalhos que transformaram a presença digital dos meus clientes</p>
+                <h2 class="section-title">Portfólio</h2>
+                <p class="section-subtitle">Veja alguns projetos que já realizei — design, sites, automações. Cada trabalho reflete dedicação, estratégia e resultado.</p>
             </div>
             <div class="portfolio-grid">
-                <div class="portfolio-item" data-project="progamer">
-                    <div class="portfolio-category">Mobile App</div>
+                <div class="portfolio-item">
                     <div class="portfolio-image">
-                        <img src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/image-KCHVgXfJxxwvgxj5aOGy0edHjrGjRD.png" alt="App Progamer">
-                        <div class="portfolio-overlay">
-                            <div class="portfolio-overlay-content">
-                                <i class="fas fa-eye"></i>
-                                <span>Ver Projeto</span>
-                            </div>
-                        </div>
+                        <img src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/image-KCHVgXfJxxwvgxj5aOGy0edHjrGjRD.png" alt="App Progamer" style="width: 100%; height: 200px; object-fit: cover; border-radius: 10px;">
                     </div>
                     <div class="portfolio-content">
                         <h3>Progamer - App Mobile</h3>
-                        <p>Aplicativo completo para gamers com sistema de usuários, ranking e chat em tempo real</p>
-                        <div class="portfolio-tags">
-                            <span class="portfolio-tag">UI/UX</span>
-                            <span class="portfolio-tag">Mobile</span>
-                            <span class="portfolio-tag">Gaming</span>
-                        </div>
+                        <p>Aplicativo completo para gamers com sistema de usuários</p>
                     </div>
                 </div>
-                <div class="portfolio-item" data-project="lifebios">
-                    <div class="portfolio-category">Web System</div>
+                <div class="portfolio-item">
                     <div class="portfolio-image">
-                        <img src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/image-fWUNbqPxuNSHLsz8Y3q8bHd6RBVyOF.png" alt="Lifebios Login">
-                        <div class="portfolio-overlay">
-                            <div class="portfolio-overlay-content">
-                                <i class="fas fa-eye"></i>
-                                <span>Ver Projeto</span>
-                            </div>
-                        </div>
+                        <img src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/image-fWUNbqPxuNSHLsz8Y3q8bHd6RBVyOF.png" alt="Lifebios Login" style="width: 100%; height: 200px; object-fit: cover; border-radius: 10px;">
                     </div>
                     <div class="portfolio-content">
                         <h3>Lifebios - Sistema Web</h3>
-                        <p>Interface de login e sistema completo para empresa de saúde com dashboard administrativo</p>
-                        <div class="portfolio-tags">
-                            <span class="portfolio-tag">Web Design</span>
-                            <span class="portfolio-tag">Healthcare</span>
-                            <span class="portfolio-tag">Dashboard</span>
-                        </div>
+                        <p>Interface de login e sistema para empresa de saúde</p>
                     </div>
                 </div>
-                <div class="portfolio-item" data-project="minatto">
-                    <div class="portfolio-category">Website</div>
+                <div class="portfolio-item">
                     <div class="portfolio-image">
-                        <img src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/image-yddRUfiqb9s3O31skVse7FUqU8XAYt.png" alt="Construtora Minatto">
-                        <div class="portfolio-overlay">
-                            <div class="portfolio-overlay-content">
-                                <i class="fas fa-eye"></i>
-                                <span>Ver Projeto</span>
-                            </div>
-                        </div>
+                        <img src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/image-yddRUfiqb9s3O31skVse7FUqU8XAYt.png" alt="Construtora Minatto" style="width: 100%; height: 200px; object-fit: cover; border-radius: 10px;">
                     </div>
                     <div class="portfolio-content">
                         <h3>Construtora Minatto</h3>
-                        <p>Website institucional completo com galeria de projetos e sistema de orçamentos</p>
-                        <div class="portfolio-tags">
-                            <span class="portfolio-tag">Website</span>
-                            <span class="portfolio-tag">Construção</span>
-                            <span class="portfolio-tag">SEO</span>
-                        </div>
+                        <p>Website institucional completo com depoimentos</p>
                     </div>
                 </div>
-                <div class="portfolio-item" data-project="sabor-mell">
-                    <div class="portfolio-category">Packaging</div>
+                <div class="portfolio-item">
                     <div class="portfolio-image">
-                        <img src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/image%20%2818%29.png-XvyAAFnamFBmmRHKV589m3asxhYr9J.jpeg" alt="Sabor de Mell Packaging">
-                        <div class="portfolio-overlay">
-                            <div class="portfolio-overlay-content">
-                                <i class="fas fa-eye"></i>
-                                <span>Ver Projeto</span>
-                            </div>
-                        </div>
+                        <img src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/image%20%2818%29.png-XvyAAFnamFBmmRHKV589m3asxhYr9J.jpeg" alt="Sabor de Mell Packaging" style="width: 100%; height: 200px; object-fit: cover; border-radius: 10px;">
                     </div>
                     <div class="portfolio-content">
                         <h3>Sabor de Mell - Packaging</h3>
                         <p>Design de embalagem para produto alimentício com identidade visual completa</p>
-                        <div class="portfolio-tags">
-                            <span class="portfolio-tag">Packaging</span>
-                            <span class="portfolio-tag">Branding</span>
-                            <span class="portfolio-tag">Food Design</span>
-                        </div>
                     </div>
                 </div>
-                <div class="portfolio-item" data-project="brothers-store">
-                    <div class="portfolio-category">Branding</div>
+                <div class="portfolio-item">
                     <div class="portfolio-image">
-                        <img src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/image%20%2840%29-36L11rvfHnDy2GryGX7aTgRLdQpP5t.png" alt="Brothers Store Branding">
-                        <div class="portfolio-overlay">
-                            <div class="portfolio-overlay-content">
-                                <i class="fas fa-eye"></i>
-                                <span>Ver Projeto</span>
-                            </div>
-                        </div>
+                        <img src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/image%20%2840%29-36L11rvfHnDy2GryGX7aTgRLdQpP5t.png" alt="Brothers Store Branding" style="width: 100%; height: 200px; object-fit: cover; border-radius: 10px;">
                     </div>
                     <div class="portfolio-content">
                         <h3>Brothers Store - Identidade Visual</h3>
-                        <p>Logo e identidade visual completa com design minimalista e elegante</p>
-                        <div class="portfolio-tags">
-                            <span class="portfolio-tag">Branding</span>
-                            <span class="portfolio-tag">Logo Design</span>
-                            <span class="portfolio-tag">Fashion</span>
-                        </div>
+                        <p>Logo e cartão de visita com design minimalista e elegante</p>
                     </div>
                 </div>
-                <div class="portfolio-item" data-project="rexor">
-                    <div class="portfolio-category">Print Design</div>
+                <div class="portfolio-item">
                     <div class="portfolio-image">
-                        <img src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/Mockup%20Cart%C3%A3o%20de%20Visita%20Rexor%203-7IByedc1NGSLRVY3QboWxExGThhdwm.png" alt="Rexor Business Cards">
-                        <div class="portfolio-overlay">
-                            <div class="portfolio-overlay-content">
-                                <i class="fas fa-eye"></i>
-                                <span>Ver Projeto</span>
-                            </div>
-                        </div>
+                        <img src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/Mockup%20Cart%C3%A3o%20de%20Visita%20Rexor%203-7IByedc1NGSLRVY3QboWxExGThhdwm.png" alt="Rexor Business Cards" style="width: 100%; height: 200px; object-fit: cover; border-radius: 10px;">
                     </div>
                     <div class="portfolio-content">
                         <h3>Rexor - Cartão de Visita</h3>
-                        <p>Design corporativo sofisticado com acabamento premium e alta qualidade</p>
-                        <div class="portfolio-tags">
-                            <span class="portfolio-tag">Print Design</span>
-                            <span class="portfolio-tag">Corporate</span>
-                            <span class="portfolio-tag">Premium</span>
-                        </div>
+                        <p>Design corporativo sofisticado com acabamento premium</p>
                     </div>
                 </div>
             </div>
@@ -1794,9 +1077,8 @@
     <section class="testimonials" style="padding: 4rem 0; background: white;">
         <div class="container">
             <div class="section-header">
-                <!-- Updated testimonials title to be more personal -->
-                <h2 class="section-title">O que dizem os clientes que confiaram em mim</h2>
-                <p class="section-subtitle">Depoimentos reais de quem já transformou seu negócio</p>
+                <h2 class="section-title">O que Dizem os Clientes</h2>
+                <p class="section-subtitle">Clientes falam mais que qualquer promessa. Veja o que quem já trabalhou comigo diz:</p>
             </div>
             <div class="testimonials-grid" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 2rem; margin-top: 3rem;">
                 <div class="testimonial-card" style="background: #f8f9fa; padding: 2rem; border-radius: 15px; border-left: 4px solid #dc2626; display: flex; align-items: center; gap: 1rem;">
@@ -1833,9 +1115,8 @@
     <section id="contact" class="contact">
         <div class="container">
             <div class="section-header">
-                <!-- Updated contact section with stronger headline and clearer CTA -->
-                <h2 class="section-title">Vamos construir sua presença digital de forma estratégica?</h2>
-                <p class="section-subtitle">Peça seu orçamento sem compromisso e descubra como transformar seu negócio em referência online.</p>
+                <h2 class="section-title">Pronta para Transformar sua Presença Digital?</h2>
+                <p class="section-subtitle">Vamos conversar. Orçamento sem compromisso, atendimento personalizado e soluções que cabem no seu objetivo.</p>
             </div>
             <div class="contact-grid">
                 <div class="contact-info">
@@ -1875,43 +1156,25 @@
                         <label for="service">Serviço de Interesse</label>
                         <select id="service" name="service" required>
                             <option value="">Selecione um serviço</option>
-                            <option value="design-grafico">Design Gráfico</option>
-                            <option value="desenvolvimento-web">Desenvolvimento Web</option>
-                            <option value="automacao">Automação & Estratégia Digital</option>
+                            <option value="design">Design Gráfico</option>
+                            <option value="web">Desenvolvimento Web</option>
+                            <option value="automacao">Automação & Chatbots</option>
                             <option value="completo">Projeto Completo</option>
                         </select>
                     </div>
                     <div class="form-group">
-                        <label for="message">Descreva seu Projeto</label>
-                        <textarea id="message" name="message" placeholder="Conte-me sobre seu projeto e objetivos" rows="4" required></textarea>
+                        <label for="message">Conte sobre seu projeto</label>
+                        <textarea id="message" name="message" rows="4" placeholder="Descreva seu projeto, objetivos e prazo..." required></textarea>
                     </div>
-                    <!-- Updated button text to match new CTA strategy -->
-                    <button type="submit" class="btn btn-primary">Quero Receber Meu Orçamento no WhatsApp</button>
+                    <button type="submit" class="submit-btn">Enviar via WhatsApp</button>
                 </form>
             </div>
         </div>
     </section>
 
-    <footer class="footer">
+    <footer>
         <div class="container">
-            <div class="footer-content">
-                <div class="footer-info">
-                    <h3>Laura Lopes</h3>
-                    <p>Especialista em Design para Negócios Digitais</p>
-                </div>
-                <div class="footer-links">
-                    <!-- Added Instagram link alongside Behance -->
-                    <a href="https://www.behance.net/laurauxuidesigner" target="_blank" aria-label="Behance">
-                        <i class="fab fa-behance"></i>
-                    </a>
-                    <a href="https://www.instagram.com/lauradesigncode/" target="_blank" aria-label="Instagram">
-                        <i class="fab fa-instagram"></i>
-                    </a>
-                </div>
-            </div>
-            <div class="footer-bottom">
-                <p>&copy; 2024 Laura Lopes. Todos os direitos reservados.</p>
-            </div>
+            <p>&copy; 2025 Laura Lopes</p>
         </div>
     </footer>
 
@@ -1923,32 +1186,6 @@
     <a href="#" class="whatsapp-float" id="whatsappFloat">
         <i class="fab fa-whatsapp"></i>
     </a>
-
-    <!-- Adding modal structure for portfolio projects -->
-    <div class="modal" id="projectModal">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h2 class="modal-title" id="modalTitle">Projeto</h2>
-                <button class="close-modal" id="closeModal">&times;</button>
-            </div>
-            <div class="modal-body">
-                <img class="modal-image" id="modalImage" src="/placeholder.svg" alt="">
-                <p class="modal-description" id="modalDescription"></p>
-                <div class="modal-tags" id="modalTags"></div>
-                <!-- Updated modal link to include Instagram option -->
-                <div class="modal-links">
-                    <a href="https://www.behance.net/laurauxuidesigner" target="_blank" class="modal-link">
-                        <i class="fab fa-behance"></i>
-                        Ver no Behance
-                    </a>
-                    <a href="https://www.instagram.com/lauradesigncode/" target="_blank" class="modal-link">
-                        <i class="fab fa-instagram"></i>
-                        Ver no Instagram
-                    </a>
-                </div>
-            </div>
-        </div>
-    </div>
 
     <script>
         let popupShown = false;
@@ -2001,9 +1238,9 @@
             const message = document.getElementById('message').value;
             
             const serviceNames = {
-                'design-grafico': 'Design Gráfico',
-                'desenvolvimento-web': 'Desenvolvimento Web',
-                'automacao': 'Automação & Estratégia Digital',
+                'design': 'Design Gráfico',
+                'web': 'Desenvolvimento Web',
+                'automacao': 'Automação & Chatbots',
                 'completo': 'Projeto Completo'
             };
             
@@ -2030,101 +1267,6 @@ Gostaria de solicitar um orçamento!`;
             } else {
                 nav.style.background = 'rgba(20, 20, 20, 0.95)';
                 nav.style.borderBottom = '1px solid rgba(220, 38, 127, 0.2)';
-            }
-        });
-
-        const projectData = {
-            'progamer': {
-                title: 'Progamer - App Mobile',
-                image: 'https://hebbkx1anhila5yf.public.blob.vercel-storage.com/image-KCHVgXfJxxwvgxj5aOGy0edHjrGjRD.png',
-                description: 'Aplicativo mobile completo desenvolvido para a comunidade gamer. O projeto incluiu design de interface moderna e intuitiva, sistema de usuários com perfis personalizáveis, sistema de ranking e conquistas, integração com redes sociais e chat em tempo real. A interface foi pensada para proporcionar uma experiência imersiva, com elementos visuais que remetem ao universo dos games, cores vibrantes e animações fluidas.',
-                tags: ['UI/UX Design', 'Mobile App', 'Gaming', 'React Native', 'Firebase']
-            },
-            'lifebios': {
-                title: 'Lifebios - Sistema Web',
-                image: 'https://hebbkx1anhila5yf.public.blob.vercel-storage.com/image-fWUNbqPxuNSHLsz8Y3q8bHd6RBVyOF.png',
-                description: 'Sistema web desenvolvido para empresa do setor de saúde, focado em gestão de pacientes e prontuários eletrônicos. O projeto contemplou interface de login segura com autenticação em duas etapas, dashboard administrativo com métricas em tempo real, sistema de agendamento integrado, módulo de relatórios personalizáveis e interface responsiva otimizada para tablets e dispositivos móveis utilizados por profissionais de saúde.',
-                tags: ['Web Design', 'Healthcare', 'Dashboard', 'React', 'Node.js']
-            },
-            'minatto': {
-                title: 'Construtora Minatto - Website',
-                image: 'https://hebbkx1anhila5yf.public.blob.vercel-storage.com/image-yddRUfiqb9s3O31skVse7FUqU8XAYt.png',
-                description: 'Website institucional completo para construtora, desenvolvido com foco em conversão e credibilidade. Inclui galeria de projetos com filtros dinâmicos, seção de depoimentos de clientes, formulário de orçamento integrado, blog com conteúdo sobre construção civil, mapa interativo de empreendimentos e sistema de newsletter. O design transmite solidez e confiança, elementos essenciais para o setor da construção.',
-                tags: ['Website', 'Construção', 'WordPress', 'SEO', 'Conversão']
-            },
-            'sabor-mell': {
-                title: 'Sabor de Mell - Packaging Design',
-                image: 'https://hebbkx1anhila5yf.public.blob.vercel-storage.com/image%20%2818%29.png-XvyAAFnamFBmmRHKV589m3asxhYr9J.jpeg',
-                description: 'Projeto completo de identidade visual e design de embalagem para produto alimentício artesanal. O trabalho envolveu criação de logotipo, definição de paleta de cores, desenvolvimento de padrões gráficos, design da embalagem principal e materiais de apoio como etiquetas e tags. O conceito visual valoriza a origem artesanal do produto, utilizando elementos orgânicos e tipografia que transmite qualidade e tradição.',
-                tags: ['Packaging', 'Branding', 'Food Design', 'Identidade Visual', 'Ilustração']
-            },
-            'brothers-store': {
-                title: 'Brothers Store - Identidade Visual',
-                image: 'https://hebbkx1anhila5yf.public.blob.vercel-storage.com/image%20%2840%29-36L11rvfHnDy2GryGX7aTgRLdQpP5t.png',
-                description: 'Desenvolvimento completo de identidade visual para loja de roupas masculinas. O projeto incluiu criação de logotipo moderno e versátil, definição de paleta de cores sofisticada, desenvolvimento de padrões gráficos, design de cartão de visita, papel timbrado, sacolas personalizadas e manual de identidade visual. O conceito transmite elegância e modernidade, alinhado com o público-alvo jovem e urbano.',
-                tags: ['Branding', 'Logo Design', 'Fashion', 'Identidade Visual', 'Print Design']
-            },
-            'rexor': {
-                title: 'Rexor - Cartão de Visita Premium',
-                image: 'https://hebbkx1anhila5yf.public.blob.vercel-storage.com/Mockup%20Cart%C3%A3o%20de%20Visita%20Rexor%203-7IByedc1NGSLRVY3QboWxExGThhdwm.png',
-                description: 'Design de cartão de visita corporativo premium para empresa do setor tecnológico. O projeto focou em criar uma peça que transmitisse inovação e profissionalismo através de design minimalista, uso estratégico de espaços em branco, tipografia moderna e acabamentos especiais como verniz localizado e papel de alta gramatura. O resultado é um cartão que se destaca pela elegância e qualidade de impressão.',
-                tags: ['Print Design', 'Corporate', 'Business Card', 'Premium', 'Tecnologia']
-            }
-        };
-
-        const modal = document.getElementById('projectModal');
-        const modalTitle = document.getElementById('modalTitle');
-        const modalImage = document.getElementById('modalImage');
-        const modalDescription = document.getElementById('modalDescription');
-        const modalTags = document.getElementById('modalTags');
-        const closeModal = document.getElementById('closeModal');
-
-        // Open modal when clicking on portfolio items
-        document.querySelectorAll('.portfolio-item').forEach(item => {
-            item.addEventListener('click', function() {
-                const projectKey = this.getAttribute('data-project');
-                const project = projectData[projectKey];
-                
-                if (project) {
-                    modalTitle.textContent = project.title;
-                    modalImage.src = project.image;
-                    modalImage.alt = project.title;
-                    modalDescription.textContent = project.description;
-                    
-                    // Clear and populate tags
-                    modalTags.innerHTML = '';
-                    project.tags.forEach(tag => {
-                        const tagElement = document.createElement('span');
-                        tagElement.className = 'modal-tag';
-                        tagElement.textContent = tag;
-                        modalTags.appendChild(tagElement);
-                    });
-                    
-                    modal.classList.add('show');
-                    document.body.style.overflow = 'hidden';
-                }
-            });
-        });
-
-        // Close modal
-        function closeProjectModal() {
-            modal.classList.remove('show');
-            document.body.style.overflow = 'auto';
-        }
-
-        closeModal.addEventListener('click', closeProjectModal);
-
-        // Close modal when clicking outside
-        modal.addEventListener('click', function(e) {
-            if (e.target === modal) {
-                closeProjectModal();
-            }
-        });
-
-        // Close modal with Escape key
-        document.addEventListener('keydown', function(e) {
-            if (e.key === 'Escape' && modal.classList.contains('show')) {
-                closeProjectModal();
             }
         });
 
@@ -2179,9 +1321,6 @@ Gostaria de solicitar um orçamento!`;
             const buttons = document.querySelectorAll('.btn, .service-card, .portfolio-item');
             buttons.forEach(button => {
                 button.addEventListener('click', function(e) {
-                    // Skip ripple effect for portfolio items as they open modals
-                    if (this.classList.contains('portfolio-item')) return;
-                    
                     const ripple = document.createElement('span');
                     const rect = this.getBoundingClientRect();
                     const size = Math.max(rect.width, rect.height);
