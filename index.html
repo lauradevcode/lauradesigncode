@@ -3,864 +3,42 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Laura Lopes - Design, Web & Automação | Resultados Garantidos</title>
+    <title>Laura Lopes - Desenvolvimento de Sites e Sistemas | Design Digital Profissional</title>
+    <meta name="description" content="Sites que trabalham por você. Desenvolvimento profissional de sites e sistemas com design de impacto e automação inteligente. Mais de 50 empresas escalaram resultados com nossa metodologia.">
+    <meta name="keywords" content="desenvolvimento de sites, criação de sites, design digital, sistemas web, automação, UX/UI, sites responsivos, Laura Lopes, desenvolvimento web">
+    <meta name="author" content="Laura Lopes">
+    <meta name="robots" content="index, follow">
+    <meta property="og:title" content="Laura Lopes - Sites que Trabalham por Você">
+    <meta property="og:description" content="Desenvolvimento profissional de sites e sistemas. Design de impacto e automação inteligente para transformar visitantes em clientes.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://lauralopes.com">
+    <meta property="og:image" content="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/Purple%20Cartoon%20Gamer%20Girl%20Illustration%20Gaming%20Logo%20%284%29-SOsBEfHbZo8439hJf4zhz6IL6TGt05.png">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Laura Lopes - Sites que Trabalham por Você">
+    <meta name="twitter:description" content="Desenvolvimento profissional de sites e sistemas com design de impacto e automação inteligente.">
+    <meta name="twitter:image" content="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/Purple%20Cartoon%20Gamer%20Girl%20Illustration%20Gaming%20Logo%20%284%29-SOsBEfHbZo8439hJf4zhz6IL6TGt05.png">
+    <link rel="canonical" href="https://lauralopes.com">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        body {
-            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
-            line-height: 1.6;
-            color: #333;
-            overflow-x: hidden;
-        }
-
-        .hero {
-            height: 100vh;
-            background: linear-gradient(135deg, #0a0a0a 0%, #1a0f0f 50%, #2a1515 100%);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            text-align: center;
-            color: white;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .hero::before {
-            content: '';
-            position: absolute;
-            top: -50%;
-            left: -50%;
-            width: 200%;
-            height: 200%;
-            background: 
-                radial-gradient(circle at 20% 80%, rgba(220, 38, 127, 0.12) 0%, transparent 50%),
-                radial-gradient(circle at 80% 20%, rgba(239, 68, 68, 0.12) 0%, transparent 50%),
-                radial-gradient(circle at 40% 40%, rgba(185, 28, 28, 0.08) 0%, transparent 50%);
-            animation: rotate 25s linear infinite;
-        }
-
-        .floating-elements {
-            position: absolute;
-            width: 100%;
-            height: 100%;
-            pointer-events: none;
-        }
-
-        .floating-shape {
-            position: absolute;
-            opacity: 0.08;
-            animation: float 6s ease-in-out infinite;
-        }
-
-        .shape-1 {
-            top: 10%;
-            left: 10%;
-            width: 100px;
-            height: 100px;
-            background: linear-gradient(45deg, #dc2626, #ef4444);
-            clip-path: polygon(50% 0%, 0% 100%, 100% 100%);
-            animation-delay: 0s;
-        }
-
-        .shape-2 {
-            top: 20%;
-            right: 15%;
-            width: 80px;
-            height: 80px;
-            background: linear-gradient(45deg, #dc267f, #ef4444);
-            border-radius: 50%;
-            animation-delay: 2s;
-        }
-
-        .shape-3 {
-            bottom: 20%;
-            left: 20%;
-            width: 120px;
-            height: 60px;
-            background: linear-gradient(45deg, #b91c1c, #dc2626);
-            clip-path: polygon(25% 0%, 100% 0%, 75% 100%, 0% 100%);
-            animation-delay: 4s;
-        }
-
-        @keyframes rotate {
-            0% { transform: rotate(0deg); }
-            100% { transform: rotate(360deg); }
-        }
-
-        @keyframes float {
-            0%, 100% { transform: translateY(0px) rotate(0deg); }
-            33% { transform: translateY(-20px) rotate(120deg); }
-            66% { transform: translateY(10px) rotate(240deg); }
-        }
-
-        .hero-content {
-            position: relative;
-            z-index: 2;
-            max-width: 900px;
-            padding: 0 20px;
-        }
-
-        .hero-title {
-            font-size: 4rem;
-            font-weight: 800;
-            margin-bottom: 1.5rem;
-            background: linear-gradient(135deg, #ffffff 0%, #f1f5f9 50%, #e2e8f0 100%);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-            line-height: 1.1;
-            text-shadow: 0 4px 20px rgba(220, 38, 38, 0.3);
-            animation: titleFadeIn 1.2s ease-out;
-        }
-
-        @keyframes titleFadeIn {
-            0% { 
-                opacity: 0; 
-                transform: translateY(30px) scale(0.9); 
-            }
-            100% { 
-                opacity: 1; 
-                transform: translateY(0) scale(1); 
-            }
-        }
-
-        .hero h1 .highlight {
-            background: linear-gradient(135deg, #dc2626, #ef4444);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-            text-shadow: 0 2px 10px rgba(220, 38, 38, 0.4);
-        }
-
-        .hero-subtitle {
-            font-size: 1.5rem;
-            font-weight: 600;
-            margin-bottom: 1rem;
-            color: #e2e8f0;
-            animation: subtitleFadeIn 1.5s ease-out 0.3s both;
-        }
-
-        @keyframes subtitleFadeIn {
-            0% { 
-                opacity: 0; 
-                transform: translateY(20px); 
-            }
-            100% { 
-                opacity: 1; 
-                transform: translateY(0); 
-            }
-        }
-
-        .hero-buttons {
-            display: flex;
-            gap: 1.5rem;
-            justify-content: center;
-            flex-wrap: wrap;
-            animation: buttonsFadeIn 1.8s ease-out 0.6s both;
-        }
-
-        @keyframes buttonsFadeIn {
-            0% { 
-                opacity: 0; 
-                transform: translateY(20px); 
-            }
-            100% { 
-                opacity: 1; 
-                transform: translateY(0); 
-            }
-        }
-
-        .btn {
-            padding: 1rem 2.5rem;
-            border-radius: 50px;
-            font-weight: 600;
-            text-decoration: none;
-            transition: all 0.3s ease;
-            display: inline-block;
-            font-size: 1.1rem;
-            transform: translateY(0);
-            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
-        }
-
-        .btn:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
-        }
-
-        .btn:active {
-            transform: translateY(-1px);
-            transition: all 0.1s ease;
-        }
-
-        .btn-primary {
-            background: linear-gradient(135deg, #dc2626, #b91c1c);
-            color: white;
-            border: none;
-        }
-
-        .btn-primary:hover {
-            background: linear-gradient(135deg, #b91c1c, #991b1b);
-            box-shadow: 0 8px 25px rgba(220, 38, 38, 0.3);
-        }
-
-        .btn-secondary {
-            background: transparent;
-            color: #dc2626;
-            border: 2px solid #dc2626;
-        }
-
-        .btn-secondary:hover {
-            background: #dc2626;
-            color: white;
-            box-shadow: 0 8px 25px rgba(220, 38, 38, 0.2);
-        }
-
-        .about {
-            padding: 6rem 0;
-            background: #f8f9fa;
-        }
-
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 2rem;
-        }
-
-        /* Melhorando margens para desktop e mobile */
-        @media (min-width: 1024px) {
-            .container {
-                max-width: 1400px;
-                padding: 0 4rem;
-            }
-            
-            .hero-content {
-                max-width: 1000px;
-                padding: 0 2rem;
-            }
-            
-            .services-grid,
-            .portfolio-grid {
-                gap: 3rem;
-            }
-            
-            .section-header {
-                margin-bottom: 5rem;
-            }
-        }
-
-        /* Reduzindo espaçamentos no mobile */
-        @media (max-width: 768px) {
-            .about,
-            .services,
-            .portfolio,
-            .work-process,
-            .testimonials,
-            .contact {
-                padding: 3rem 0 !important;
-            }
-            
-            .section-header {
-                margin-bottom: 2rem !important;
-            }
-            
-            .hero-title {
-                font-size: 2.5rem;
-            }
-            
-            .hero-subtitle {
-                font-size: 1.2rem;
-            }
-            
-            .btn {
-                padding: 0.8rem 2rem;
-                font-size: 1rem;
-            }
-        }
-
-        .about-content {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 4rem;
-            align-items: center;
-        }
-
-        .about h2 {
-            font-size: 2.5rem;
-            font-weight: 800;
-            margin-bottom: 1.5rem;
-            color: #333;
-        }
-
-        .about h2 em {
-            color: #dc267f;
-            font-style: normal;
-        }
-
-        .about-description {
-            font-size: 1.1rem;
-            margin-bottom: 2rem;
-            color: #666;
-            line-height: 1.8;
-        }
-
-        .features-list {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 1.2rem;
-        }
-
-        .feature-item {
-            display: flex;
-            align-items: center;
-            gap: 1rem;
-            padding: 1.2rem;
-            background: white;
-            border-radius: 12px;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.08);
-            transition: transform 0.3s ease;
-        }
-
-        .feature-item:hover {
-            transform: translateY(-2px);
-        }
-
-        .feature-item i {
-            color: #dc2626;
-            font-size: 1.3rem;
-            min-width: 24px;
-        }
-
-        .about-image {
-            position: relative;
-            border-radius: 20px;
-            overflow: hidden;
-            box-shadow: 0 20px 40px rgba(0,0,0,0.1);
-        }
-
-        .about-image::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background: linear-gradient(135deg, rgba(220, 38, 38, 0.1), rgba(220, 38, 127, 0.1));
-            z-index: 1;
-        }
-
-        .services {
-            padding: 6rem 0;
-            background: white;
-        }
-
-        .section-header {
-            text-align: center;
-            margin-bottom: 4rem;
-        }
-
-        .section-title {
-            font-size: 2.5rem;
-            font-weight: 800;
-            margin-bottom: 1rem;
-            color: #333;
-        }
-
-        .section-subtitle {
-            font-size: 1.2rem;
-            color: #666;
-            max-width: 600px;
-            margin: 0 auto;
-        }
-
-        .services-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-            gap: 2.5rem;
-        }
-
-        .service-card {
-            background: white;
-            padding: 2.5rem;
-            border-radius: 20px;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
-            transition: all 0.3s ease;
-            border: 1px solid #f1f5f9;
-            opacity: 0;
-            transform: translateY(30px);
-        }
-
-        .service-card.visible {
-            opacity: 1;
-            transform: translateY(0);
-        }
-
-        .service-card:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 20px 40px rgba(220, 38, 38, 0.1);
-            border-color: #dc2626;
-        }
-
-        .service-header {
-            display: flex;
-            align-items: center;
-            gap: 1rem;
-            margin-bottom: 1.5rem;
-        }
-
-        .service-icon {
-            width: 60px;
-            height: 60px;
-            background: linear-gradient(135deg, #dc2626, #b91c1c);
-            border-radius: 15px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: white;
-            font-size: 1.5rem;
-        }
-
-        .service-card h3 {
-            font-size: 1.3rem;
-            font-weight: 700;
-            color: #333;
-        }
-
-        .service-card p {
-            color: #666;
-            line-height: 1.7;
-            margin-bottom: 1.5rem;
-        }
-
-        .service-price {
-            display: none;
-        }
-
-        .portfolio {
-            padding: 6rem 0;
-            background: #f8f9fa;
-        }
-
-        /* Corrigindo layout do portfólio para colunas organizadas */
-        .portfolio-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
-            gap: 2.5rem;
-            align-items: start;
-        }
-
-        .portfolio-item {
-            background: white;
-            border-radius: 15px;
-            overflow: hidden;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
-            transition: all 0.3s ease;
-            opacity: 0;
-            transform: translateY(30px);
-        }
-
-        .portfolio-item.visible {
-            opacity: 1;
-            transform: translateY(0);
-        }
-
-        .portfolio-item:hover {
-            transform: translateY(-8px);
-            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
-        }
-
-        .portfolio-image {
-            height: 200px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: white;
-            font-size: 1.8rem;
-            font-weight: 700;
-            text-align: center;
-            padding: 1rem;
-        }
-
-        .portfolio-content {
-            padding: 1.5rem;
-        }
-
-        .portfolio-content h3 {
-            font-size: 1.2rem;
-            font-weight: 700;
-            margin-bottom: 0.5rem;
-            color: #333;
-        }
-
-        .portfolio-content p {
-            color: #666;
-            font-size: 0.9rem;
-        }
-
-        .contact {
-            padding: 6rem 0;
-            background: white;
-        }
-
-        .contact-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 4rem;
-        }
-
-        .contact-info h3 {
-            font-size: 1.5rem;
-            font-weight: 700;
-            margin-bottom: 2rem;
-            color: #333;
-        }
-
-        .contact-item {
-            display: flex;
-            align-items: center;
-            gap: 1rem;
-            margin-bottom: 1.5rem;
-            padding: 1.2rem;
-            background: #f8f9fa;
-            border-radius: 12px;
-            transition: transform 0.3s ease;
-        }
-
-        .contact-item:hover {
-            transform: translateY(-2px);
-        }
-
-        .contact-item i {
-            color: #dc2626;
-            font-size: 1.5rem;
-            width: 30px;
-        }
-
-        .contact-item strong {
-            color: #333;
-            display: block;
-            margin-bottom: 0.2rem;
-        }
-
-        .contact-item div {
-            color: #666;
-        }
-
-        .contact-form {
-            background: #f8f9fa;
-            padding: 2.5rem;
-            border-radius: 20px;
-        }
-
-        .form-group {
-            margin-bottom: 1.5rem;
-        }
-
-        .form-group label {
-            display: block;
-            margin-bottom: 0.5rem;
-            font-weight: 600;
-            color: #333;
-        }
-
-        .form-group input,
-        .form-group select,
-        .form-group textarea {
-            width: 100%;
-            padding: 1rem;
-            border: 2px solid #e0e0e0;
-            border-radius: 10px;
-            font-size: 1rem;
-            transition: border-color 0.3s ease;
-            background: white;
-        }
-
-        .form-group input:focus,
-        .form-group select:focus,
-        .form-group textarea:focus {
-            outline: none;
-            border-color: #dc2626;
-        }
-
-        .submit-btn {
-            width: 100%;
-            background: linear-gradient(135deg, #dc2626, #b91c1c);
-            color: white;
-            padding: 1rem 2rem;
-            border: none;
-            border-radius: 10px;
-            font-size: 1.1rem;
-            font-weight: 600;
-            cursor: pointer;
-            transition: all 0.3s ease;
-        }
-
-        .submit-btn:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 10px 30px rgba(220, 38, 38, 0.3);
-        }
-
-        footer {
-            background: #333;
-            color: white;
-            text-align: center;
-            padding: 2rem 0;
-        }
-
-        footer p {
-            margin-bottom: 0.5rem;
-        }
-
-        .whatsapp-float {
-            position: fixed;
-            bottom: 30px;
-            right: 30px;
-            width: 60px;
-            height: 60px;
-            background: #25d366;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: white;
-            font-size: 1.8rem;
-            text-decoration: none;
-            box-shadow: 0 4px 20px rgba(37, 211, 102, 0.4);
-            z-index: 1000;
-            animation: vibrate 1.5s infinite;
-            cursor: pointer;
-        }
-
-        @keyframes vibrate {
-            0%, 100% { transform: scale(1) rotate(0deg); }
-            25% { transform: scale(1.05) rotate(-2deg); }
-            50% { transform: scale(1.1) rotate(2deg); }
-            75% { transform: scale(1.05) rotate(-1deg); }
-        }
-
-        .whatsapp-popup {
-            position: fixed;
-            bottom: 100px;
-            right: 30px;
-            background: white;
-            padding: 1rem 1.5rem;
-            border-radius: 15px;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
-            z-index: 999;
-            opacity: 0;
-            transform: translateY(20px);
-            transition: all 0.3s ease;
-            max-width: 250px;
-            border: 2px solid #25d366;
-        }
-
-        .whatsapp-popup.show {
-            opacity: 1;
-            transform: translateY(0);
-        }
-
-        .whatsapp-popup::after {
-            content: '';
-            position: absolute;
-            bottom: -10px;
-            right: 20px;
-            width: 0;
-            height: 0;
-            border-left: 10px solid transparent;
-            border-right: 10px solid transparent;
-            border-top: 10px solid #25d366;
-        }
-
-        .whatsapp-popup p {
-            margin: 0;
-            color: #333;
-            font-size: 0.9rem;
-            font-weight: 500;
-        }
-
-        .whatsapp-popup .close-popup {
-            position: absolute;
-            top: 5px;
-            right: 8px;
-            background: none;
-            border: none;
-            font-size: 1.2rem;
-            color: #999;
-            cursor: pointer;
-        }
-
-        .testimonial {
-            background: white;
-            padding: 2rem;
-            border-radius: 15px;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
-            border-left: 4px solid #dc2626;
-            transition: all 0.3s ease;
-            opacity: 0;
-            transform: translateY(30px);
-        }
-
-        .testimonial.visible {
-            opacity: 1;
-            transform: translateY(0);
-        }
-
-        .testimonial:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 15px 35px rgba(220, 38, 38, 0.1);
-        }
-
-        .fade-in-up {
-            opacity: 0;
-            transform: translateY(30px);
-            transition: all 0.8s ease-out;
-        }
-
-        .fade-in-up.visible {
-            opacity: 1;
-            transform: translateY(0);
-        }
-
-        .ripple {
-            position: absolute;
-            border-radius: 50%;
-            background: rgba(255, 255, 255, 0.3);
-            transform: scale(0);
-            animation: ripple-animation 0.6s linear;
-            pointer-events: none;
-        }
-
-        @keyframes ripple-animation {
-            to {
-                transform: scale(4);
-                opacity: 0;
-            }
-        }
-
-        /* Melhorando navbar responsivo */
-        nav {
-            position: fixed;
-            top: 0;
-            left: 0;
-            right: 0;
-            z-index: 1000;
-            background: rgba(20, 20, 20, 0.95);
-            backdrop-filter: blur(10px);
-            border-bottom: 1px solid rgba(220, 38, 127, 0.2);
-            transition: all 0.3s ease;
-        }
-
-        .nav-container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 1rem 2rem;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-
-        .logo {
-            font-size: 1.5rem;
-            font-weight: bold;
-            color: #dc267f;
-            text-decoration: none;
-            transition: all 0.3s ease;
-        }
-
-        .logo:hover {
-            color: #ff6b9d;
-            transform: scale(1.05);
-        }
-
-        .nav-links {
-            display: flex;
-            list-style: none;
-            margin: 0;
-            padding: 0;
-            gap: 2rem;
-        }
-
-        .nav-links li a {
-            color: #ffffff;
-            text-decoration: none;
-            font-weight: 500;
-            padding: 0.5rem 1rem;
-            border-radius: 25px;
-            transition: all 0.3s ease;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .nav-links li a:hover {
-            color: #dc267f;
-            background: rgba(220, 38, 127, 0.1);
-            transform: translateY(-2px);
-        }
-
-        .nav-links li a::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: -100%;
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.1), transparent);
-            transition: left 0.5s;
-        }
-
-        .nav-links li a:hover::before {
-            left: 100%;
-        }
-
-        /* Melhorando responsividade do navbar para mobile */
-        @media (max-width: 768px) {
-            .nav-container {
-                padding: 0.8rem 1rem;
-            }
-            
-            .logo {
-                font-size: 1.3rem;
-            }
-            
-            .nav-links {
-                gap: 0.5rem;
-            }
-            
-            .nav-links li a {
-                padding: 0.4rem 0.6rem;
-                font-size: 0.85rem;
-            }
-        }
-
-        @media (max-width: 480px) {
-            .nav-links {
-                gap: 0.2rem;
-            }
-            
-            .nav-links li a {
-                padding: 0.3rem 0.5rem;
-                font-size: 0.8rem;
-            }
-        }
-    </style>
+    <link rel="stylesheet" href="css/style.css">
 </head>
 
 <body>
+    <div class="overlay" id="overlay"></div>
      Adicionando "Como Trabalho" no navbar 
     <nav>
         <div class="nav-container">
-            <div class="logo">Laura Lopes</div>
-            <ul class="nav-links">
-                <li><a href="#home">Início</a></li>
-                <li><a href="#services">Serviços</a></li>
-                <li><a href="#work-process">Como Trabalho</a></li>
-                <li><a href="#portfolio">Portfólio</a></li>
-                <li><a href="#contact">Contato</a></li>
+            <div class="logo">LauraDevCode</div>
+            <button class="hamburger" id="hamburger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+            <ul class="nav-links" id="navLinks">
+                <li><a href="#home" title="Página inicial">Início</a></li>
+                <li><a href="#services" title="Conheça nossos serviços">Serviços</a></li>
+                <li><a href="#work-process" title="Como trabalhamos">Como Trabalho</a></li>
+                <li><a href="#portfolio" title="Veja nossos projetos">Portfólio</a></li>
+                <li><a href="https://www.behance.net/laurauxuidesigner" target="_blank" class="nav-cta" title="Acessar Portfólio" rel="noopener noreferrer">Acessar Portfólio</a></li>
             </ul>
         </div>
     </nav>
@@ -874,15 +52,14 @@
         
         <div class="hero-content">
             <h1 class="hero-title">
-                <span style="color: #ffffff; text-shadow: 2px 2px 4px rgba(0,0,0,0.3);">Transformo Sua Marca em</span> <span class="highlight" style="color: #dc2626; text-shadow: 2px 2px 4px rgba(0,0,0,0.3);">Sucesso Digital</span>
+                <span style="color: #ffffff; text-shadow: 2px 2px 4px rgba(0,0,0,0.3);">Pare de atrair curiosos.</span><br><span class="highlight" style="color: #ffffff;">Comece a converter clientes.</span>
             </h1>
             <p class="hero-subtitle">
-                Design estratégico + automação inteligente = resultados que impactam seu negócio. 
-                Mais de 50 projetos entregues com foco em performance e conversão.
+                Design de impacto e automação inteligente para transformar visitantes em clientes reais.
             </p>
             <div class="hero-buttons">
-                <a href="#contact" class="btn btn-primary">Solicitar Orçamento</a>
-                <a href="https://www.behance.net/laurauxuidesigner" target="_blank" class="btn btn-secondary">Ver Portfólio</a>
+                <a href="#contact" class="btn btn-primary" title="Chamar no WhatsApp">Chamar no WhatsApp</a>
+                <a href="https://www.behance.net/laurauxuidesigner" target="_blank" class="btn btn-secondary" title="Ver nossos projetos no Behance" rel="noopener noreferrer">Ver projetos</a>
             </div>
         </div>
     </section>
@@ -891,14 +68,12 @@
         <div class="container">
             <div class="about-content">
                 <div class="about-info">
-                    <h2>Oi! Eu sou a <em>Laura</em>, especialista em Design Digital</h2>
+                    <h2>SOBRE MIM</h2>
                     <p class="about-description">
-                        Ajudo marcas a se destacarem com soluções digitais completas: 
-                        sites funcionais e atraentes, interfaces inteligentes e estratégias que realmente geram resultados.
+                        Crio sites e plataformas sob medida, com design estratégico, tecnologia sólida e foco total em performance.
                         <br><br>
-                        Minha abordagem une <strong>estética + tecnologia + estratégia</strong>, 
-                        garantindo que cada projeto não apenas impressione visualmente, 
-                        mas também entregue resultados tangíveis e mensuráveis.
+                        <strong>Transformo ideias em produtos digitais que vendem.</strong><br> <br>
+                        Aqui, estética não é fim, é meio.<br><br> Cada decisão de design e desenvolvimento é pensada para gerar resultado, escala e crescimento real para o negócio.
                     </p>
                     <div class="features-list">
                         <div class="feature-item">
@@ -917,14 +92,10 @@
                             <i class="fas fa-chart-line"></i>
                             <span>Marketing digital integrado</span>
                         </div>
-                        <div class="feature-item">
-                            <i class="fab fa-behance"></i>
-                            <span><a href="https://www.behance.net/laurauxuidesigner" target="_blank" style="color: #dc2626; text-decoration: none;">Ver Behance</a></span>
-                        </div>
                     </div>
                 </div>
                 <div class="about-image">
-                    <img src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/Purple%20Cartoon%20Gamer%20Girl%20Illustration%20Gaming%20Logo%20%284%29-SOsBEfHbZo8439hJf4zhz6IL6TGt05.png" alt="Laura Lopes - UX/UI Designer" style="width: 100%; height: 100%; object-fit: cover;">
+                    <img src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/Purple%20Cartoon%20Gamer%20Girl%20Illustration%20Gaming%20Logo%20%284%29-SOsBEfHbZo8439hJf4zhz6IL6TGt05.png" alt="Laura Lopes - Desenvolvedora de Sites e Sistemas" style="width: 100%; height: 100%; object-fit: cover;">
                 </div>
             </div>
         </div>
@@ -937,7 +108,7 @@
                 <p class="section-subtitle">Soluções completas para transformar sua presença digital em resultados reais</p>
             </div>
             <div class="services-grid">
-                <div class="service-card">
+                <article class="service-card">
                     <div class="service-header">
                         <div class="service-icon">
                             <i class="fas fa-paint-brush"></i>
@@ -945,8 +116,8 @@
                         <h3>Design Gráfico</h3>
                     </div>
                     <p>Identidade visual profissional, logotipos e materiais gráficos que comunicam credibilidade e fortalecem sua marca.</p>
-                </div>
-                <div class="service-card">
+                </article>
+                <article class="service-card">
                     <div class="service-header">
                         <div class="service-icon">
                             <i class="fas fa-laptop-code"></i>
@@ -954,8 +125,8 @@
                         <h3>Desenvolvimento Web</h3>
                     </div>
                     <p>Sites modernos, rápidos e responsivos que atraem visitantes, transmitem confiança e convertem em clientes.</p>
-                </div>
-                <div class="service-card">
+                </article>
+                <article class="service-card">
                     <div class="service-header">
                         <div class="service-icon">
                             <i class="fas fa-cogs"></i>
@@ -963,7 +134,7 @@
                         <h3>Automação & Estratégia Digital</h3>
                     </div>
                     <p>Criação de fluxos inteligentes e automações para economizar tempo, nutrir leads e aumentar suas vendas.</p>
-                </div>
+                </article>
             </div>
         </div>
     </section>
@@ -1180,166 +351,13 @@
 
     <div class="whatsapp-popup" id="whatsappPopup">
         <button class="close-popup" onclick="closeWhatsAppPopup()">&times;</button>
-        <p>👋 Oi! Preciso do serviço...</p>
+        <p>👋 Oi! Vim do site. E quero fazer orçamento de...</p>
     </div>
     
     <a href="#" class="whatsapp-float" id="whatsappFloat">
         <i class="fab fa-whatsapp"></i>
-    </a>
-
-    <script>
-        let popupShown = false;
-        
-        function showWhatsAppPopup() {
-            if (!popupShown) {
-                document.getElementById('whatsappPopup').classList.add('show');
-                popupShown = true;
-                
-                setTimeout(() => {
-                    if (document.getElementById('whatsappPopup').classList.contains('show')) {
-                        closeWhatsAppPopup();
-                    }
-                }, 5000);
-            }
-        }
-        
-        function closeWhatsAppPopup() {
-            document.getElementById('whatsappPopup').classList.remove('show');
-        }
-        
-        document.getElementById('whatsappFloat').addEventListener('click', function(e) {
-            e.preventDefault();
-            if (document.getElementById('whatsappPopup').classList.contains('show')) {
-                const whatsappURL = 'https://wa.me/5561998548265?text=Oi! Preciso do serviço...';
-                window.open(whatsappURL, '_blank');
-                closeWhatsAppPopup();
-            } else {
-                showWhatsAppPopup();
-            }
-        });
-        
-        setTimeout(showWhatsAppPopup, 3000);
-
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function (e) {
-                e.preventDefault();
-                document.querySelector(this.getAttribute('href')).scrollIntoView({
-                    behavior: 'smooth'
-                });
-            });
-        });
-
-        document.getElementById('contactForm').addEventListener('submit', function(e) {
-            e.preventDefault();
-            
-            const name = document.getElementById('name').value;
-            const phone = document.getElementById('phone').value;
-            const service = document.getElementById('service').value;
-            const message = document.getElementById('message').value;
-            
-            const serviceNames = {
-                'design': 'Design Gráfico',
-                'web': 'Desenvolvimento Web',
-                'automacao': 'Automação & Chatbots',
-                'completo': 'Projeto Completo'
-            };
-            
-            const whatsappMessage = `Olá Laura! 👋
-
-*Nome:* ${name}
-*WhatsApp:* ${phone}
-*Serviço:* ${serviceNames[service] || service}
-
-*Projeto:*
-${message}
-
-Gostaria de solicitar um orçamento!`;
-            
-            const whatsappURL = `https://wa.me/5561998548265?text=${encodeURIComponent(whatsappMessage)}`;
-            window.open(whatsappURL, '_blank');
-        });
-
-        window.addEventListener('scroll', function() {
-            const nav = document.querySelector('nav');
-            if (window.scrollY > 100) {
-                nav.style.background = 'rgba(10, 10, 10, 0.98)';
-                nav.style.borderBottom = '1px solid rgba(220, 38, 127, 0.4)';
-            } else {
-                nav.style.background = 'rgba(20, 20, 20, 0.95)';
-                nav.style.borderBottom = '1px solid rgba(220, 38, 127, 0.2)';
-            }
-        });
-
-        document.addEventListener('DOMContentLoaded', function() {
-            function isElementInViewport(el) {
-                const rect = el.getBoundingClientRect();
-                return (
-                    rect.top >= 0 &&
-                    rect.left >= 0 &&
-                    rect.bottom <= (window.innerHeight || document.documentElement.clientHeight) &&
-                    rect.right <= (window.innerWidth || document.documentElement.clientWidth)
-                ) || (
-                    rect.top < window.innerHeight && rect.bottom > 0
-                );
-            }
-
-            function animateOnScroll() {
-                const elements = document.querySelectorAll('.service-card, .portfolio-item, .testimonial, .fade-in-up');
-                
-                elements.forEach((element, index) => {
-                    if (isElementInViewport(element)) {
-                        setTimeout(() => {
-                            element.classList.add('visible');
-                        }, index * 100);
-                    }
-                });
-            }
-
-            animateOnScroll();
-
-            window.addEventListener('scroll', animateOnScroll);
-
-            const whatsappBtn = document.querySelector('.whatsapp-float');
-            const popup = document.querySelector('.whatsapp-popup');
-
-            whatsappBtn.addEventListener('mouseenter', function() {
-                popup.style.display = 'block';
-                setTimeout(() => {
-                    popup.style.opacity = '1';
-                    popup.style.transform = 'translateY(0)';
-                }, 10);
-            });
-
-            whatsappBtn.addEventListener('mouseleave', function() {
-                popup.style.opacity = '0';
-                popup.style.transform = 'translateY(10px)';
-                setTimeout(() => {
-                    popup.style.display = 'none';
-                }, 300);
-            });
-
-            const buttons = document.querySelectorAll('.btn, .service-card, .portfolio-item');
-            buttons.forEach(button => {
-                button.addEventListener('click', function(e) {
-                    const ripple = document.createElement('span');
-                    const rect = this.getBoundingClientRect();
-                    const size = Math.max(rect.width, rect.height);
-                    const x = e.clientX - rect.left - size / 2;
-                    const y = e.clientY - rect.top - size / 2;
-                    
-                    ripple.style.width = ripple.style.height = size + 'px';
-                    ripple.style.left = x + 'px';
-                    ripple.style.top = y + 'px';
-                    ripple.classList.add('ripple');
-                    
-                    this.appendChild(ripple);
-                    
-                    setTimeout(() => {
-                        ripple.remove();
-                    }, 600);
-                });
-            });
-        });
-    </script>
+    </div>
+    
+    <script src="js/script.js"></script>
 </body>
 </html>
