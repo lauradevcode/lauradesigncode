@@ -1,370 +1,352 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="pt-BR">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Laura Lopes - Web Designer | Desenvolvedora de Sites e Sistemas | Brasil</title>
-    <meta name="description" content="Web Designer e Desenvolvedora no Brasil. Crio sites profissionais, sistemas web e identidade visual. Design estratégico que converte visitantes em clientes. Atendo em Brasília e todo Brasil.">
-    <meta name="keywords" content="web designer Brasil, desenvolvedora de sites, criação de sites Brasil, design de sites, desenvolvimento web, UX/UI design, identidade visual, sites responsivos, Laura Lopes, web design, web designer Brasília, sites Brasília">
-    <meta name="author" content="Laura Lopes">
-    <meta name="robots" content="index, follow">
-    <meta name="geo.region" content="BR-DF">
-    <meta name="geo.placename" content="Brasília">
-    <meta name="geo.position" content="-15.8267;-47.9218">
-    <meta name="ICBM" content="-15.8267, -47.9218">
-    <meta name="language" content="pt-BR">
-    <meta name="revisit-after" content="7 days">
-    <meta name="rating" content="general">
-    <meta property="og:title" content="Laura Lopes - Web Designer | Desenvolvedora de Sites no Brasil">
-    <meta property="og:description" content="Web Designer profissional no Brasil. Desenvolvimento de sites, sistemas e design estratégico. Atendo em Brasília e todo Brasil. Transforme visitantes em clientes.">
+    <title>Laura Lopes - Desenvolvedora de Sistemas & Automações</title>
+    <meta name="description" content="Desenvolvimento de sistemas, SaaS e automações para negócios digitais. Escalabilidade sem trabalho manual.">
+    <meta property="og:title" content="Laura Lopes - Sistemas que vendem. Automações que escalam.">
+    <meta property="og:description" content="Desenvolvimento sob medida para negócios digitais que não têm tempo a perder com processos manuais.">
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://lauralopes.com">
-    <meta property="og:image" content="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/Purple%20Cartoon%20Gamer%20Girl%20Illustration%20Gaming%20Logo%20%284%29-SOsBEfHbZo8439hJf4zhz6IL6TGt05.png">
-    <meta property="og:image:alt" content="Laura Lopes - Web Designer e Desenvolvedora">
-    <meta property="og:locale" content="pt_BR">
-    <meta property="og:site_name" content="Laura Lopes - Web Designer">
     <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title" content="Laura Lopes - Web Designer | Desenvolvedora de Sites">
-    <meta name="twitter:description" content="Web Designer profissional no Brasil. Crio sites que convertem e sistemas que automatizam seu negócio. Atendo em Brasília e todo Brasil.">
-    <meta name="twitter:image" content="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/Purple%20Cartoon%20Gamer%20Girl%20Illustration%20Gaming%20Logo%20%284%29-SOsBEfHbZo8439hJf4zhz6IL6TGt05.png">
-    <meta name="twitter:image:alt" content="Laura Lopes - Web Designer">
-    <meta name="twitter:creator" content="@lauralopes">
-    <link rel="canonical" href="https://lauralopes.com">
-    <link rel="alternate" hreflang="pt-br" href="https://lauralopes.com">
-    <link rel="icon" type="image/png" href="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/Purple%20Cartoon%20Gamer%20Girl%20Illustration%20Gaming%20Logo%20%284%29-SOsBEfHbZo8439hJf4zhz6IL6TGt05.png">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Syne:wght@700;800&family=DM+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link rel="stylesheet" href="css/style.css">
 </head>
-
 <body>
-    <div class="overlay" id="overlay"></div>
-    <nav>
+    <!-- Navigation -->
+    <nav class="nav">
         <div class="nav-container">
-            <div class="logo">LauraDevCode</div>
-            <button class="hamburger" id="hamburger">
-                <span></span>
-                <span></span>
-                <span></span>
+            <div class="logo">Laura.<span class="logo-dot">DevCode</span></div>
+            <div class="nav-links">
+                <a href="#sobre">Sobre</a>
+                <a href="#servicos">Serviços</a>
+                <a href="#como-trabalho">Como trabalho</a>
+                <a href="#portfolio">Portfólio</a>
+                <a href="#depoimentos">Depoimentos</a>
+                <a href="#cta" class="nav-cta">Falar agora</a>
+            </div>
+            <button class="mobile-menu-toggle" id="mobileMenuToggle">
+                <i class="fas fa-bars"></i>
             </button>
-            <ul class="nav-links" id="navLinks">
-                <li><a href="#home" title="Página inicial">Início</a></li>
-                <li><a href="#services" title="Conheça nossos serviços">Serviços</a></li>
-                <li><a href="#work-process" title="Como trabalhamos">Como Trabalho</a></li>
-                <li><a href="#portfolio" class="nav-cta" title="Acessar Portfólio" rel="noopener noreferrer">Ver Portfólio</a></li>
-            </ul>
+        </div>
+        <div class="mobile-menu" id="mobileMenu">
+            <a href="#sobre">Sobre</a>
+            <a href="#servicos">Serviços</a>
+            <a href="#como-trabalho">Como trabalho</a>
+            <a href="#portfolio">Portfólio</a>
+            <a href="#depoimentos">Depoimentos</a>
+            <a href="#cta" class="nav-cta">Falar agora</a>
         </div>
     </nav>
 
-    <section id="home" class="hero">
-        <div class="floating-elements">
-            <div class="floating-shape shape-1"></div>
-            <div class="floating-shape shape-2"></div>
-            <div class="floating-shape shape-3"></div>
-        </div>
-        
-        <div class="hero-content">
-            <h1 class="hero-title">
-                <span style="color: #ffffff; text-shadow: 2px 2px 4px rgba(0,0,0,0.3);">Pare de atrair curiosos.</span><br><span class="highlight" style="color: #ffffff;">Construa uma presença digital que vende.</span>
-            </h1>
-            <p class="hero-subtitle">
-                Ajudo negócios digitais a se posicionarem, atraírem clientes certos e automatizarem processos com design estratégico, tecnologia e marketing.
-            </p>
-            <div class="hero-buttons">
-                <a href="#contact" class="btn btn-primary" title="Chamar no WhatsApp">Chamar no WhatsApp</a>
-            </div>
-        </div>
-    </section>
-
-    <section class="about">
+    <!-- Hero Section -->
+    <section class="hero">
         <div class="container">
-            <div class="about-content">
-                <div class="about-info">
-                    <h2>SOBRE MIM</h2>
-                    <p class="about-description">
-                        Sou desenvolvedora e designer focada em negócios digitais que querem crescer de forma inteligente.
-                    </p>
-                    <p class="about-description">
-                        Uno design estratégico, desenvolvimento web, automação e marketing digital para criar soluções que não são apenas bonitas — elas convertem, organizam e escalam o negócio.
-                    </p>
-                    <p class="about-description">
-                        Nada de achismo. Cada projeto é pensado para gerar resultado real: mais autoridade, mais clientes e mais eficiência no dia a dia.
-                    </p>
+            <div class="hero-badge fade-up d1">● Disponível para novos projetos</div>
+            <h1 class="hero-title fade-up d2">Sistemas que vendem. Automações que escalam.</h1>
+            <p class="hero-subtitle fade-up d3">Sistemas, landing pages e automações sob medida <br>para negócios locais e digitais que querem crescer com estrutura e performance.</p>
+            <div class="hero-buttons fade-up d4">
+                <a href="https://wa.me/5561998548265" class="btn btn-primary" target="_blank" rel="noopener noreferrer">
+                    <i class="fab fa-whatsapp"></i>
+                    <span>Orçamento</span>
+                </a>
+                <a href="#portfolio" class="btn btn-outline">
+                    <span>Portfólio</span>
+                </a>
+            </div>
+            <div class="hero-stats">
+                <div class="stat fade-up d1">
+                    <div class="stat-number" id="projectCount">0</div>
+                    <div class="stat-label">Projetos entregues</div>
                 </div>
-                <div class="about-image">
-                    <img src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/Purple%20Cartoon%20Gamer%20Girl%20Illustration%20Gaming%20Logo%20%284%29-SOsBEfHbZo8439hJf4zhz6IL6TGt05.png" alt="Laura Lopes - Desenvolvedora de Sites e Sistemas" style="width: 100%; height: 100%; object-fit: cover;">
+                <div class="stat fade-up d3">
+                    <div class="stat-number" id="ratingCount">0.0</div>
+                    <div class="stat-label">Avaliação média</div>
                 </div>
             </div>
         </div>
     </section>
 
-    <section id="services" class="services">
+    <!-- Sobre Mim -->
+    <section id="sobre" class="sobre">
         <div class="container">
-            <div class="section-header">
-                <h2 class="section-title">Soluções completas para sua presença digital</h2>
-                <p class="section-subtitle">Tudo que você precisa para crescer online em um só lugar</p>
-            </div>
-            <div class="services-grid">
-                <article class="service-card">
-                    <div class="service-header">
-                        <div class="service-icon">
-                            <i class="fas fa-paint-brush"></i>
+            <div class="sobre-grid">
+                <div class="sobre-image">
+                    <img src="images/perfil.jpg" alt="Laura Lopes - Desenvolvedora de Sistemas & Automações" class="perfil-image">
+                </div>
+                <div class="sobre-content fade-up d2">
+                    <div class="section-tag">SOBRE MIM</div>
+                    <h2>Código que resolve. Resultado que fica.</h2>
+                    <p class="sobre-subtitle">Desenvolvedora especialista em transformar complexidade técnica em crescimento real para negócios digitais.</p>
+                    <div class="sobre-features">
+                        <div class="feature fade-up d1">
+                            <i class="fas fa-check"></i>
+                            <span>Sistemas e SaaS do zero ao ar, com arquitetura escalável</span>
                         </div>
-                        <h3>Design Gráfico Estratégico</h3>
-                    </div>
-                    <p>Identidade visual, artes para redes sociais e materiais que fortalecem sua marca e aumentam a percepção de valor.</p>
-                </article>
-                <article class="service-card">
-                    <div class="service-header">
-                        <div class="service-icon">
-                            <i class="fas fa-laptop-code"></i>
+                        <div class="feature fade-up d2">
+                            <i class="fas fa-check"></i>
+                            <span>Automações que eliminam trabalho manual e reduzem custos</span>
                         </div>
-                        <h3>Web Design & Desenvolvimento</h3>
-                    </div>
-                    <p>Sites rápidos, modernos e pensados para conversão — do layout ao código.</p>
-                </article>
-                <article class="service-card">
-                    <div class="service-header">
-                        <div class="service-icon">
-                            <i class="fas fa-cogs"></i>
+                        <div class="feature fade-up d3">
+                            <i class="fas fa-check"></i>
+                            <span>Landing pages orientadas a conversão, não só à estética</span>
                         </div>
-                        <h3>Automação & Sistemas Digitais</h3>
-                    </div>
-                    <p>Automatização de processos, integrações e fluxos para ganhar tempo e escalar o negócio.</p>
-                </article>
-                <article class="service-card">
-                    <div class="service-header">
-                        <div class="service-icon">
-                            <i class="fas fa-share-alt"></i>
+                        <div class="feature fade-up d4">
+                            <i class="fas fa-check"></i>
+                            <span>Código limpo, documentado e com entrega ágil</span>
                         </div>
-                        <h3>Gestão de Mídias Sociais</h3>
                     </div>
-                    <p>Planejamento, conteúdo estratégico e presença digital alinhada ao posicionamento da marca.</p>
-                </article>
+                    <a href="https://wa.me/5561998548265" class="btn btn-primary" target="_blank" rel="noopener noreferrer">
+                        <i class="fab fa-whatsapp"></i>
+                        <span>Orçamento aqui</span>
+                    </a>
+                </div>
             </div>
         </div>
     </section>
 
-    <section id="work-process" class="work-process" style="padding: 6rem 0; background: #f8f9fa;">
+    <!-- Serviços -->
+    <section id="servicos" class="servicos">
         <div class="container">
-            <div class="section-header">
-                <h2 class="section-title">Como Trabalho</h2>
-                <p class="section-subtitle">Processo direto, estratégico e orientado a resultados</p>
+            <div class="section-header fade-up d1">
+                <div class="section-tag">SERVIÇOS</div>
+                <h2>Soluções que escalam seu negócio</h2>
             </div>
-            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 2rem;">
-                <div style="background: #2a2a2a; color: white; padding: 2rem; border-radius: 15px; position: relative;">
-                    <div style="position: absolute; top: -15px; left: 20px; background: #dc2626; color: white; width: 30px; height: 30px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: bold;">1</div>
-                    <h3 style="margin-bottom: 1rem; color: white;">Diagnóstico e estratégia</h3>
-                    <p style="color: #ccc; margin: 0;">Análise do seu negócio, objetivos e desafios. Crio uma estratégia digital alinhada aos seus resultados.</p>
+            <div class="servicos-grid">
+                <div class="servico-card fade-up d1">
+                    <div class="servico-icon">
+                        <i class="fas fa-code"></i>
+                    </div>
+                    <h3>Sistemas & SaaS</h3>
+                    <p>Plataformas completas do zero ao ar, com arquitetura escalável para vendas, assinaturas e gestão de negócios digitais.</p>
                 </div>
-                <div style="background: #2a2a2a; color: white; padding: 2rem; border-radius: 15px; position: relative;">
-                    <div style="position: absolute; top: -15px; left: 20px; background: #dc2626; color: white; width: 30px; height: 30px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: bold;">2</div>
-                    <h3 style="margin-bottom: 1rem; color: white;">Proposta clara e alinhada aos objetivos</h3>
-                    <p style="color: #ccc; margin: 0;">Proposta detalhada com escopo, prazos e investimento transparente. Sem surpresas, sem complicação.</p>
+                <div class="servico-card fade-up d2">
+                    <div class="servico-icon">
+                        <i class="fas fa-store"></i>
+                    </div>
+                    <h3>Landing Pages & Lojas Virtuais</h3>
+                    <p>Design estratégico com copy orientada à conversão, otimizado para vendas e experiência de compra perfeita.</p>
                 </div>
-                <div style="background: #2a2a2a; color: white; padding: 2rem; border-radius: 15px; position: relative;">
-                    <div style="position: absolute; top: -15px; left: 20px; background: #dc2626; color: white; width: 30px; height: 30px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: bold;">3</div>
-                    <h3 style="margin-bottom: 1rem; color: white;">Execução com foco em conversão</h3>
-                    <p style="color: #ccc; margin: 0;">Desenvolvimento focado em resultados. Cada decisão pensada para gerar autoridade, clientes e eficiência.</p>
-                </div>
-                <div style="background: #2a2a2a; color: white; padding: 2rem; border-radius: 15px; position: relative;">
-                    <div style="position: absolute; top: -15px; left: 20px; background: #dc2626; color: white; width: 30px; height: 30px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: bold;">4</div>
-                    <h3 style="margin-bottom: 1rem; color: white;">Ajustes, entrega e suporte</h3>
-                    <p style="color: #ccc; margin: 0;">Ajustes finais para garantir sua satisfação. Entrega completa com suporte para garantir seu sucesso.</p>
+                <div class="servico-card fade-up d3">
+                    <div class="servico-icon">
+                        <i class="fas fa-robot"></i>
+                    </div>
+                    <h3>Automação de Atendimento</h3>
+                    <p>Integração de APIs e fluxos automáticos para eliminar trabalho manual e otimizar operações do seu negócio.</p>
                 </div>
             </div>
         </div>
     </section>
 
+    <!-- Como Trabalho -->
+    <section id="como-trabalho" class="como-trabalho">
+        <div class="container">
+            <div class="section-header fade-up d1">
+                <div class="section-tag">PROCESSO</div>
+                <h2>Como transformo ideias em resultados</h2>
+            </div>
+            <div class="steps-container">
+                <div class="step fade-up d1">
+                    <div class="step-number" data-number="01">01</div>
+                    <div class="step-content">
+                        <h3>Diagnóstico</h3>
+                        <p>Análise completa do seu negócio e identificação de oportunidades de crescimento e automação.</p>
+                    </div>
+                </div>
+                <div class="step fade-up d2">
+                    <div class="step-number" data-number="02">02</div>
+                    <div class="step-content">
+                        <h3>Proposta clara</h3>
+                        <p>Escopo detalhado com prazos, investimentos e KPIs bem definidos.</p>
+                    </div>
+                </div>
+                <div class="step fade-up d3">
+                    <div class="step-number" data-number="03">03</div>
+                    <div class="step-content">
+                        <h3>Entrega ágil</h3>
+                        <p>Desenvolvimento iterativo com entregas parciais e validação contínua.</p>
+                    </div>
+                </div>
+                <div class="step fade-up d4">
+                    <div class="step-number" data-number="04">04</div>
+                    <div class="step-content">
+                        <h3>Ajuste & escala</h3>
+                        <p>Otimização pós-lançamento e preparação para crescimento futuro.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Portfólio -->
     <section id="portfolio" class="portfolio">
         <div class="container">
-            <div class="section-header">
-                <h2 class="section-title">Portfólio</h2>
-                <p class="section-subtitle">Veja alguns projetos que já realizei — design, sites, automações. Cada trabalho reflete dedicação, estratégia e resultado.</p>
+            <div class="section-header fade-up d1">
+                <div class="section-tag">PORTFÓLIO</div>
+                <h2>Projetos que entregam resultados</h2>
             </div>
             <div class="portfolio-grid">
-                <div class="portfolio-item">
+                <div class="portfolio-card">
                     <div class="portfolio-image">
-                        <img src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/image-KCHVgXfJxxwvgxj5aOGy0edHjrGjRD.png" alt="App Progamer" style="width: 100%; height: 200px; object-fit: cover; border-radius: 10px;">
+                        <img src="images/projeto1-lp.png" alt="Landing Page para Advocacia">
                     </div>
                     <div class="portfolio-content">
-                        <h3>Progamer - App Mobile</h3>
-                        <p><strong>Problema:</strong> Gamers precisavam de uma plataforma centralizada para organizar partidas e comunicação.</p>
-                        <p><strong>Solução:</strong> Aplicativo completo com sistema de usuários, matchmaking e chat em tempo real.</p>
-                        <p><strong>Resultado:</strong> Comunidade engajada e aumento de 40% na retenção de usuários.</p>
+                        <h3>Landing Page para Advocacia</h3>
+                        <p>Desenvolvimento de página institucional para escritório de advocacia com formulário de contato e seção de áreas de atuação.</p>
                     </div>
                 </div>
-                <div class="portfolio-item">
+                
+                <div class="portfolio-card">
                     <div class="portfolio-image">
-                        <img src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/image-fWUNbqPxuNSHLsz8Y3q8bHd6RBVyOF.png" alt="Lifebios Login" style="width: 100%; height: 200px; object-fit: cover; border-radius: 10px;">
+                        <img src="images/projeto2-lp.png" alt="Portal Imobiliário">
                     </div>
                     <div class="portfolio-content">
-                        <h3>Lifebios - Sistema Web</h3>
-                        <p><strong>Problema:</strong> Empresa de saúde com processos manuais e baixa eficiência operacional.</p>
-                        <p><strong>Solução:</strong> Sistema web completo com gestão de pacientes, agendamentos e relatórios.</p>
-                        <p><strong>Resultado:</strong> Redução de 60% no tempo administrativo e melhoria no atendimento.</p>
+                        <h3>Landing Page para Psicólogo</h3>
+                        <p>Desenvolvimento de LP para psicólogo, com intenção só de coneverter leads qualificados   </p>
                     </div>
                 </div>
-                <div class="portfolio-item">
+                
+                <div class="portfolio-card">
                     <div class="portfolio-image">
-                        <img src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/image-yddRUfiqb9s3O31skVse7FUqU8XAYt.png" alt="Construtora Minatto" style="width: 100%; height: 200px; object-fit: cover; border-radius: 10px;">
+                        <img src="images/sistema-cnh.png" alt="Sistema Autoescola">
                     </div>
                     <div class="portfolio-content">
-                        <h3>Construtora Minatto</h3>
-                        <p><strong>Problema:</strong> Construtora sem presença digital profissional e dificuldade em captar leads.</p>
-                        <p><strong>Solução:</strong> Website institucional completo com portfólio, depoimentos e formulário de contato.</p>
-                        <p><strong>Resultado:</strong> Aumento de 200% em solicitações de orçamento e maior credibilidade no mercado.</p>
+                        <h3>Sistema de Gestão CNH</h3>
+                        <p>Plataforma robusta para autoescolas com controle de alunos, agendamento de aulas e emissão de certificados.</p>
                     </div>
                 </div>
-                <div class="portfolio-item">
+                
+                <div class="portfolio-card">
                     <div class="portfolio-image">
-                        <img src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/image%20%2818%29.png-XvyAAFnamFBmmRHKV589m3asxhYr9J.jpeg" alt="Sabor de Mell Packaging" style="width: 100%; height: 200px; object-fit: cover; border-radius: 10px;">
+                        <img src="images/sistema-distribuidora.png" alt="Sistema Distribuidora">
                     </div>
                     <div class="portfolio-content">
-                        <h3>Sabor de Mell - Packaging</h3>
-                        <p><strong>Problema:</strong> Produto alimentício com embalagem genérica e baixo diferencial no ponto de venda.</p>
-                        <p><strong>Solução:</strong> Design completo de embalagem com identidade visual forte e apelo emocional.</p>
-                        <p><strong>Resultado:</strong> Destaque nas prateleiras e aumento de 35% nas vendas no primeiro trimestre.</p>
+                        <h3>ERP para Distribuidoras</h3>
+                        <p>Sistema completo de gestão empresarial com controle de estoque, financeiro, vendas e logística integrada.</p>
                     </div>
                 </div>
-                <div class="portfolio-item">
+                
+                <div class="portfolio-card">
                     <div class="portfolio-image">
-                        <img src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/image%20%2840%29-36L11rvfHnDy2GryGX7aTgRLdQpP5t.png" alt="Brothers Store Branding" style="width: 100%; height: 200px; object-fit: cover; border-radius: 10px;">
+                        <img src="images/sistema-web.png" alt="Sistema para automatizar hemogramas">
                     </div>
                     <div class="portfolio-content">
-                        <h3>Brothers Store - Identidade Visual</h3>
-                        <p><strong>Problema:</strong> Loja de roupas sem identidade visual definida e comunicação inconsistente.</p>
-                        <p><strong>Solução:</strong> Logo completo, cartões de visita e manual de aplicação da marca.</p>
-                        <p><strong>Resultado:</strong> Marca profissional e reconhecimento aumentado no público-alvo.</p>
+                        <h3>Sistema para automatizar hemogramas</h3>
+                        <p>Sistema completo para automatizar o processo de análise de hemogramas, com interface intuitiva e relatórios detalhados.</p>
                     </div>
                 </div>
-                <div class="portfolio-item">
+                
+                <div class="portfolio-card">
                     <div class="portfolio-image">
-                        <img src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/Mockup%20Cart%C3%A3o%20de%20Visita%20Rexor%203-7IByedc1NGSLRVY3QboWxExGThhdwm.png" alt="Rexor Business Cards" style="width: 100%; height: 200px; object-fit: cover; border-radius: 10px;">
+                        <img src="images/ui-programar.png" alt="Arena Progamer">
                     </div>
                     <div class="portfolio-content">
-                        <h3>Rexor - Cartão de Visita</h3>
-                        <p><strong>Problema:</strong> Empresa B2B com material de comunicação desatualizado e pouco profissional.</p>
-                        <p><strong>Solução:</strong> Cartões de visita com design corporativo sofisticado e acabamento premium.</p>
-                        <p><strong>Resultado:</strong> Melhor percepção de valor e aumento na taxa de conversão de contatos.</p>
+                        <h3>UI/UX Arena Progamer</h3>
+                        <p>Sistema de design completo com componentes reutilizáveis, guia de estilo e documentação técnica.</p>
                     </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <section class="testimonials" style="padding: 4rem 0; background: white;">
+    <!-- Depoimentos -->
+    <section id="depoimentos" class="depoimentos">
         <div class="container">
-            <div class="section-header">
-                <h2 class="section-title">O que Dizem os Clientes</h2>
-                <p class="section-subtitle">Clientes falam mais que qualquer promessa. Veja o que quem já trabalhou comigo diz:</p>
+            <div class="section-header fade-up d1">
+                <div class="section-tag">DEPOIMENTOS</div>
+                <h2>Resultados que falam por si</h2>
             </div>
-            <div class="testimonials-grid" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 2rem; margin-top: 3rem;">
-                <div class="testimonial-card" style="background: #f8f9fa; padding: 2rem; border-radius: 15px; border-left: 4px solid #dc2626; display: flex; align-items: center; gap: 1rem;">
-                    <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=60&h=60&fit=crop&crop=face&auto=format" alt="Carlos Silva" style="width: 60px; height: 60px; border-radius: 50%; object-fit: cover;">
-                    <div>
-                        <p style="font-style: italic; margin-bottom: 0.5rem; color: #666;">
-                            "Entregou bem acima do esperado, me ajudou a automatizar processos que economizam horas por semana."
-                        </p>
-                        <strong style="color: #333;">— Carlos Silva, CEO</strong>
+            <div class="testimonials-grid">
+                <div class="testimonial fade-up d1">
+                    <div class="testimonial-avatar">
+                        <img src="images/andre-lemos.jpeg" alt="André Lemos" style="width: 40px !important; height: 40px !important; border-radius: 50% !important; object-fit: cover !important;">
+                    </div>
+                    <div class="testimonial-content">
+                        <div class="stars">★★★★★</div>
+                        <p>"Excelente landing page, agora consigo converter meus leads melhor. Resultado imediato no facebook ads."</p>
+                        <div class="testimonial-author">
+                            <div class="author-info">
+                                <div class="author-name">André Lemos</div>
+                                <div class="author-role">Psicólogo</div>
+                            </div>
+                        </div>
                     </div>
                 </div>
-                <div class="testimonial-card" style="background: #f8f9fa; padding: 2rem; border-radius: 15px; border-left: 4px solid #dc2626; display: flex; align-items: center; gap: 1rem;">
-                    <img src="https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=60&h=60&fit=crop&crop=face&auto=format" alt="Ana Costa" style="width: 60px; height: 60px; border-radius: 50%; object-fit: cover;">
-                    <div>
-                        <p style="font-style: italic; margin-bottom: 0.5rem; color: #666;">
-                            "O site ficou lindo, responsivo, além de fácil de usar. Meus clientes elogiam constantemente."
-                        </p>
-                        <strong style="color: #333;">— Ana Costa, Empreendedora</strong>
+                <div class="testimonial fade-up d2">
+                    <div class="testimonial-avatar">
+                        <img src="images/thiagopsi.png" alt="Thiago Psi" style="width: 40px !important; height: 40px !important; border-radius: 50% !important; object-fit: cover !important;">
+                    </div>
+                    <div class="testimonial-content">
+                        <div class="stars">★★★★★</div>
+                        <p>"Obrigada laura, seu trabalho ficou impressionante, aplicou o design como eu quis. Design minimalista impecável."</p>
+                        <div class="testimonial-author">
+                            <div class="author-info">
+                                <div class="author-name">Thiago Psi</div>
+                                <div class="author-role">Psicanalista em Montevidéu</div>
+                            </div>
+                        </div>
                     </div>
                 </div>
-                <div class="testimonial-card" style="background: #f8f9fa; padding: 2rem; border-radius: 15px; border-left: 4px solid #dc2626; display: flex; align-items: center; gap: 1rem;">
-                    <img src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=60&h=60&fit=crop&crop=face&auto=format" alt="Rafael Santos" style="width: 60px; height: 60px; border-radius: 50%; object-fit: cover;">
-                    <div>
-                        <p style="font-style: italic; margin-bottom: 0.5rem; color: #666;">
-                            "O design visual ficou com a personalidade da marca; o chatbot realmente facilita o atendimento."
-                        </p>
-                        <strong style="color: #333;">— Rafael Santos, Loja Online</strong>
+                <div class="testimonial fade-up d3">
+                    <div class="testimonial-avatar">
+                        <img src="images/jc verduras.jpeg" alt="Cristina Queiroz" style="width: 40px !important; height: 40px !important; border-radius: 50% !important; object-fit: cover !important;">
+                    </div>
+                    <div class="testimonial-content">
+                        <div class="stars">★★★★★</div>
+                        <p>"O sistema de gestão transformou nossa operação. Laura entregou além do esperado."</p>
+                        <div class="testimonial-author">
+                            <div class="author-info">
+                                <div class="author-name">Cristina Queiroz</div>
+                                <div class="author-role">Empresária no ramo de alimentos</div>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <section id="contact" class="contact">
+    <!-- CTA Final -->
+    <section id="cta" class="cta">
         <div class="container">
-            <div class="section-header">
-                <h2 class="section-title">Pronta para transformar sua presença digital em uma máquina de vendas?</h2>
-                <p class="section-subtitle">Se você quer parar de improvisar e começar a ter um digital estratégico, vamos conversar.</p>
-            </div>
-            <div class="contact-grid">
-                <div class="contact-info">
-                    <h3>Atendimento Rápido</h3>
-                    <div class="contact-item">
-                        <i class="fab fa-whatsapp"></i>
-                        <div>
-                            <strong>WhatsApp</strong>
-                            Atendimento 100% via WhatsApp
-                        </div>
-                    </div>
-                    <div class="contact-item">
-                        <i class="fas fa-envelope"></i>
-                        <div>
-                            <strong>E-mail</strong>
-                            Respostas em horário comercial
-                        </div>
-                    </div>
-                    <div class="contact-item">
-                        <i class="fas fa-clock"></i>
-                        <div>
-                            <strong>Disponibilidade</strong>
-                            Atuo 24 horas por dia
-                        </div>
-                    </div>
-                </div>
-                <form class="contact-form" id="contactForm">
-                    <div class="form-group">
-                        <label for="name">Nome Completo</label>
-                        <input type="text" id="name" name="name" placeholder="Seu nome completo" required>
-                    </div>
-                    <div class="form-group">
-                        <label for="phone">WhatsApp</label>
-                        <input type="tel" id="phone" name="phone" placeholder="(61) 99999-9999" required>
-                    </div>
-                    <div class="form-group">
-                        <label for="service">Serviço de Interesse</label>
-                        <select id="service" name="service" required>
-                            <option value="">Selecione um serviço</option>
-                            <option value="design">Design Gráfico</option>
-                            <option value="web">Desenvolvimento Web</option>
-                            <option value="automacao">Automação & Chatbots</option>
-                            <option value="completo">Projeto Completo</option>
-                        </select>
-                    </div>
-                    <div class="form-group">
-                        <label for="message">Conte sobre seu projeto</label>
-                        <textarea id="message" name="message" rows="4" placeholder="Descreva seu projeto, objetivos e prazo..." required></textarea>
-                    </div>
-                    <button type="submit" class="submit-btn">Falar no WhatsApp</button>
-                </form>
+            <div class="cta-box fade-up d1">
+                <h2>Pronto para transformar sua operação em uma máquina de resultados?</h2>
+                <p>Análise estratégica gratuita. Sem compromisso. Com clareza total sobre as oportunidades do seu negócio.</p>
+                <a href="https://wa.me/5561998548265" class="btn btn-primary btn-large" target="_blank" rel="noopener noreferrer">
+                    <i class="fab fa-whatsapp"></i>
+                    <span>Orçamento aqui!</span>
+                </a>
             </div>
         </div>
     </section>
 
-    <footer>
+    <!-- Footer -->
+    <footer class="footer">
         <div class="container">
-            <p>&copy; 2026 Laura Lopes</p>
+            <div class="footer-content">
+                <div class="footer-logo">Laura.<span class="logo-dot">DevCode</span></div>
+                <div class="footer-links">
+                    <a href="#sobre">Sobre</a>
+                    <a href="#portfolio">Portfólio</a>
+                    <a href="https://wa.me/5561998548265" target="_blank" rel="noopener noreferrer">WhatsApp</a>
+                </div>
+                <div class="footer-copyright">
+                    © 2026 Laura Lopes. Todos os direitos reservados.
+                </div>
+            </div>
         </div>
     </footer>
 
-    <div class="whatsapp-popup" id="whatsappPopup">
-        <button class="close-popup" onclick="closeWhatsAppPopup()">&times;</button>
-        <p>👋 Oi! Vim do site. E quero fazer orçamento de...</p>
-    </div>
-    
-    <a href="#" class="whatsapp-float" id="whatsappFloat">
+    <!-- WhatsApp Flutuante -->
+    <a href="https://wa.me/5561998548265" class="whatsapp-float" target="_blank" rel="noopener noreferrer">
         <i class="fab fa-whatsapp"></i>
-    </div>
-    
-    <script src="js/script.js"></script>
+    </a>
+
+    <script src="js/main.js"></script>
 </body>
 </html>
