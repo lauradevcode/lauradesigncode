@@ -333,11 +333,27 @@ a.btn:visited {
     pointer-events: auto !important;
 }
 
-/* Forçar cliques em todos os botões */
-.btn-primary, .btn-outline, .btn-large, .nav-cta {
+/* Botões dentro da seção hero - FORÇAR CLIQUES */
+.hero-buttons .btn {
+    pointer-events: auto !important;
+    position: relative !important;
+    z-index: 1000 !important;
+    cursor: pointer !important;
+}
+
+.hero-buttons a {
+    pointer-events: auto !important;
+    position: relative !important;
+    z-index: 1000 !important;
+    cursor: pointer !important;
+}
+
+/* Garantir que todos os botões funcionem */
+.btn, .btn-primary, .btn-outline, .btn-large {
     pointer-events: auto !important;
     position: relative;
-    z-index: 100 !important;
+    z-index: 9999 !important;
+    cursor: pointer !important;
 }
 
 .btn-primary {

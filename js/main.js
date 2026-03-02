@@ -158,16 +158,27 @@ style.textContent = `
 `;
 document.head.appendChild(style);
 
-// Parallax effect for hero section (corrigido - não afeta botões)
+// Parallax effect for hero section (CORRIGIDO - BOTÕES SEMPRE CLICÁVEIS)
 window.addEventListener('scroll', () => {
     const scrolled = window.pageYOffset;
     const hero = document.querySelector('.hero');
     const heroContent = document.querySelector('.hero .container');
+    const heroButtons = document.querySelector('.hero-buttons');
     
     if (hero && heroContent) {
-        // Aplicar efeito apenas ao conteúdo de texto, não aos botões
+        // Aplicar parallax apenas ao conteúdo de texto, não aos botões
         heroContent.style.transform = `translateY(${scrolled * 0.1}px)`;
-        // Removido opacity que afeta visibilidade dos botões
+        
+        // GARANTIR QUE BOTÕES SEMPRE ESTEJAM VISÍVEIS E CLICÁVEIS
+        if (heroButtons) {
+            heroButtons.style.opacity = '1';
+            heroButtons.style.pointerEvents = 'auto';
+            heroButtons.style.zIndex = '1000';
+            heroButtons.style.position = 'relative';
+        }
+        
+        // Manter opacidade do container para efeito visual sem afetar botões
+        heroContent.style.opacity = Math.max(0.7, 1 - (scrolled * 0.0005));
     }
 });
 
