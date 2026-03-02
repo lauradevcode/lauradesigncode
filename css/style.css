@@ -292,7 +292,8 @@ h3 {
     word-wrap: break-word;
     overflow-wrap: break-word;
     position: relative;
-    z-index: 10;
+    z-index: 100;
+    pointer-events: auto;
 }
 
 .btn-primary {
@@ -474,7 +475,6 @@ section {
 .hero {
     background: var(--bg);
     position: relative;
-    overflow: hidden;
 }
 
 .hero::before {
@@ -493,7 +493,6 @@ section {
 .sobre {
     background: var(--bg2);
     position: relative;
-    overflow: hidden;
 }
 
 .sobre::before {
@@ -512,7 +511,6 @@ section {
 .servicos {
     background: var(--bg);
     position: relative;
-    overflow: hidden;
 }
 
 .servicos::before {
@@ -531,7 +529,6 @@ section {
 .portfolio {
     background: var(--bg2);
     position: relative;
-    overflow: hidden;
 }
 
 .portfolio::before {
@@ -550,7 +547,6 @@ section {
 .depoimentos {
     background: var(--bg);
     position: relative;
-    overflow: hidden;
 }
 
 .depoimentos::before {
@@ -569,7 +565,6 @@ section {
 .cta {
     background: var(--bg2);
     position: relative;
-    overflow: hidden;
 }
 
 .cta::before {
