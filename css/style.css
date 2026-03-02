@@ -270,7 +270,7 @@ h3 {
     color: var(--white);
 }
 
-/* BUTTONS */
+/* BUTTONS - GARANTINDO FUNCIONAMENTO */
 .btn {
     display: inline-flex;
     align-items: center;
@@ -292,8 +292,52 @@ h3 {
     word-wrap: break-word;
     overflow-wrap: break-word;
     position: relative;
-    z-index: 100;
+    z-index: 9999;
     pointer-events: auto;
+    user-select: none;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+}
+
+.btn:hover {
+    transform: translateY(-2px);
+    text-decoration: none;
+}
+
+.btn:focus {
+    outline: 2px solid var(--red);
+    outline-offset: 2px;
+}
+
+.btn:active {
+    transform: translateY(0);
+}
+
+/* Links especiais para garantir funcionamento */
+a.btn {
+    color: inherit;
+    text-decoration: none;
+    pointer-events: auto !important;
+    position: relative;
+    z-index: 10;
+}
+
+a.btn:hover {
+    text-decoration: none;
+    pointer-events: auto !important;
+}
+
+a.btn:visited {
+    color: inherit;
+    pointer-events: auto !important;
+}
+
+/* Forçar cliques em todos os botões */
+.btn-primary, .btn-outline, .btn-large, .nav-cta {
+    pointer-events: auto !important;
+    position: relative;
+    z-index: 100 !important;
 }
 
 .btn-primary {
@@ -1134,6 +1178,7 @@ img {
     max-width: 100%;
     margin: 0 auto;
     position: relative;
+    z-index: 1;
 }
 
 .cta-box::before {
@@ -1145,6 +1190,8 @@ img {
     width: 80px;
     height: 2px;
     background: var(--red);
+    z-index: -1;
+    pointer-events: none;
     box-shadow: 0 0 20px var(--red);
 }
 
@@ -1240,17 +1287,19 @@ img {
     animation: none;
 }
 
-/* Fade-up animations */
+/* Fade-up animations - SEM BLOQUEIO DE CLIQUES */
 .fade-up {
     opacity: 0;
     transform: translateY(30px);
     transition: all 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94);
     will-change: opacity, transform;
+    pointer-events: auto !important;
 }
 
 .fade-up.visible {
     opacity: 1;
     transform: translateY(0);
+    pointer-events: auto !important;
 }
 
 /* Delays for staggered animations */

@@ -106,16 +106,19 @@ if (mobileMenuToggle && mobileMenu) {
     });
 }
 
-// Smooth scroll for anchor links
+// Smooth scroll for anchor links - SEM BLOQUEIO DE BOTÕES
 document.querySelectorAll('a[href^="#"]').forEach(anchor => {
     anchor.addEventListener('click', function (e) {
-        e.preventDefault();
-        const target = document.querySelector(this.getAttribute('href'));
-        if (target) {
-            target.scrollIntoView({
-                behavior: 'smooth',
-                block: 'start'
-            });
+        // Permitir cliques normais em botões WhatsApp
+        if (!anchor.getAttribute('href').includes('wa.me')) {
+            e.preventDefault();
+            const target = document.querySelector(this.getAttribute('href'));
+            if (target) {
+                target.scrollIntoView({
+                    behavior: 'smooth',
+                    block: 'start'
+                });
+            }
         }
     });
 });
@@ -155,16 +158,16 @@ style.textContent = `
 `;
 document.head.appendChild(style);
 
-// Parallax effect for hero section (corrigido e otimizado)
+// Parallax effect for hero section (corrigido - não afeta botões)
 window.addEventListener('scroll', () => {
     const scrolled = window.pageYOffset;
     const hero = document.querySelector('.hero');
     const heroContent = document.querySelector('.hero .container');
     
     if (hero && heroContent) {
-        // Parallax suave apenas no conteúdo, não na seção inteira
-        heroContent.style.transform = `translateY(${scrolled * 0.2}px)`;
-        heroContent.style.opacity = 1 - (scrolled * 0.001);
+        // Aplicar efeito apenas ao conteúdo de texto, não aos botões
+        heroContent.style.transform = `translateY(${scrolled * 0.1}px)`;
+        // Removido opacity que afeta visibilidade dos botões
     }
 });
 
