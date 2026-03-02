@@ -158,27 +158,32 @@ style.textContent = `
 `;
 document.head.appendChild(style);
 
-// Parallax effect for hero section (CORRIGIDO - BOTÕES SEMPRE CLICÁVEIS)
+// Parallax effect for hero section (SOLUÇÃO DEFINITIVA - SEM INTERFERÊNCIA)
 window.addEventListener('scroll', () => {
     const scrolled = window.pageYOffset;
     const hero = document.querySelector('.hero');
-    const heroContent = document.querySelector('.hero .container');
-    const heroButtons = document.querySelector('.hero-buttons');
+    const heroTitle = document.querySelector('.hero-title');
+    const heroSubtitle = document.querySelector('.hero-subtitle');
+    const heroBadge = document.querySelector('.hero-badge');
     
-    if (hero && heroContent) {
-        // Aplicar parallax apenas ao conteúdo de texto, não aos botões
-        heroContent.style.transform = `translateY(${scrolled * 0.1}px)`;
-        
-        // GARANTIR QUE BOTÕES SEMPRE ESTEJAM VISÍVEIS E CLICÁVEIS
-        if (heroButtons) {
-            heroButtons.style.opacity = '1';
-            heroButtons.style.pointerEvents = 'auto';
-            heroButtons.style.zIndex = '1000';
-            heroButtons.style.position = 'relative';
+    if (hero) {
+        // Aplicar parallax APENAS nos elementos de texto, NÃO no container
+        if (heroTitle) {
+            heroTitle.style.transform = `translateY(${scrolled * 0.1}px)`;
+            heroTitle.style.opacity = Math.max(0.8, 1 - (scrolled * 0.0008));
         }
         
-        // Manter opacidade do container para efeito visual sem afetar botões
-        heroContent.style.opacity = Math.max(0.7, 1 - (scrolled * 0.0005));
+        if (heroSubtitle) {
+            heroSubtitle.style.transform = `translateY(${scrolled * 0.08}px)`;
+            heroSubtitle.style.opacity = Math.max(0.7, 1 - (scrolled * 0.0006));
+        }
+        
+        if (heroBadge) {
+            heroBadge.style.transform = `translateY(${scrolled * 0.12}px)`;
+            heroBadge.style.opacity = Math.max(0.6, 1 - (scrolled * 0.001));
+        }
+        
+        // BOTÕES NÃO SÃO AFETADOS - FICAM 100% CLICÁVEIS
     }
 });
 
