@@ -187,14 +187,6 @@ imgStyle.textContent = `
 `;
 document.head.appendChild(imgStyle);
 
-// WhatsApp click tracking (optional)
-document.querySelectorAll('a[href*="wa.me"]').forEach(link => {
-    link.addEventListener('click', () => {
-        // You can add analytics tracking here
-        console.log('WhatsApp clicked');
-    });
-});
-
 // Prevent scroll jump when menu is open
 let scrollPosition = 0;
 
