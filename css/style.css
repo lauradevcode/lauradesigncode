@@ -192,7 +192,6 @@ h3 {
     color: var(--red);
 }
 
-/* Efeito de leve vibração suave */
 @keyframes subtleVibrate {
     0%, 100% { transform: translateX(0); }
     10% { transform: translateX(-0.5px); }
@@ -270,7 +269,7 @@ h3 {
     color: var(--white);
 }
 
-/* BUTTONS - GARANTINDO FUNCIONAMENTO */
+/* BUTTONS */
 .btn {
     display: inline-flex;
     align-items: center;
@@ -291,13 +290,11 @@ h3 {
     max-width: 100%;
     word-wrap: break-word;
     overflow-wrap: break-word;
+    /* ✅ CORREÇÃO PRINCIPAL: posicionamento acima de qualquer overlay */
     position: relative;
-    z-index: 9999;
+    z-index: 10;
     pointer-events: auto;
     user-select: none;
-    -webkit-user-select: none;
-    -moz-user-select: none;
-    -ms-user-select: none;
 }
 
 .btn:hover {
@@ -314,46 +311,37 @@ h3 {
     transform: translateY(0);
 }
 
-/* Links especiais para garantir funcionamento */
 a.btn {
     color: inherit;
     text-decoration: none;
-    pointer-events: auto !important;
-    position: relative;
-    z-index: 10;
+    pointer-events: auto;
 }
 
 a.btn:hover {
     text-decoration: none;
-    pointer-events: auto !important;
 }
 
 a.btn:visited {
     color: inherit;
-    pointer-events: auto !important;
 }
 
-/* Botões dentro da seção hero - FORÇAR CLIQUES */
-.hero-buttons .btn {
-    pointer-events: auto !important;
-    position: relative !important;
-    z-index: 1000 !important;
-    cursor: pointer !important;
-}
-
-.hero-buttons a {
-    pointer-events: auto !important;
-    position: relative !important;
-    z-index: 1000 !important;
-    cursor: pointer !important;
-}
-
-/* Garantir que todos os botões funcionem */
-.btn, .btn-primary, .btn-outline, .btn-large {
-    pointer-events: auto !important;
+/* Hero buttons - garantia extra */
+.hero-buttons {
+    display: flex;
+    gap: var(--spacing-md);
+    margin-bottom: var(--spacing-xxl);
+    flex-wrap: wrap;
+    width: 100%;
+    max-width: 500px;
+    /* ✅ CORREÇÃO: container dos botões também precisa de z-index */
     position: relative;
-    z-index: 9999 !important;
-    cursor: pointer !important;
+    z-index: 10;
+}
+
+.hero-buttons .btn,
+.hero-buttons a {
+    pointer-events: auto;
+    cursor: pointer;
 }
 
 .btn-primary {
@@ -389,8 +377,31 @@ a.btn:visited {
     display: flex;
     align-items: center;
     padding: var(--spacing-xxl) 0;
+    background: var(--bg);
     position: relative;
-    z-index: 1;
+    /* ✅ CORREÇÃO: sem z-index aqui, deixar ::before no z-index 0 */
+}
+
+/* ✅ CORREÇÃO PRINCIPAL: pointer-events: none em TODOS os ::before decorativos */
+.hero::before,
+.sobre::before,
+.servicos::before,
+.portfolio::before,
+.depoimentos::before,
+.cta::before {
+    pointer-events: none;
+    z-index: 0;
+}
+
+.hero::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1920 1080"><defs><linearGradient id="grad" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" style="stop-color:%23080808;stop-opacity:0.8"/><stop offset="100%" style="stop-color:%23080808;stop-opacity:0.95"/></linearGradient></defs><rect width="1920" height="1080" fill="url(%23grad)"/><g opacity="0.1"><circle cx="200" cy="300" r="80" fill="%23E63946"/><circle cx="1720" cy="800" r="60" fill="%234ECDC4"/><rect x="1600" y="200" width="120" height="120" rx="20" fill="%2345B7D1"/><path d="M100 600L300 500L500 600" stroke="%23FF6B6B" stroke-width="3" fill="none"/></g></svg>') center/cover;
+    opacity: 0.05;
 }
 
 .hero-badge {
@@ -406,6 +417,8 @@ a.btn:visited {
     animation: pulse 2s infinite, neonGlow 2s ease-in-out infinite alternate;
     white-space: nowrap;
     box-shadow: 0 0 10px rgba(230, 57, 70, 0.3);
+    position: relative;
+    z-index: 1;
 }
 
 @keyframes pulse {
@@ -432,8 +445,9 @@ a.btn:visited {
     word-wrap: break-word;
     overflow-wrap: break-word;
     line-height: 1.05;
+    /* ✅ CORREÇÃO: z-index baixo, não deve sobrepor botões */
     position: relative;
-    z-index: 2;
+    z-index: 1;
 }
 
 @media (max-width: 768px) {
@@ -450,15 +464,8 @@ a.btn:visited {
     max-width: 100%;
     margin-bottom: var(--spacing-xl);
     line-height: 1.6;
-}
-
-.hero-buttons {
-    display: flex;
-    gap: var(--spacing-md);
-    margin-bottom: var(--spacing-xxl);
-    flex-wrap: wrap;
-    width: 100%;
-    max-width: 500px;
+    position: relative;
+    z-index: 1;
 }
 
 @media (max-width: 767px) {
@@ -481,6 +488,8 @@ a.btn:visited {
     max-width: 500px;
     width: 100%;
     margin: 0 auto;
+    position: relative;
+    z-index: 1;
 }
 
 .stat {
@@ -531,25 +540,7 @@ section {
     overflow-wrap: break-word;
 }
 
-/* HERO COM PESSOAS TRABALHANDO */
-.hero {
-    background: var(--bg);
-    position: relative;
-}
-
-.hero::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1920 1080"><defs><linearGradient id="grad" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" style="stop-color:%23080808;stop-opacity:0.8"/><stop offset="100%" style="stop-color:%23080808;stop-opacity:0.95"/></linearGradient></defs><rect width="1920" height="1080" fill="url(%23grad)"/><g opacity="0.1"><circle cx="200" cy="300" r="80" fill="%23E63946"/><circle cx="1720" cy="800" r="60" fill="%234ECDC4"/><rect x="1600" y="200" width="120" height="120" rx="20" fill="%2345B7D1"/><path d="M100 600L300 500L500 600" stroke="%23FF6B6B" stroke-width="3" fill="none"/></g></svg>') center/cover;
-    opacity: 0.05;
-    z-index: 1;
-}
-
-/* SOBRE COM PESSOAS TRABALHANDO */
+/* SOBRE */
 .sobre {
     background: var(--bg2);
     position: relative;
@@ -564,10 +555,9 @@ section {
     height: 400px;
     background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 400"><defs><linearGradient id="grad2" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" style="stop-color:%23161616;stop-opacity:0.1"/><stop offset="100%" style="stop-color:%23161616;stop-opacity:0.2"/></linearGradient></defs><circle cx="200" cy="200" r="150" fill="url(%23grad2)"/><g opacity="0.3"><rect x="150" y="150" width="100" height="100" rx="10" fill="%23E63946"/><circle cx="250" cy="250" r="20" fill="%23FFFFFF"/></g></svg>') center/cover;
     opacity: 0.08;
-    z-index: 1;
 }
 
-/* SERVIÇOS COM PESSOAS TRABALHANDO */
+/* SERVIÇOS */
 .servicos {
     background: var(--bg);
     position: relative;
@@ -582,10 +572,9 @@ section {
     bottom: 0;
     background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1920 600"><defs><linearGradient id="grad3" x1="0%" y1="0%" x2="100%" y2="0%"><stop offset="0%" style="stop-color:%23080808;stop-opacity:0.05"/><stop offset="100%" style="stop-color:%23080808;stop-opacity:0.1"/></linearGradient></defs><rect width="1920" height="600" fill="url(%23grad3)"/><g opacity="0.2"><rect x="100" y="200" width="80" height="200" rx="10" fill="%234ECDC4"/><rect x="300" y="150" width="80" height="250" rx="10" fill="%23E63946"/><rect x="500" y="100" width="80" height="300" rx="10" fill="%2345B7D1"/></g></svg>') center/cover;
     opacity: 0.06;
-    z-index: 1;
 }
 
-/* PORTFÓLIO COM PESSOAS TRABALHANDO */
+/* PORTFÓLIO */
 .portfolio {
     background: var(--bg2);
     position: relative;
@@ -600,10 +589,9 @@ section {
     height: 300px;
     background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 300 300"><defs><linearGradient id="grad4" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" style="stop-color:%23161616;stop-opacity:0.1"/><stop offset="100%" style="stop-color:%23161616;stop-opacity:0.2"/></linearGradient></defs><circle cx="150" cy="150" r="120" fill="url(%23grad4)"/><g opacity="0.4"><rect x="120" y="120" width="60" height="60" rx="8" fill="%23E63946"/><circle cx="180" cy="180" r="8" fill="%23FFFFFF"/></g></svg>') center/cover;
     opacity: 0.08;
-    z-index: 1;
 }
 
-/* DEPOIMENTOS COM PESSOAS TRABALHANDO */
+/* DEPOIMENTOS */
 .depoimentos {
     background: var(--bg);
     position: relative;
@@ -618,13 +606,13 @@ section {
     height: 350px;
     background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 350 350"><defs><linearGradient id="grad5" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" style="stop-color:%23080808;stop-opacity:0.05"/><stop offset="100%" style="stop-color:%23080808;stop-opacity:0.1"/></linearGradient></defs><circle cx="175" cy="175" r="140" fill="url(%23grad5)"/><g opacity="0.3"><rect x="140" y="140" width="70" height="70" rx="10" fill="%234ECDC4"/><circle cx="210" cy="210" r="10" fill="%23FFFFFF"/></g></svg>') center/cover;
     opacity: 0.06;
-    z-index: 1;
 }
 
-/* CTA COM PESSOAS TRABALHANDO */
+/* CTA */
 .cta {
     background: var(--bg2);
     position: relative;
+    text-align: center;
 }
 
 .cta::before {
@@ -637,7 +625,6 @@ section {
     height: 500px;
     background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 500 500"><defs><linearGradient id="grad6" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" style="stop-color:%23161616;stop-opacity:0.1"/><stop offset="100%" style="stop-color:%23161616;stop-opacity:0.2"/></linearGradient></defs><circle cx="250" cy="250" r="200" fill="url(%23grad6)"/><g opacity="0.4"><rect x="200" y="200" width="100" height="100" rx="15" fill="%23E63946"/><circle cx="300" cy="300" r="15" fill="%23FFFFFF"/></g></svg>') center/cover;
     opacity: 0.08;
-    z-index: 1;
 }
 
 .sobre-grid {
@@ -656,17 +643,16 @@ section {
     }
 }
 
-/* FORÇAR VISIBILIDADE DAS IMAGENS */
 img {
     max-width: 100%;
     height: auto;
-    display: block !important;
-    opacity: 1 !important;
-    visibility: visible !important;
+    display: block;
+    opacity: 1;
+    visibility: visible;
 }
 
 .sobre-image {
-    display: flex !important;
+    display: flex;
     justify-content: center;
     align-items: center;
 }
@@ -679,9 +665,7 @@ img {
     object-fit: cover;
     box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
     border: 4px solid #E63946;
-    display: block !important;
-    opacity: 1 !important;
-    visibility: visible !important;
+    display: block;
 }
 
 .image-placeholder {
@@ -689,7 +673,7 @@ img {
     max-width: 280px;
     height: 350px;
     background: var(--bg3);
-    border-radius: var(--radius-xl);
+    border-radius: var(--border-radius-lg);
     display: flex;
     align-items: center;
     justify-content: center;
@@ -707,6 +691,7 @@ img {
     bottom: 0;
     background: linear-gradient(135deg, var(--red), transparent);
     opacity: 0.1;
+    pointer-events: none;
 }
 
 .image-tag {
@@ -751,7 +736,7 @@ img {
     overflow-wrap: break-word;
 }
 
-/* SERVIÇOS */
+/* SERVIÇOS GRID */
 .servicos-grid {
     display: grid;
     grid-template-columns: 1fr;
@@ -761,6 +746,8 @@ img {
     border-radius: var(--border-radius-lg);
     overflow: hidden;
     max-width: 100%;
+    position: relative;
+    z-index: 1;
 }
 
 @media (min-width: 768px) {
@@ -798,6 +785,8 @@ img {
     padding: clamp(1.5rem, 4vw, 2rem);
     transition: var(--transition);
     width: 100%;
+    position: relative;
+    z-index: 1;
 }
 
 .servico-card:hover {
@@ -840,6 +829,8 @@ img {
     flex-direction: column;
     gap: var(--spacing-lg);
     max-width: 100%;
+    position: relative;
+    z-index: 1;
 }
 
 @media (min-width: 768px) {
@@ -859,6 +850,7 @@ img {
         height: 1px;
         background: var(--gray2);
         z-index: 0;
+        pointer-events: none;
     }
 }
 
@@ -899,25 +891,10 @@ img {
     overflow: hidden;
 }
 
-.step:nth-child(1) .step-number {
-    animation: highlightStep 8s ease-in-out infinite;
-    animation-delay: 0s;
-}
-
-.step:nth-child(2) .step-number {
-    animation: highlightStep 8s ease-in-out infinite;
-    animation-delay: 2s;
-}
-
-.step:nth-child(3) .step-number {
-    animation: highlightStep 8s ease-in-out infinite;
-    animation-delay: 4s;
-}
-
-.step:nth-child(4) .step-number {
-    animation: highlightStep 8s ease-in-out infinite;
-    animation-delay: 6s;
-}
+.step:nth-child(1) .step-number { animation: highlightStep 8s ease-in-out infinite; animation-delay: 0s; }
+.step:nth-child(2) .step-number { animation: highlightStep 8s ease-in-out infinite; animation-delay: 2s; }
+.step:nth-child(3) .step-number { animation: highlightStep 8s ease-in-out infinite; animation-delay: 4s; }
+.step:nth-child(4) .step-number { animation: highlightStep 8s ease-in-out infinite; animation-delay: 6s; }
 
 @keyframes highlightStep {
     0%, 100% { 
@@ -963,12 +940,14 @@ img {
     overflow-wrap: break-word;
 }
 
-/* PORTFÓLIO */
+/* PORTFÓLIO GRID */
 .portfolio-grid {
     display: grid;
     grid-template-columns: 1fr;
     gap: var(--spacing-lg);
     max-width: 100%;
+    position: relative;
+    z-index: 1;
 }
 
 @media (min-width: 768px) {
@@ -991,6 +970,8 @@ img {
     padding: var(--spacing-md);
     transition: var(--transition);
     width: 100%;
+    position: relative;
+    z-index: 1;
 }
 
 .portfolio-image {
@@ -1083,6 +1064,8 @@ img {
     grid-template-columns: 1fr;
     gap: var(--spacing-lg);
     max-width: 100%;
+    position: relative;
+    z-index: 1;
 }
 
 @media (min-width: 768px) {
@@ -1104,6 +1087,8 @@ img {
     border-radius: var(--border-radius-lg);
     padding: clamp(1rem, 3vw, 1.5rem);
     width: 100%;
+    position: relative;
+    z-index: 1;
 }
 
 .stars {
@@ -1130,7 +1115,6 @@ img {
     margin-bottom: var(--spacing-sm);
 }
 
-/* FORÇAR AVATARES PEQUENOS */
 .testimonial-avatar img,
 .author-avatar img,
 .testimonial-author img {
@@ -1181,11 +1165,7 @@ img {
     overflow-wrap: break-word;
 }
 
-/* CTA */
-.cta {
-    text-align: center;
-}
-
+/* CTA BOX */
 .cta-box {
     background: var(--bg2);
     border: 1px solid var(--gray2);
@@ -1303,28 +1283,27 @@ img {
     animation: none;
 }
 
-/* Fade-up animations - SEM BLOQUEIO DE CLIQUES */
+/* FADE-UP ANIMATIONS */
 .fade-up {
     opacity: 0;
     transform: translateY(30px);
     transition: all 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94);
     will-change: opacity, transform;
-    pointer-events: auto !important;
+    pointer-events: auto;
 }
 
 .fade-up.visible {
     opacity: 1;
     transform: translateY(0);
-    pointer-events: auto !important;
+    pointer-events: auto;
 }
 
-/* Delays for staggered animations */
 .fade-up.d1 { transition-delay: 0.1s; }
 .fade-up.d2 { transition-delay: 0.2s; }
 .fade-up.d3 { transition-delay: 0.3s; }
 .fade-up.d4 { transition-delay: 0.4s; }
 
-/* Premium hover effects */
+/* PREMIUM HOVER EFFECTS */
 .btn {
     transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
     will-change: transform, box-shadow;
@@ -1365,21 +1344,9 @@ img {
     border-color: var(--red);
 }
 
-/* Smooth scroll behavior */
-html {
-    scroll-behavior: smooth;
-}
-
-/* Premium loading animation */
 @keyframes fadeInUp {
-    from {
-        opacity: 0;
-        transform: translateY(40px);
-    }
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
+    from { opacity: 0; transform: translateY(40px); }
+    to { opacity: 1; transform: translateY(0); }
 }
 
 .hero-badge {
@@ -1408,49 +1375,20 @@ html {
 
 /* MOBILE OPTIMIZATIONS */
 @media (max-width: 320px) {
-    .container {
-        padding: 0 1rem;
-    }
-    
-    h1 {
-        font-size: 1.8rem;
-    }
-    
-    h2 {
-        font-size: 1.4rem;
-    }
-    
-    .hero {
-        padding: var(--spacing-xl) 0;
-    }
-    
-    .servico-card,
-    .portfolio-card,
-    .testimonial {
-        padding: 1rem;
-    }
+    .container { padding: 0 1rem; }
+    h1 { font-size: 1.8rem; }
+    h2 { font-size: 1.4rem; }
+    .hero { padding: var(--spacing-xl) 0; }
+    .servico-card, .portfolio-card, .testimonial { padding: 1rem; }
 }
 
-/* PREVENT OVERFLOW */
 img, video, iframe {
     max-width: 100%;
     height: auto;
 }
 
 /* SCROLLBAR */
-::-webkit-scrollbar {
-    width: 8px;
-}
-
-::-webkit-scrollbar-track {
-    background: var(--bg2);
-}
-
-::-webkit-scrollbar-thumb {
-    background: var(--red);
-    border-radius: var(--border-radius);
-}
-
-::-webkit-scrollbar-thumb:hover {
-    background: #d63441;
-}
+::-webkit-scrollbar { width: 8px; }
+::-webkit-scrollbar-track { background: var(--bg2); }
+::-webkit-scrollbar-thumb { background: var(--red); border-radius: var(--border-radius); }
+::-webkit-scrollbar-thumb:hover { background: #d63441; }

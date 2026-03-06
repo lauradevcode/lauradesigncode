@@ -12,11 +12,10 @@ const observer = new IntersectionObserver((entries) => {
     });
 }, observerOptions);
 
-// Contador em tempo real
+// Contador animado
 function animateCounter(element, target, duration = 2000, suffix = '') {
-    const start = 0;
     const increment = target / (duration / 16);
-    let current = start;
+    let current = 0;
     
     const timer = setInterval(() => {
         current += increment;
@@ -35,31 +34,26 @@ function animateCounter(element, target, duration = 2000, suffix = '') {
     }, 16);
 }
 
-// Iniciar contadores quando visíveis
 function startCounters() {
     const projectCount = document.getElementById('projectCount');
     const ratingCount = document.getElementById('ratingCount');
     
-    if (projectCount && ratingCount) {
-        // Verificar se os elementos já foram animados
-        if (!projectCount.dataset.animated) {
-            animateCounter(projectCount, 20, 2000, '+');
-            projectCount.dataset.animated = 'true';
-        }
-        
-        if (!ratingCount.dataset.animated) {
-            animateCounter(ratingCount, 9.1, 2000, '★');
-            ratingCount.dataset.animated = 'true';
-        }
+    if (projectCount && !projectCount.dataset.animated) {
+        animateCounter(projectCount, 20, 2000, '+');
+        projectCount.dataset.animated = 'true';
+    }
+    
+    if (ratingCount && !ratingCount.dataset.animated) {
+        animateCounter(ratingCount, 9.1, 2000, '★');
+        ratingCount.dataset.animated = 'true';
     }
 }
 
-// Observe all fade-up elements
 document.addEventListener('DOMContentLoaded', () => {
-    const fadeElements = document.querySelectorAll('.fade-up');
-    fadeElements.forEach(el => observer.observe(el));
+    // Observar elementos fade-up
+    document.querySelectorAll('.fade-up').forEach(el => observer.observe(el));
     
-    // Iniciar contadores quando a seção hero estiver visível
+    // Iniciar contadores quando hero estiver visível
     const heroSection = document.querySelector('.hero');
     if (heroSection) {
         const heroObserver = new IntersectionObserver((entries) => {
@@ -69,229 +63,105 @@ document.addEventListener('DOMContentLoaded', () => {
                     heroObserver.unobserve(entry.target);
                 }
             });
-        }, { threshold: 0.5 });
+        }, { threshold: 0.3 });
         
         heroObserver.observe(heroSection);
     }
 });
 
-// Mobile menu toggle
+// Mobile menu
 const mobileMenuToggle = document.getElementById('mobileMenuToggle');
 const mobileMenu = document.getElementById('mobileMenu');
+let scrollPosition = 0;
 
 if (mobileMenuToggle && mobileMenu) {
     mobileMenuToggle.addEventListener('click', () => {
+        const isOpening = !mobileMenu.classList.contains('active');
         mobileMenu.classList.toggle('active');
         
-        // Toggle icon
         const icon = mobileMenuToggle.querySelector('i');
-        if (mobileMenu.classList.contains('active')) {
-            icon.classList.remove('fa-bars');
-            icon.classList.add('fa-times');
+        if (isOpening) {
+            icon.classList.replace('fa-bars', 'fa-times');
+            scrollPosition = window.pageYOffset;
+            document.body.style.cssText = `overflow:hidden;position:fixed;top:-${scrollPosition}px;width:100%`;
         } else {
-            icon.classList.remove('fa-times');
-            icon.classList.add('fa-bars');
+            icon.classList.replace('fa-times', 'fa-bars');
+            document.body.style.cssText = '';
+            window.scrollTo(0, scrollPosition);
         }
     });
     
-    // Close menu when clicking on links
-    const mobileLinks = mobileMenu.querySelectorAll('a');
-    mobileLinks.forEach(link => {
+    mobileMenu.querySelectorAll('a').forEach(link => {
         link.addEventListener('click', () => {
             mobileMenu.classList.remove('active');
             const icon = mobileMenuToggle.querySelector('i');
-            icon.classList.remove('fa-times');
-            icon.classList.add('fa-bars');
+            icon.classList.replace('fa-times', 'fa-bars');
+            document.body.style.cssText = '';
+            window.scrollTo(0, scrollPosition);
         });
     });
 }
 
-// Smooth scroll for anchor links - SEM BLOQUEIO DE BOTÕES
+// ESC fecha o menu mobile
+document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape' && mobileMenu?.classList.contains('active')) {
+        mobileMenu.classList.remove('active');
+        const icon = mobileMenuToggle.querySelector('i');
+        icon.classList.replace('fa-times', 'fa-bars');
+        document.body.style.cssText = '';
+        window.scrollTo(0, scrollPosition);
+    }
+});
+
+// Smooth scroll - APENAS para links âncora (#), NÃO para links externos
 document.querySelectorAll('a[href^="#"]').forEach(anchor => {
     anchor.addEventListener('click', function (e) {
-        // Permitir cliques normais em botões WhatsApp
-        if (!anchor.getAttribute('href').includes('wa.me')) {
-            e.preventDefault();
-            const target = document.querySelector(this.getAttribute('href'));
-            if (target) {
-                target.scrollIntoView({
-                    behavior: 'smooth',
-                    block: 'start'
-                });
-            }
+        const href = this.getAttribute('href');
+        if (href === '#') return;
+        e.preventDefault();
+        const target = document.querySelector(href);
+        if (target) {
+            target.scrollIntoView({ behavior: 'smooth', block: 'start' });
         }
     });
 });
 
-// Add active state to navigation based on scroll position
+// Active nav link baseado no scroll
 const sections = document.querySelectorAll('section[id]');
 const navLinks = document.querySelectorAll('.nav-links a[href^="#"], .mobile-menu a[href^="#"]');
 
 function updateActiveNav() {
     const scrollY = window.pageYOffset;
-    
     sections.forEach(section => {
-        const sectionHeight = section.offsetHeight;
         const sectionTop = section.offsetTop - 100;
+        const sectionBottom = sectionTop + section.offsetHeight;
         const sectionId = section.getAttribute('id');
         
-        if (scrollY > sectionTop && scrollY <= sectionTop + sectionHeight) {
+        if (scrollY >= sectionTop && scrollY < sectionBottom) {
             navLinks.forEach(link => {
-                link.classList.remove('active');
-                if (link.getAttribute('href') === `#${sectionId}`) {
-                    link.classList.add('active');
-                }
+                link.classList.toggle('active', link.getAttribute('href') === `#${sectionId}`);
             });
         }
     });
 }
 
-window.addEventListener('scroll', updateActiveNav);
+// Debounce para performance
+function debounce(fn, wait) {
+    let t;
+    return (...args) => { clearTimeout(t); t = setTimeout(() => fn(...args), wait); };
+}
 
-// Add CSS for active navigation state
-const style = document.createElement('style');
-style.textContent = `
-    .nav-links a.active,
-    .mobile-menu a.active {
-        color: var(--red) !important;
-    }
-`;
-document.head.appendChild(style);
+window.addEventListener('scroll', debounce(updateActiveNav, 80));
 
-// Parallax effect for hero section (SOLUÇÃO DEFINITIVA - SEM INTERFERÊNCIA)
-window.addEventListener('scroll', () => {
-    const scrolled = window.pageYOffset;
-    const hero = document.querySelector('.hero');
-    const heroTitle = document.querySelector('.hero-title');
-    const heroSubtitle = document.querySelector('.hero-subtitle');
-    const heroBadge = document.querySelector('.hero-badge');
-    
-    if (hero) {
-        // Aplicar parallax APENAS nos elementos de texto, NÃO no container
-        if (heroTitle) {
-            heroTitle.style.transform = `translateY(${scrolled * 0.1}px)`;
-            heroTitle.style.opacity = Math.max(0.8, 1 - (scrolled * 0.0008));
-        }
-        
-        if (heroSubtitle) {
-            heroSubtitle.style.transform = `translateY(${scrolled * 0.08}px)`;
-            heroSubtitle.style.opacity = Math.max(0.7, 1 - (scrolled * 0.0006));
-        }
-        
-        if (heroBadge) {
-            heroBadge.style.transform = `translateY(${scrolled * 0.12}px)`;
-            heroBadge.style.opacity = Math.max(0.6, 1 - (scrolled * 0.001));
-        }
-        
-        // BOTÕES NÃO SÃO AFETADOS - FICAM 100% CLICÁVEIS
-    }
-});
+// CSS para nav ativa
+const styleNav = document.createElement('style');
+styleNav.textContent = `.nav-links a.active, .mobile-menu a.active { color: var(--red) !important; }`;
+document.head.appendChild(styleNav);
 
-// Add loading animation for images (removido opacity: 0)
-document.addEventListener('DOMContentLoaded', () => {
-    const images = document.querySelectorAll('img');
-    images.forEach(img => {
-        img.addEventListener('load', function() {
-            this.classList.add('loaded');
-        });
-    });
-});
-
-// Add CSS for image loading (removido opacity: 0)
-const imgStyle = document.createElement('style');
-imgStyle.textContent = `
-    img.loaded {
-        opacity: 1;
-    }
-`;
-document.head.appendChild(imgStyle);
-
-// Prevent scroll jump when menu is open
-let scrollPosition = 0;
-
-mobileMenuToggle?.addEventListener('click', () => {
-    if (mobileMenu.classList.contains('active')) {
-        scrollPosition = window.pageYOffset;
-        document.body.style.overflow = 'hidden';
-        document.body.style.position = 'fixed';
-        document.body.style.top = `-${scrollPosition}px`;
-        document.body.style.width = '100%';
-    } else {
-        document.body.style.overflow = '';
-        document.body.style.position = '';
-        document.body.style.top = '';
-        document.body.style.width = '';
-        window.scrollTo(0, scrollPosition);
-    }
-});
-
-// Fix for iOS Safari viewport issues
-const isIOS = /iPad|iPhone|iPod/.test(navigator.userAgent);
-if (isIOS) {
+// iOS Safari fix
+if (/iPad|iPhone|iPod/.test(navigator.userAgent)) {
     const viewport = document.querySelector('meta[name="viewport"]');
-    if (viewport) {
-        viewport.setAttribute('content', 'width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no');
-    }
+    viewport?.setAttribute('content', 'width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no');
 }
 
-// Performance optimization: Debounce scroll events
-function debounce(func, wait) {
-    let timeout;
-    return function executedFunction(...args) {
-        const later = () => {
-            clearTimeout(timeout);
-            func(...args);
-        };
-        clearTimeout(timeout);
-        timeout = setTimeout(later, wait);
-    };
-}
-
-const debouncedUpdateNav = debounce(updateActiveNav, 100);
-window.addEventListener('scroll', debouncedUpdateNav);
-
-// Add keyboard navigation support
-document.addEventListener('keydown', (e) => {
-    if (e.key === 'Escape' && mobileMenu.classList.contains('active')) {
-        mobileMenu.classList.remove('active');
-        const icon = mobileMenuToggle.querySelector('i');
-        icon.classList.remove('fa-times');
-        icon.classList.add('fa-bars');
-        
-        // Restore scroll
-        document.body.style.overflow = '';
-        document.body.style.position = '';
-        document.body.style.top = '';
-        document.body.style.width = '';
-        window.scrollTo(0, scrollPosition);
-    }
-});
-
-// Form validation (if you add forms later)
-function validateForm(form) {
-    const inputs = form.querySelectorAll('input[required], textarea[required]');
-    let isValid = true;
-    
-    inputs.forEach(input => {
-        if (!input.value.trim()) {
-            isValid = false;
-            input.classList.add('error');
-        } else {
-            input.classList.remove('error');
-        }
-    });
-    
-    return isValid;
-}
-
-// Add CSS for form validation
-const formStyle = document.createElement('style');
-formStyle.textContent = `
-    input.error, textarea.error {
-        border-color: var(--red) !important;
-        box-shadow: 0 0 0 2px rgba(230, 57, 70, 0.2) !important;
-    }
-`;
-document.head.appendChild(formStyle);
-
-console.log('Portfolio Laura Lopes - Carregado com sucesso');
+console.log('Portfolio Laura Lopes - Carregado ✅');    
