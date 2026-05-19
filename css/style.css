@@ -970,6 +970,8 @@ img {
     padding: var(--spacing-md);
     transition: var(--transition);
     width: 100%;
+    display: block;
+    cursor: pointer;
     position: relative;
     z-index: 1;
 }
