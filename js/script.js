@@ -77,7 +77,7 @@ function closeWhatsAppPopup() {
 document.getElementById('whatsappFloat').addEventListener('click', function(e) {
     e.preventDefault();
     if (document.getElementById('whatsappPopup').classList.contains('show')) {
-        const whatsappURL = 'https://wa.me/5561998548265?text=Oi! Vim do site. E quero fazer orçamento de...';
+        const whatsappURL = 'https://wa.me/5561998213684?text=Oi! Vim do site. E quero fazer orçamento de...';
         window.open(whatsappURL, '_blank');
         closeWhatsAppPopup();
     } else {
@@ -122,7 +122,7 @@ ${message}
 
 Gostaria de solicitar um orçamento!`;
     
-    const whatsappURL = `https://wa.me/5561998548265?text=${encodeURIComponent(whatsappMessage)}`;
+    const whatsappURL = `https://wa.me/5561998213684?text=${encodeURIComponent(whatsappMessage)}`;
     window.open(whatsappURL, '_blank');
 });
 
